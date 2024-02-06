@@ -87,8 +87,6 @@ public class PlayerMovement : MonoBehaviour
             direction += Camera.main.transform.right;
         }
 
-
-        //TODO: Add a "sprint" feature.
         // Check for double press of 'W' for sprinting
         if (Input.GetKeyDown(KeyCode.W))
         {
