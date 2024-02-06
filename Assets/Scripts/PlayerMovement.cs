@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed = 1.0f;
+    public float movementSpeed = 1.0f; //these can be changed from Unity
     public float jumpStrength = 1.0f;
-
-    private int jumpCount = 0;
-    private const int MaxJumpCount = 1;
+    bool readyToJump = true;
 
     public float rotationSpeed = 1.0f;
     public float verticalAngleLimit = 85.0f;
 
+    //Ground Check
+    public float playerHeight = 2;
+    public LayerMask whatIsGround;
+    bool grounded;
+
+    //These are for the sprint feature
     private float lastWPressTime = 0f;
     private float doublePressInterval = 0.25f; // Interval for double press detection
     private float sprintDuration = 2.0f; // Duration for sprinting
@@ -20,19 +24,28 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting = false;
     private float normalSpeed;
 
+    //crouching
+    public float crouchSpeed;
+    public float crouchYScale;
+    public float startYScale;
+    public KeyCode crouchKey = KeyCode.LeftControl;
+
 
     private Vector3 currentRotation;
     Rigidbody rb;
 
     void Start()
     {
-        //Grab the rigidbody we want to manipulate for movement
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
         normalSpeed = movementSpeed;
+        startYScale = transform.localScale.y;
 
     }
     void Update()
     {
+        //ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         //=======Lateral movement==========
         MovePlayer();
         //======Jumping========
@@ -40,15 +53,32 @@ public class PlayerMovement : MonoBehaviour
         //=======Rotation=========
         Rotate();
         // Check Y position for resetting jump count
+
+        //crouch
+        if(Input.GetKeyDown(crouchKey)) { 
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+            movementSpeed = crouchSpeed;
+        }
+        //stop crouch
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            movementSpeed = normalSpeed;
+        }
+
+        /*
+        //This was for the platform resetting
         if (transform.position.y == 1)
         {
             jumpCount = 0;
         }
-        else if (transform.position.y <= -8.062f)
+        else if (transform.position.y <= -8.062f) // this just resets the jump count if the player hits the platform 
         {
             transform.position = new Vector3(0f, 0f, 0f); // Reset position
             jumpCount = 0; // Reset jump count as well
         }
+        */
         if (isSprinting)
         {
             sprintTimer += Time.deltaTime;
@@ -99,28 +129,26 @@ public class PlayerMovement : MonoBehaviour
             }
             lastWPressTime = Time.time;
         }
-
-
-        //Get the normalized vector, then scale based on the current speed
-        //Q4) Why do we need to normalize here?
         Vector3 velocity = direction.normalized * movementSpeed;
-
-
-        //Add back the y component
         velocity.y = y;
-        //apply the velocity to the player
         rb.velocity = velocity;
     }
 
     void Jump()
     {
         //When the Space bar is pressed, apply a positive vertical force
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < MaxJumpCount)
+        if (Input.GetKeyDown(KeyCode.Space) && readyToJump && grounded)
         {
+            readyToJump = false;
             rb.AddForce(gameObject.transform.up * jumpStrength, ForceMode.Impulse);
-            jumpCount++;
+            resetJump();
+            
         }
 
+    }
+    void resetJump()
+    {
+        readyToJump = true;
     }
 
     void Rotate()

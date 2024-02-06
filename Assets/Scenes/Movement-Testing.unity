@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 551655813}
   - component: {fileID: 551655812}
   - component: {fileID: 551655811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,6 +250,14 @@ MonoBehaviour:
   jumpStrength: 6
   rotationSpeed: 3
   verticalAngleLimit: 85
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  crouchSpeed: 3
+  crouchYScale: 0.5
+  startYScale: 1
+  crouchKey: 306
 --- !u!1 &1749014170
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +419,10 @@ PrefabInstance:
     - target: {fileID: 8985750187812813403, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985750187812813403, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

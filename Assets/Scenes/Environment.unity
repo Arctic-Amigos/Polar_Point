@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 120949102}
   - component: {fileID: 120949101}
   - component: {fileID: 120949100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,6 +744,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
+  jumpStrength: 1
+  rotationSpeed: 1
+  verticalAngleLimit: 85
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  crouchSpeed: 0
+  crouchYScale: 0
+  startYScale: 0
+  crouchKey: 306
 --- !u!1 &1515115092
 GameObject:
   m_ObjectHideFlags: 0
