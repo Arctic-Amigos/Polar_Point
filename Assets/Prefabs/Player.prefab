@@ -143,7 +143,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8127600033320366487}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -185,7 +185,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8127600033320366487}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 575b4696d73537343b2e1923502fa7dc, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
