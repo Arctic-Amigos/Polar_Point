@@ -246,16 +246,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df67952f7cc8fc64e81c2d7a0db750b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  jumpStrength: 6
+  movementSpeed: 2.5
+  jumpStrength: 5
   rotationSpeed: 3
   verticalAngleLimit: 85
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  crouchSpeed: 3
-  crouchYScale: 0.5
+  crouchSpeed: 1.5
+  crouchYScale: 0.7
   startYScale: 1
   crouchKey: 306
 --- !u!1 &1749014170
@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 575b4696d73537343b2e1923502fa7dc, type: 2}
+    - target: {fileID: 3840343569045438508, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5617475557595317663, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -424,7 +428,8 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3840343569045438508, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

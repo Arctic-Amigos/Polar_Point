@@ -241,15 +241,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df67952f7cc8fc64e81c2d7a0db750b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
-  jumpStrength: 1
-  rotationSpeed: 1
+  movementSpeed: 2.5
+  jumpStrength: 5
+  rotationSpeed: 3
   verticalAngleLimit: 85
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  crouchSpeed: 0.5
-  crouchYScale: 1
-  startYScale: 0
+  crouchSpeed: 1.5
+  crouchYScale: 0.7
+  startYScale: 1
   crouchKey: 306
