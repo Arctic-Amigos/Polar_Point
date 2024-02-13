@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 2072387034}
   - component: {fileID: 2072387033}
   - component: {fileID: 2072387032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,6 +909,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1437769765}
   - {fileID: 1585648669}
   - {fileID: 2072387035}
   - {fileID: 66135056}
@@ -916,4 +917,3 @@ SceneRoots:
   - {fileID: 1317456237}
   - {fileID: 1604802251}
   - {fileID: 22018646}
-  - {fileID: 1437769765}
