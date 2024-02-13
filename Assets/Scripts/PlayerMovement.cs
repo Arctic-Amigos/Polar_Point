@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode crouchKey = KeyCode.LeftControl;
 
 
+    private Vector3 moveDirection;
     private Vector3 currentRotation;
     Rigidbody rb;
 
@@ -66,19 +67,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
             movementSpeed = normalSpeed;
         }
-
-        /*
-        //This was for the platform resetting
-        if (transform.position.y == 1)
-        {
-            jumpCount = 0;
-        }
-        else if (transform.position.y <= -8.062f) // this just resets the jump count if the player hits the platform 
-        {
-            transform.position = new Vector3(0f, 0f, 0f); // Reset position
-            jumpCount = 0; // Reset jump count as well
-        }
-        */
+        
         if (isSprinting)
         {
             sprintTimer += Time.deltaTime;
@@ -94,27 +83,29 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
+        //calculate move direction
+        
        
-        Vector3 direction = new Vector3(0, 0, 0);
+        moveDirection = new Vector3(0, 0, 0);
 
        
         float y = rb.velocity.y;
 
         if (Input.GetKey(KeyCode.W))
         {
-            direction += Camera.main.transform.forward;
+            moveDirection += Camera.main.transform.forward;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            direction -= Camera.main.transform.forward;
+            moveDirection -= Camera.main.transform.forward;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            direction -= Camera.main.transform.right;
+            moveDirection -= Camera.main.transform.right;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            direction += Camera.main.transform.right;
+            moveDirection += Camera.main.transform.right;
         }
 
         // Check for double press of 'W' for sprinting
@@ -129,9 +120,10 @@ public class PlayerMovement : MonoBehaviour
             }
             lastWPressTime = Time.time;
         }
-        Vector3 velocity = direction.normalized * movementSpeed;
+        Vector3 velocity = moveDirection.normalized * movementSpeed;
         velocity.y = y;
         rb.velocity = velocity;
+       
     }
 
     void Jump()
@@ -166,4 +158,5 @@ public class PlayerMovement : MonoBehaviour
         //rotate the player's view
         Camera.main.transform.rotation = Quaternion.Euler(currentRotation.y, currentRotation.x, 0);
     }
+    
 }
