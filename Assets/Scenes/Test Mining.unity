@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 548541674}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: ObjectMineable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,6 +425,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8127600033320366487, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1111234249}
+    - targetCorrespondingSourceObject: {fileID: 8127600033320366487, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1111234255}
   m_SourcePrefab: {fileID: 100100000, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
 --- !u!4 &1111234238 stripped
 Transform:
@@ -467,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8249da0d32ba630438b92e22f44731cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMine: {fileID: 0}
 --- !u!114 &1111234249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,12 +483,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e63b721d3124a4a8b51a41bff331f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-  - 
-  - 
-  - 
-  - 
-  - 
+  inventory_pos: 0
+--- !u!135 &1111234255
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529798441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.75
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1293233437
 GameObject:
   m_ObjectHideFlags: 0
