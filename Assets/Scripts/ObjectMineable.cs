@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class ObjectMineable : MonoBehaviour
 {
+    //Reference to player object
     PlayerMining currentMiner = null;
 
-    public delegate void OnEmpty();
-    public OnEmpty onEmpty;
-    public void Start()
-    {
-
-    }
     public void EnterMine(PlayerMining miner)
     {
         currentMiner = miner;
     }
     public void ExitMine() => currentMiner = null;
 
-    public void MineResource(Inventory inventory)
+    public void MineResource()
     {
-        int nextAvaiableSpot = inventory.FirstEmpty();
-        if(nextAvaiableSpot != 9)
-        {
-            currentMiner.ReceiveResource();
-        }
-        //this.SetActive(false);
-        onEmpty.Invoke();
+        currentMiner.ReceiveResource();
+        this.gameObject.SetActive(false); //Deactivate mineable object once player, allows us to reactivate it in the future, i.e. on a new day cycle
+        
     }
 }

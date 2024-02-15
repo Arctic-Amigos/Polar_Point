@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class PlayerMining : MonoBehaviour
 {
+    //Reference to a possible mineable object the player is near
     public ObjectMineable currentMine = null;
+    //Reference to the players inventory
     Inventory inventory = null;
 
-    public delegate void OnEnterMine(ObjectMineable obj);
-    public OnEnterMine onEnterMine;
-
-    public delegate void OnExitMine();
-    public OnExitMine onExitMine;
-
-    // Start is called before the first frame update
     void Start()
     {
         inventory = GetComponent<Inventory>();
@@ -22,29 +17,34 @@ public class PlayerMining : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
+            //animation will be added later
             this.MineCurrent();
         }
         if(Input.GetKeyDown(KeyCode.I))
         {
-           /* Debug.Log("Inventory slot 1 contains: " + inventory.GetInventory(0));
-            Debug.Log("Inventory slot 2 contains: " + inventory.GetInventory(1));
-            Debug.Log("Inventory slot 3 contains: " + inventory.GetInventory(2));
-            Debug.Log("Inventory slot 4 contains: " + inventory.GetInventory(3));
-            Debug.Log("Inventory slot 5 contains: " + inventory.GetInventory(4)); */
+            Debug.Log(inventory.GetInventory(0));
+            Debug.Log(inventory.GetInventory(1));
+            Debug.Log(inventory.GetInventory(2));
+            Debug.Log(inventory.GetInventory(3));
+            Debug.Log(inventory.GetInventory(4));
         }
     }
+    //Activated by sphere collider on player
     void OnTriggerEnter(Collider other)
     {
+        //if player is near obj with mineable tag puts player into state of being able to mine object
         if(other.CompareTag("ObjectMineable"))
         {
             ObjectMineable obj;
+            //checks to see if object near player is mineable (prevents players from mining objects without tag by accident)
             if (other.TryGetComponent(out obj))
             {
-                Debug.Log("Object Name: " +  obj.name);
                 EnterMine(obj);
             }
         }
     }
+    //Removes players ability to mine objects once they are too far away from mineable object
     void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("ObjectMineable"))
@@ -52,13 +52,12 @@ public class PlayerMining : MonoBehaviour
             ExitMine();
         }
     }
+    //State of being able to mine object
     void EnterMine(ObjectMineable obj)
     {
         currentMine = obj;
 
-        currentMine.EnterMine(this);
-
-        //onEnterMine.Invoke(currentMine);
+        currentMine.EnterMine(this); //sets  mineable object as ready for mining
     }
     void ExitMine()
     {
@@ -67,14 +66,14 @@ public class PlayerMining : MonoBehaviour
             currentMine.ExitMine();
         }
         currentMine = null;
-
-        onExitMine.Invoke();
     }
+    //Called when player tries to mine an object
     public void MineCurrent()
     {
         if(currentMine)
         {
-            currentMine.MineResource(inventory);
+            currentMine.MineResource();
+            ExitMine(); //Removes players ability to mine the same object after it has been destroyed
         }
     }
     public void ReceiveResource()
@@ -83,7 +82,6 @@ public class PlayerMining : MonoBehaviour
 
         if (nextAvaiableSpot <= 4)
         {
-
             inventory.SetInventory(nextAvaiableSpot, "bone");
         }else
         {
