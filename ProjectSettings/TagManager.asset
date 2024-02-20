@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - ObjectMineable
+  - Bone1Tag
+  - Bone2Tag
+  - Bone3Tag
+  - Bone4Tag
+  - Bone5Tag
   layers:
   - Default
   - TransparentFX

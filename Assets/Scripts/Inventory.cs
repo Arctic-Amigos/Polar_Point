@@ -10,10 +10,16 @@ public class Inventory : MonoBehaviour
     // -3  , -2     , -1    | 0     , 1     , 2     , 3     , 4
     string[] fossil_inventory = new string[5]; // Inventory spots that will be filled up with fossils/bones. Type can be changed to fossil/bone type as needed
     public int inventory_pos; // Position in inventory that will be scrolled through
+    GameObject Bone1;
+    GameObject Bone2;
+    GameObject Bone3;
+    GameObject Bone4;
+    GameObject Bone5;
     // Start is called before the first frame update
     void Start()
     {
         inventory_pos = -3;
+        StartDisplayBones();
     }
 
     // Update is called once per frame
@@ -46,6 +52,8 @@ public class Inventory : MonoBehaviour
             inventory_pos = -3;
         if (inventory_pos < -3)
             inventory_pos = 4;
+        // Other functions
+        UpdateDisplayBones();
     }
     public string GetInventory(int index)
     {
@@ -76,4 +84,43 @@ public class Inventory : MonoBehaviour
             return 4;
         return 9;
     }
+    public void StartDisplayBones()
+    {
+        Bone1 = GameObject.FindWithTag("Bone1Tag");
+        Bone2 = GameObject.FindWithTag("Bone2Tag");
+        Bone3 = GameObject.FindWithTag("Bone3Tag");
+        Bone4 = GameObject.FindWithTag("Bone4Tag");
+        Bone5 = GameObject.FindWithTag("Bone5Tag");
+
+        Bone1.SetActive(false);
+        Bone2.SetActive(false);
+        Bone3.SetActive(false);
+        Bone4.SetActive(false);
+        Bone5.SetActive(false);
+    }
+    public void UpdateDisplayBones()
+    {
+        if (GetInventory(0) == "bone")
+            Bone1.SetActive(true);
+        if (GetInventory(1) == "bone")
+            Bone2.SetActive(true);
+        if (GetInventory(2) == "bone")
+            Bone3.SetActive(true);
+        if (GetInventory(3) == "bone")
+            Bone4.SetActive(true);
+        if (GetInventory(4) == "bone")
+            Bone5.SetActive(true);
+
+        if (GetInventory(0) == null)
+            Bone1.SetActive(false);
+        if (GetInventory(1) == null)
+            Bone2.SetActive(false);
+        if (GetInventory(2) == null)
+            Bone3.SetActive(false);
+        if (GetInventory(3) == null)
+            Bone4.SetActive(false);
+        if (GetInventory(4) == null)
+            Bone5.SetActive(false);
+    }
+
 }
