@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,14 @@ public class Inventory : MonoBehaviour
             inventory_pos = 4;
         // Scrolling functionality
         float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0)
+            inventory_pos++;
+        else if (scroll < 0)
+            inventory_pos--;
+        if (inventory_pos > 4)
+            inventory_pos = -3;
+        if (inventory_pos < -3)
+            inventory_pos = 4;
     }
     public string GetInventory(int index)
     {
