@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3540988119793176626}
   - component: {fileID: 8101289696660898756}
   - component: {fileID: 1286900633203525703}
+  - component: {fileID: 4968189413491142231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -92,6 +93,27 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5852272524961014038}
   m_Enabled: 1
+--- !u!135 &4968189413491142231
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5852272524961014038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.6
+  m_Center: {x: 0, y: -0.5, z: 1}
 --- !u!1 &8127600033320366487
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +128,6 @@ GameObject:
   - component: {fileID: 3743146485926275154}
   - component: {fileID: 8985750187812813403}
   - component: {fileID: 3840343569045438508}
-  - component: {fileID: 3310833213367793725}
   - component: {fileID: 8248779440915312440}
   - component: {fileID: -7341512732534295479}
   m_Layer: 0
@@ -256,27 +277,6 @@ MonoBehaviour:
   crouchYScale: 0.7
   startYScale: 1
   crouchKey: 306
---- !u!135 &3310833213367793725
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8127600033320366487}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.75
-  m_Center: {x: 0, y: 0, z: 1}
 --- !u!114 &8248779440915312440
 MonoBehaviour:
   m_ObjectHideFlags: 0
