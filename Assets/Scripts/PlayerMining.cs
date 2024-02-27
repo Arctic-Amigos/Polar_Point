@@ -21,14 +21,6 @@ public class PlayerMining : MonoBehaviour
             //animation will be added later
             this.MineCurrent();
         }
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log(inventory.GetInventory(0));
-            Debug.Log(inventory.GetInventory(1));
-            Debug.Log(inventory.GetInventory(2));
-            Debug.Log(inventory.GetInventory(3));
-            Debug.Log(inventory.GetInventory(4));
-        }
     }
     //Activated by sphere collider on player
     void OnTriggerEnter(Collider other)
