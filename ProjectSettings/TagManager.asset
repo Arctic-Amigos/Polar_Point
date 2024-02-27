@@ -10,6 +10,7 @@ TagManager:
   - Bone3Tag
   - Bone4Tag
   - Bone5Tag
+  - Workbench
   layers:
   - Default
   - TransparentFX
