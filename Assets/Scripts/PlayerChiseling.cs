@@ -11,6 +11,14 @@ public class PlayerChiseling : MonoBehaviour
     //Set this to Player so that the rays ignore the players model also set this to DirtCoveringBone
     public LayerMask layerMaskToIgnore;
 
+    Inventory inventory;
+
+    private GameObject currentBoneOnTable;
+
+    void Start()
+    {
+        inventory = GetComponent<Inventory>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,7 +47,8 @@ public class PlayerChiseling : MonoBehaviour
     {
         isChiseling = true;
         yield return new WaitForSeconds(3f);
-        _chiselableObject.IncrementChiselCount();
+        //in inventory we need to add a feature which disables switching inventory slots while cleaning
+        _chiselableObject.IncrementChiselCount(this.inventory.inventory_pos);
         isChiseling = false;
     }
 }
