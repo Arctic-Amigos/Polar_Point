@@ -11,15 +11,16 @@ TagManager:
   - Bone4Tag
   - Bone5Tag
   - Workbench
+  - Chiselable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - whatIsGround
-  - 
+  - DirtCoveringBone
   - 
   - 
   - 
