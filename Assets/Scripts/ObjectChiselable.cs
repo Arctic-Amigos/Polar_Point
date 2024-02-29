@@ -13,7 +13,7 @@ public class ObjectChiselable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateDirtLayers();
+        //UpdateDirtLayers();
     }
     void Update()
     {
@@ -38,12 +38,12 @@ public class ObjectChiselable : MonoBehaviour
         {
             boneChiselCounts[boneTag] = 1;
         }
-        UpdateDirtLayers();
+        UpdateDirtLayers(boneTag);
     }
 
-    private void UpdateDirtLayers()
+    private void UpdateDirtLayers(int boneTag)
     {
-        int specificBoneIdentifier = player.currentBoneOnWorkbench;
+        int specificBoneIdentifier = boneTag;
         if(boneChiselCounts.ContainsKey(specificBoneIdentifier)) 
         {
             chiselCount = boneChiselCounts[specificBoneIdentifier];
