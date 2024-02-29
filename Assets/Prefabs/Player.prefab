@@ -322,7 +322,7 @@ MonoBehaviour:
   currentBoneOnWorkbench: -5
   layerMaskToIgnore:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 136
   bone: {fileID: 0}
   chiselValue: 0
 --- !u!1001 &1342435541074358682
