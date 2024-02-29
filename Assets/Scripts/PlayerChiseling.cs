@@ -9,7 +9,7 @@ public class PlayerChiseling : MonoBehaviour
     private bool isChiseling = false;
 
     //bone currently placed on workbench
-    public int currentBoneOnWorkbench;
+    public int currentBoneOnWorkbench = -5;
 
     //see if workbench has a bone on it
     private bool workBenchFull = false;
@@ -19,6 +19,8 @@ public class PlayerChiseling : MonoBehaviour
 
     //Get bone from workbench
     public ObjectChiselable bone;
+
+    public int chiselValue = 0;
 
     Inventory inventory;
 
@@ -39,7 +41,7 @@ public class PlayerChiseling : MonoBehaviour
             inventory.SetScrollingNotAllowed();
 
             bone.gameObject.SetActive(true);
-            int chiselValue = bone.boneChiselCounts[currentBoneOnWorkbench];
+            chiselValue = bone.boneChiselCounts[currentBoneOnWorkbench];
             for (int i = 0; i <= chiselValue; i++)
             {
                 Transform child = bone.transform.GetChild(i);
