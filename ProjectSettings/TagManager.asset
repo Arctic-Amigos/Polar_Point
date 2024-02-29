@@ -13,6 +13,7 @@ TagManager:
   - Workbench
   - Chiselable
   - PickaxeTag
+  - HeldBoneTag
   layers:
   - Default
   - TransparentFX
