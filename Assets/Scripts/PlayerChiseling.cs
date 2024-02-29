@@ -13,8 +13,6 @@ public class PlayerChiseling : MonoBehaviour
 
     Inventory inventory;
 
-    private GameObject currentBoneOnTable;
-
     void Start()
     {
         inventory = GetComponent<Inventory>();
@@ -33,6 +31,7 @@ public class PlayerChiseling : MonoBehaviour
                 if (Physics.Raycast(ray, out hitinfo, Mathf.Infinity, ~layerMaskToIgnore))
                 {
                     ObjectChiselable chiselableObject = hitinfo.collider.gameObject.GetComponent<ObjectChiselable>();
+                    
                     if (chiselableObject != null)
                     {
                         //do stuff when player clicks chiselable object

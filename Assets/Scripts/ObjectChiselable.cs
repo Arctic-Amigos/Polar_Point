@@ -64,7 +64,10 @@ public class ObjectChiselable : MonoBehaviour
         }
         if(chiselCount >= 3)
         {
-            gameObject.tag = "Untagged";
+            this.tag = "Untagged";
+        }else if(chiselCount > 3)
+        {
+            Debug.Log("This bone cannot be chiseled anymore");
         }
     }
 
