@@ -14,7 +14,7 @@ public class WorkbenchInteract : MonoBehaviour
     public Vector3 endPos;
     public Quaternion startRot;
     public Quaternion endRot;
-    public float moveDuration = 1f;
+    public float moveDuration = 0.5f;
     // Start is called before the first frame update
     void Start()
     {

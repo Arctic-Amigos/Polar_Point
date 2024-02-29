@@ -10,16 +10,19 @@ public class Inventory : MonoBehaviour
     // -3  , -2     , -1    | 0     , 1     , 2     , 3     , 4
     string[] fossil_inventory = new string[5]; // Inventory spots that will be filled up with fossils/bones. Type can be changed to fossil/bone type as needed
     public int inventory_pos; // Position in inventory that will be scrolled through
+    bool scrolling_allowed = true;
     GameObject Bone1;
     GameObject Bone2;
     GameObject Bone3;
     GameObject Bone4;
     GameObject Bone5;
+    GameObject Pickaxe;
     // Start is called before the first frame update
     void Start()
     {
         inventory_pos = -3;
         StartDisplayBones();
+        StartDisplayHeldObject();
     }
 
     // Update is called once per frame
@@ -44,16 +47,17 @@ public class Inventory : MonoBehaviour
             inventory_pos = 4;
         // Scrolling functionality
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (scroll > 0)
-            inventory_pos++;
-        else if (scroll < 0)
+        if (scroll > 0 && scrolling_allowed)
             inventory_pos--;
+        else if (scroll < 0 && scrolling_allowed)
+            inventory_pos++;
         if (inventory_pos > 4)
             inventory_pos = -3;
         if (inventory_pos < -3)
             inventory_pos = 4;
         // Other functions
         UpdateDisplayBones();
+        UpdateDisplayHeldObject();
     }
     public string GetInventory(int index)
     {
@@ -121,6 +125,55 @@ public class Inventory : MonoBehaviour
             Bone4.SetActive(false);
         if (GetInventory(4) == null)
             Bone5.SetActive(false);
+    }
+    public void StartDisplayHeldObject()
+    {
+        Pickaxe = GameObject.FindWithTag("PickaxeTag");
+
+        Pickaxe.SetActive(false);
+    }
+    public void UpdateDisplayHeldObject()
+    {
+        if (inventory_pos == -3)
+        {
+            Pickaxe.SetActive(false);
+        }
+        else if (inventory_pos == -2)
+        {
+            Pickaxe.SetActive(true);
+        }
+        else if (inventory_pos == -1)
+        {
+            Pickaxe.SetActive(false);
+        }
+        else if (inventory_pos == 0)
+        {
+            Pickaxe.SetActive(false);
+        }
+        else if (inventory_pos == 1)
+        {
+            Pickaxe.SetActive(false);
+        }
+        else if (inventory_pos == 2)
+        {
+            Pickaxe.SetActive(false);
+        }
+        else if (inventory_pos == 3)
+        {
+            Pickaxe.SetActive(false);
+        }
+        else if (inventory_pos == 4)
+        {
+            Pickaxe.SetActive(false);
+        }
+    }
+    public void SetScrollingAllowed()
+    {
+        scrolling_allowed = true;
+    }
+    public void SetScrollingNotAllowed()
+    {
+        scrolling_allowed = false;
     }
 
 }

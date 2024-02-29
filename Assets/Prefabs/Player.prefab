@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pickaxe1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: abcc32ff515397b46808024a62c5308e, type: 3}
+      propertyPath: m_TagString
+      value: PickaxeTag
+      objectReference: {fileID: 0}
     - target: {fileID: 8032750206264916975, guid: abcc32ff515397b46808024a62c5308e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

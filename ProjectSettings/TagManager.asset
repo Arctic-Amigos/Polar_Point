@@ -12,6 +12,7 @@ TagManager:
   - Bone5Tag
   - Workbench
   - Chiselable
+  - PickaxeTag
   layers:
   - Default
   - TransparentFX
