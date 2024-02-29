@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 
 public class WorkbenchInteract : MonoBehaviour
 {
+    private Camera newCamera;
+    private GameObject cameraObject;
+
     private bool WorkbenchInteractable = false;
     private float elapsedTime = 0f;
     private bool isMoving = false;
@@ -28,11 +31,23 @@ public class WorkbenchInteract : MonoBehaviour
         {
             if (!isMoving && Input.GetKeyDown(KeyCode.E))
             {
-                startPos = gameObject.transform.position;
-                startRot = gameObject.transform.rotation;
+                cameraObject = new GameObject("NewCamera");
+                newCamera = cameraObject.AddComponent<Camera>();
+                newCamera.transform.position = Camera.main.transform.position;
+                newCamera.transform.rotation = Camera.main.transform.rotation;
+                newCamera.enabled = true;
+
+                startPos = Camera.main.transform.position;
+                startRot = Camera.main.transform.rotation;
                 WorkbenchFunctionality();
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Destroy(cameraObject);
+        }
+       
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -40,7 +55,7 @@ public class WorkbenchInteract : MonoBehaviour
         {
             WorkbenchInteractable = true;
             endPos = other.transform.position + new Vector3(0, 2, 0);
-            Vector3 direction = new Vector3(-1, 0, 0);
+            Vector3 direction = new Vector3(0, -1, 0);
             endRot = Quaternion.LookRotation(direction);
         }
     }
@@ -54,7 +69,6 @@ public class WorkbenchInteract : MonoBehaviour
 
     private void WorkbenchFunctionality()
     {
-        Debug.Log("Working on the bench");
         StartCoroutine(MoveCamera());
     }
 
@@ -66,8 +80,8 @@ public class WorkbenchInteract : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float t = Mathf.Clamp01(elapsedTime / moveDuration);
-            transform.position = Vector3.Lerp(startPos, endPos, t);
-            transform.rotation = Quaternion.Slerp(startRot, endRot, t);
+            newCamera.transform.position = Vector3.Lerp(startPos, endPos, t);
+            newCamera.transform.rotation = Quaternion.Slerp(startRot, endRot, t);
             yield return null;
         }
         isMoving = false;
