@@ -40,7 +40,7 @@ public class PlayerChiseling : MonoBehaviour
     void Update()
     {
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
-        if (Input.GetKeyDown(KeyCode.E) && inventory.inventory_pos >= 0 && workBenchFull == false)
+        if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false)
         {
             currentBoneOnWorkbench = inventory.inventory_pos;
             workBenchFull = true;
@@ -73,7 +73,7 @@ public class PlayerChiseling : MonoBehaviour
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
-        else if(Input.GetKeyDown(KeyCode.E) && workBenchFull == true)
+        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true)
         {
             inventory.inventory_pos = currentBoneOnWorkbench;
             currentBoneOnWorkbench = -5; //random number not equal to a slot in the inventory
