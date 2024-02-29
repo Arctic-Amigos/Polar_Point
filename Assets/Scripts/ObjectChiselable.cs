@@ -6,9 +6,9 @@ public class ObjectChiselable : MonoBehaviour
 {
     private int chiselCount = 0;
     //allows us to just have one Chiselable object and have it keep track of individual bones values, keys range from 1-5
-    private Dictionary<int, int> boneChiselCounts = new Dictionary<int, int>();
+    public Dictionary<int, int> boneChiselCounts = new Dictionary<int, int>();
 
-    public Inventory inventory;
+    public PlayerChiseling player;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class ObjectChiselable : MonoBehaviour
 
     private void UpdateDirtLayers()
     {
-        int specificBoneIdentifier = inventory.inventory_pos;
+        int specificBoneIdentifier = player.currentBoneOnWorkbench;
         if(boneChiselCounts.ContainsKey(specificBoneIdentifier)) 
         {
             chiselCount = boneChiselCounts[specificBoneIdentifier];
