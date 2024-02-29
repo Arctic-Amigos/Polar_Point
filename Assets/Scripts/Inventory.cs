@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     GameObject Bone4;
     GameObject Bone5;
     GameObject Pickaxe;
+    GameObject Bone;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +89,13 @@ public class Inventory : MonoBehaviour
             return 4;
         return 9;
     }
+    public void CheckAndSetBone(int x)
+    {
+        if (GetInventory(x) == "bone")
+            Bone.SetActive(true);
+        if (GetInventory(x) == null)
+            Bone.SetActive(false);
+    }
     public void StartDisplayBones()
     {
         Bone1 = GameObject.FindWithTag("Bone1Tag");
@@ -129,6 +137,7 @@ public class Inventory : MonoBehaviour
     public void StartDisplayHeldObject()
     {
         Pickaxe = GameObject.FindWithTag("PickaxeTag");
+        Bone = GameObject.FindWithTag("HeldBoneTag");
 
         Pickaxe.SetActive(false);
     }
@@ -149,22 +158,27 @@ public class Inventory : MonoBehaviour
         else if (inventory_pos == 0)
         {
             Pickaxe.SetActive(false);
+            CheckAndSetBone(0);
         }
         else if (inventory_pos == 1)
         {
             Pickaxe.SetActive(false);
+            CheckAndSetBone(1);
         }
         else if (inventory_pos == 2)
         {
             Pickaxe.SetActive(false);
+            CheckAndSetBone(2);
         }
         else if (inventory_pos == 3)
         {
             Pickaxe.SetActive(false);
+            CheckAndSetBone(3);
         }
         else if (inventory_pos == 4)
         {
             Pickaxe.SetActive(false);
+            CheckAndSetBone(4);
         }
     }
     public void SetScrollingAllowed()

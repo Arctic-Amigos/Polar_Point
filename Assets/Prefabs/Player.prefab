@@ -532,6 +532,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3540988119793176626}
     m_Modifications:
+    - target: {fileID: 921248054555839618, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: -5532220028164236941}
     - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Name
       value: ChiselableBone
@@ -539,6 +543,10 @@ PrefabInstance:
     - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: m_TagString
+      value: HeldBoneTag
       objectReference: {fileID: 0}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalScale.x
