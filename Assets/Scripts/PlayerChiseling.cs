@@ -42,13 +42,18 @@ public class PlayerChiseling : MonoBehaviour
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
         if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false)
         {
+            //Get the inventory slot of which bone was placed onto the workbench
             currentBoneOnWorkbench = inventory.inventory_pos;
             workBenchFull = true;
             inventory.inventory_pos = -1;
+
+            //remove bone from inventory and disable players ability to scroll
+            inventory.SetInventory(currentBoneOnWorkbench, null);
             inventory.SetScrollingNotAllowed();
 
             bone.gameObject.SetActive(true);
-            chiselValue = boneChiselCount[currentBoneOnWorkbench];
+
+            chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
             Transform rockLayer = bone.transform.GetChild(0);
             Transform heavyDirtLayer = bone.transform.GetChild(1);
             Transform lightDirtLayer = bone.transform.GetChild(2);
@@ -63,6 +68,7 @@ public class PlayerChiseling : MonoBehaviour
                 heavyDirtLayer.gameObject.SetActive(false);
                 lightDirtLayer.gameObject.SetActive(true);
             }else if (chiselValue == 3) {
+                //Could set tag to brushable to start the brushing feature
                 Debug.Log("Bone is fully chiseled");
                 bone.gameObject.SetActive(false);
             }else
@@ -78,6 +84,9 @@ public class PlayerChiseling : MonoBehaviour
             inventory.inventory_pos = currentBoneOnWorkbench;
             currentBoneOnWorkbench = -5; //random number not equal to a slot in the inventory
             workBenchFull = false;
+
+            //set the bone back into the inventory and reenable players ability to scroll
+            inventory.SetInventory(currentBoneOnWorkbench, "ChiselableBone");
             inventory.SetScrollingAllowed();
             bone.gameObject.SetActive(false);
         }
@@ -107,7 +116,6 @@ public class PlayerChiseling : MonoBehaviour
     {
         isChiseling = true;
         yield return new WaitForSeconds(3f);
-        //in inventory we need to add a feature which disables switching inventory slots while cleaning
         if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
         {
             boneChiselCount[currentBoneOnWorkbench]++;
