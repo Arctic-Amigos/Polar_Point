@@ -81,13 +81,26 @@ public class PlayerChiseling : MonoBehaviour
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
         else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true)
         {
+            chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
             inventory.inventory_pos = currentBoneOnWorkbench;
             currentBoneOnWorkbench = -5; //random number not equal to a slot in the inventory
             workBenchFull = false;
 
             //set the bone back into the inventory and reenable players ability to scroll
-            inventory.SetInventory(currentBoneOnWorkbench, "ChiselableBone");
+            if(chiselValue == 1)
+            {
+                inventory.SetInventory(inventory.inventory_pos, "ChiselableBone1");
+            }else if(chiselValue == 2)
+            {
+                inventory.SetInventory(inventory.inventory_pos, "ChiselableBone2");
+            }else if(chiselValue == 3) {
+                inventory.SetInventory(inventory.inventory_pos, "CleanBone");
+            }else
+            {
+                inventory.SetInventory(inventory.inventory_pos, "ChiselableBone");
+            }
             inventory.SetScrollingAllowed();
+
             bone.gameObject.SetActive(false);
         }
 
