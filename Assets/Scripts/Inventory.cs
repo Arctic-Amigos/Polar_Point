@@ -30,21 +30,21 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         // Number button functionality
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && scrolling_allowed)
             inventory_pos = -3;
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && scrolling_allowed)
             inventory_pos = -2;
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && scrolling_allowed)
             inventory_pos = -1;
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && scrolling_allowed)
             inventory_pos = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha5) && scrolling_allowed)
             inventory_pos = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha6) && scrolling_allowed)
             inventory_pos = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha7))
+        if (Input.GetKeyDown(KeyCode.Alpha7) && scrolling_allowed)
             inventory_pos = 3;
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.Alpha8) && scrolling_allowed)
             inventory_pos = 4;
         // Scrolling functionality
         float scroll = Input.GetAxis("Mouse ScrollWheel");
