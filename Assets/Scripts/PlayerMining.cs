@@ -74,7 +74,7 @@ public class PlayerMining : MonoBehaviour
 
         if (nextAvaiableSpot <= 4)
         {
-            inventory.SetInventory(nextAvaiableSpot, "bone");
+            inventory.SetInventory(nextAvaiableSpot, "ChiselableBone");
         }else
         {
             Debug.Log("Inventory is full!");

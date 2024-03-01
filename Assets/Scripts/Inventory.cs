@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
     GameObject Bone4;
     GameObject Bone5;
     GameObject Pickaxe;
-    GameObject Bone;
+    GameObject ChiselableBone;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,12 +89,12 @@ public class Inventory : MonoBehaviour
             return 4;
         return 9;
     }
-    public void CheckAndSetBone(int x)
+    public void CheckAndSetBone(int x) // Helper function for setting held object
     {
-        if (GetInventory(x) == "bone")
-            Bone.SetActive(true);
+        if (GetInventory(x) == "ChiselableBone")
+            ChiselableBone.SetActive(true);
         if (GetInventory(x) == null)
-            Bone.SetActive(false);
+            ChiselableBone.SetActive(false);
     }
     public void StartDisplayBones()
     {
@@ -112,15 +112,15 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateDisplayBones()
     {
-        if (GetInventory(0) == "bone")
+        if (GetInventory(0) == "ChiselableBone")
             Bone1.SetActive(true);
-        if (GetInventory(1) == "bone")
+        if (GetInventory(1) == "ChiselableBone")
             Bone2.SetActive(true);
-        if (GetInventory(2) == "bone")
+        if (GetInventory(2) == "ChiselableBone")
             Bone3.SetActive(true);
-        if (GetInventory(3) == "bone")
+        if (GetInventory(3) == "ChiselableBone")
             Bone4.SetActive(true);
-        if (GetInventory(4) == "bone")
+        if (GetInventory(4) == "ChiselableBone")
             Bone5.SetActive(true);
 
         if (GetInventory(0) == null)
@@ -137,7 +137,7 @@ public class Inventory : MonoBehaviour
     public void StartDisplayHeldObject()
     {
         Pickaxe = GameObject.FindWithTag("PickaxeTag");
-        Bone = GameObject.FindWithTag("HeldBoneTag");
+        ChiselableBone = GameObject.FindWithTag("HeldChiselableBoneTag");
 
         Pickaxe.SetActive(false);
     }
@@ -146,14 +146,17 @@ public class Inventory : MonoBehaviour
         if (inventory_pos == -3)
         {
             Pickaxe.SetActive(false);
+            ChiselableBone.SetActive(false);
         }
         else if (inventory_pos == -2)
         {
             Pickaxe.SetActive(true);
+            ChiselableBone.SetActive(false);
         }
         else if (inventory_pos == -1)
         {
             Pickaxe.SetActive(false);
+            ChiselableBone.SetActive(false);
         }
         else if (inventory_pos == 0)
         {
