@@ -15,6 +15,10 @@ TagManager:
   - PickaxeTag
   - HeldChiselableBoneTag
   - HeldBrushableBoneTag
+  - HeldCB1Tag
+  - HeldCB2Tag
+  - HeldCleanBoneTag
+  - UIPosition
   layers:
   - Default
   - TransparentFX

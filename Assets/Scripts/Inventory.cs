@@ -18,6 +18,9 @@ public class Inventory : MonoBehaviour
     GameObject Bone5;
     GameObject Pickaxe;
     GameObject ChiselableBone;
+    GameObject ChiselableBone1;
+    GameObject ChiselableBone2;
+    GameObject CleanBone;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,9 +95,42 @@ public class Inventory : MonoBehaviour
     public void CheckAndSetBone(int x) // Helper function for setting held object
     {
         if (GetInventory(x) == "ChiselableBone")
+        {
             ChiselableBone.SetActive(true);
-        if (GetInventory(x) == null)
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            CleanBone.SetActive(false);
+        }
+            
+        if (GetInventory(x) == "ChiselableBone1")
+        {
             ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(true);
+            ChiselableBone2.SetActive(false);
+            CleanBone.SetActive(false);
+        }
+        if (GetInventory(x) == "ChiselableBone2")
+        {
+            ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(true);
+            CleanBone.SetActive(false);
+        }
+        if (GetInventory(x) == "CleanBone")
+        {
+            ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            CleanBone.SetActive(true);
+        }
+        if (GetInventory(x) == null)
+        {
+            ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            CleanBone.SetActive(false);
+        }
+            
     }
     public void StartDisplayBones()
     {
@@ -112,15 +148,15 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateDisplayBones()
     {
-        if (GetInventory(0) == "ChiselableBone")
+        if (GetInventory(0) != null)
             Bone1.SetActive(true);
-        if (GetInventory(1) == "ChiselableBone")
+        if (GetInventory(1) != null)
             Bone2.SetActive(true);
-        if (GetInventory(2) == "ChiselableBone")
+        if (GetInventory(2) != null)
             Bone3.SetActive(true);
-        if (GetInventory(3) == "ChiselableBone")
+        if (GetInventory(3) != null)
             Bone4.SetActive(true);
-        if (GetInventory(4) == "ChiselableBone")
+        if (GetInventory(4) != null)
             Bone5.SetActive(true);
 
         if (GetInventory(0) == null)
@@ -138,8 +174,9 @@ public class Inventory : MonoBehaviour
     {
         Pickaxe = GameObject.FindWithTag("PickaxeTag");
         ChiselableBone = GameObject.FindWithTag("HeldChiselableBoneTag");
-
-        Pickaxe.SetActive(false);
+        ChiselableBone1 = GameObject.FindWithTag("HeldCB1Tag");
+        ChiselableBone2 = GameObject.FindWithTag("HeldCB2Tag");
+        CleanBone = GameObject.FindWithTag("HeldCleanBoneTag");
     }
     public void UpdateDisplayHeldObject()
     {
@@ -147,16 +184,25 @@ public class Inventory : MonoBehaviour
         {
             Pickaxe.SetActive(false);
             ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            CleanBone.SetActive(false);
         }
         else if (inventory_pos == -2)
         {
             Pickaxe.SetActive(true);
             ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            CleanBone.SetActive(false);
         }
         else if (inventory_pos == -1)
         {
             Pickaxe.SetActive(false);
             ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            CleanBone.SetActive(false);
         }
         else if (inventory_pos == 0)
         {
@@ -193,4 +239,25 @@ public class Inventory : MonoBehaviour
         scrolling_allowed = false;
     }
 
+    /* Doesn't really work yet
+    public void UpdateUIPositionIndicator()
+    {
+        if (inventory_pos == -3)
+            UIPositionIndicator.transform.position = new Vector3(99f * 1.49625f, 32f * 1.49625f, 0);
+        else if (inventory_pos == -2)
+            UIPositionIndicator.transform.position = new Vector3(183f * 1.49625f, 32f * 1.49625f, 0);
+        else if (inventory_pos == -1)
+            UIPositionIndicator.transform.position = new Vector3(267f * 1.49625f, 32f * 1.49625f, 0);
+        else if (inventory_pos == 0)
+            UIPositionIndicator.transform.position = new Vector3(361f * 1.49625f, 32f * 1.49625f, 0);
+        else if (inventory_pos == 1)
+            UIPositionIndicator.transform.position = new Vector3(445f * 1.49625f, 32f * 1.49625f, 0);
+        else if (inventory_pos == 2)
+            UIPositionIndicator.transform.position = new Vector3(529f * 1.49625f, 32f * 1.49625f, 0);
+        else if (inventory_pos == 3)
+            UIPositionIndicator.transform.position = new Vector3(613f * 1.49625f, 32f * 1.49625f, 0);
+        else if (inventory_pos == 4)
+            UIPositionIndicator.transform.position = new Vector3(697f * 1.49625f, 32f * 1.49625f, 0);
+    }
+    */
 }
