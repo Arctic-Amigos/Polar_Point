@@ -104,7 +104,7 @@ public class PlayerChiseling : MonoBehaviour
             bone.gameObject.SetActive(false);
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -1)
+        if(Input.GetKeyDown(KeyCode.X) && workBenchFull && inventory.inventory_pos == -1)
         {
             if (!isChiseling)
             {
