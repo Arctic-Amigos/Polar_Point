@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     GameObject Bone4;
     GameObject Bone5;
     GameObject Pickaxe;
+    GameObject Chisel;
     GameObject ChiselableBone;
     GameObject ChiselableBone1;
     GameObject ChiselableBone2;
@@ -173,6 +174,7 @@ public class Inventory : MonoBehaviour
     public void StartDisplayHeldObject()
     {
         Pickaxe = GameObject.FindWithTag("PickaxeTag");
+        Chisel = GameObject.FindWithTag("HeldChiselTag");
         ChiselableBone = GameObject.FindWithTag("HeldChiselableBoneTag");
         ChiselableBone1 = GameObject.FindWithTag("HeldCB1Tag");
         ChiselableBone2 = GameObject.FindWithTag("HeldCB2Tag");
@@ -183,6 +185,7 @@ public class Inventory : MonoBehaviour
         if (inventory_pos == -3)
         {
             Pickaxe.SetActive(false);
+            Chisel.SetActive(false);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
@@ -191,6 +194,7 @@ public class Inventory : MonoBehaviour
         else if (inventory_pos == -2)
         {
             Pickaxe.SetActive(true);
+            Chisel.SetActive(false);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
@@ -199,6 +203,7 @@ public class Inventory : MonoBehaviour
         else if (inventory_pos == -1)
         {
             Pickaxe.SetActive(false);
+            Chisel.SetActive(true);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
@@ -207,26 +212,31 @@ public class Inventory : MonoBehaviour
         else if (inventory_pos == 0)
         {
             Pickaxe.SetActive(false);
+            Chisel.SetActive(false);
             CheckAndSetBone(0);
         }
         else if (inventory_pos == 1)
         {
             Pickaxe.SetActive(false);
+            Chisel.SetActive(false);
             CheckAndSetBone(1);
         }
         else if (inventory_pos == 2)
         {
             Pickaxe.SetActive(false);
+            Chisel.SetActive(false);
             CheckAndSetBone(2);
         }
         else if (inventory_pos == 3)
         {
             Pickaxe.SetActive(false);
+            Chisel.SetActive(false);
             CheckAndSetBone(3);
         }
         else if (inventory_pos == 4)
         {
             Pickaxe.SetActive(false);
+            Chisel.SetActive(false);
             CheckAndSetBone(4);
         }
     }
