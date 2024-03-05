@@ -13,6 +13,13 @@ TagManager:
   - Workbench
   - Chiselable
   - PickaxeTag
+  - HeldChiselableBoneTag
+  - HeldBrushableBoneTag
+  - HeldCB1Tag
+  - HeldCB2Tag
+  - HeldCleanBoneTag
+  - UIPosition
+  - HeldChiselTag
   layers:
   - Default
   - TransparentFX
