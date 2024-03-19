@@ -9,6 +9,9 @@ public class WorkbenchInteract : MonoBehaviour
     private Camera newCamera;
     private GameObject cameraObject;
 
+    GameObject player;
+    PlayerMovement playerMovement;
+
     private bool WorkbenchInteractable = false;
     private float elapsedTime = 0f;
     private bool isMoving = false;
@@ -21,7 +24,8 @@ public class WorkbenchInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -39,12 +43,16 @@ public class WorkbenchInteract : MonoBehaviour
 
                 startPos = Camera.main.transform.position;
                 startRot = Camera.main.transform.rotation;
+
+                playerMovement.enabled = false;
+
                 WorkbenchFunctionality();
             }
         }
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            playerMovement.enabled = true;
             Destroy(cameraObject);
         }
        
@@ -55,7 +63,25 @@ public class WorkbenchInteract : MonoBehaviour
         {
             WorkbenchInteractable = true;
             endPos = other.transform.position + new Vector3(0, 2, 0);
-            Vector3 direction = new Vector3(0, -1, 0);
+            Vector3 downD = new Vector3(1, 0, 0);
+            Quaternion otherRot = other.transform.rotation;
+            Vector3 forwardDirection = otherRot * Vector3.forward;
+            Vector3 upDirection = otherRot * Vector3.up;
+            Vector3 rightDirection = otherRot * Vector3.right;
+            Debug.Log(forwardDirection.x);
+            Debug.Log(forwardDirection.y);
+            Debug.Log(forwardDirection.z);
+            Debug.Log(upDirection.x);
+            Debug.Log(upDirection.y);
+            Debug.Log(upDirection.z);
+            Debug.Log(rightDirection.x);
+            Debug.Log(rightDirection.y);
+            Debug.Log(rightDirection.z);
+            Vector3 combined = forwardDirection + upDirection + rightDirection;
+            Vector3 direction = combined;// + downD;
+            Debug.Log(combined.x);
+            Debug.Log(combined.y);
+            Debug.Log(combined.z);
             endRot = Quaternion.LookRotation(direction);
         }
     }
