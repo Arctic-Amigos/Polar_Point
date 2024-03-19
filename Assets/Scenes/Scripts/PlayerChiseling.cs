@@ -20,6 +20,8 @@ public class PlayerChiseling : MonoBehaviour
     //Get bone from workbench
     public ObjectChiselable bone;
 
+    public Animator chiselAnimator;
+
     public int chiselValue = 0;
 
     Inventory inventory;
@@ -34,6 +36,7 @@ public class PlayerChiseling : MonoBehaviour
         boneChiselCount.Add(2, 0);
         boneChiselCount.Add(3, 0);
         boneChiselCount.Add(4, 0);
+        chiselAnimator.SetBool("ChiselingActive", false);
     }
 
     // Update is called once per frame
@@ -104,9 +107,9 @@ public class PlayerChiseling : MonoBehaviour
             bone.gameObject.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.X) && workBenchFull && inventory.inventory_pos == -1)
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -1)
         {
-            if (!isChiseling)
+            if(!isChiseling)
             {
                 /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitinfo;
@@ -129,16 +132,27 @@ public class PlayerChiseling : MonoBehaviour
     IEnumerator Chiseling(ObjectChiselable _chiselableObject)
     {
         isChiseling = true;
-        yield return new WaitForSeconds(3f);
-        if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
+        float startTime = Time.time;
+
+        while (Input.GetMouseButtonDown(0) && Time.time - startTime < 3.0f)
         {
-            boneChiselCount[currentBoneOnWorkbench]++;
+            chiselAnimator.SetBool("ChiselingActive", true);
+            yield return null;
         }
-        else
+
+        if(Time.time - startTime >= 3.0f)
         {
-            boneChiselCount[currentBoneOnWorkbench] = 1;
+            if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
+            {
+                boneChiselCount[currentBoneOnWorkbench]++;
+            }
+            else
+            {
+                boneChiselCount[currentBoneOnWorkbench] = 1;
+            }
+            _chiselableObject.IncrementChiselCount(currentBoneOnWorkbench);
         }
-        _chiselableObject.IncrementChiselCount(currentBoneOnWorkbench);
         isChiseling = false;
+        chiselAnimator.SetBool("ChiselingActive", false);
     }
 }
