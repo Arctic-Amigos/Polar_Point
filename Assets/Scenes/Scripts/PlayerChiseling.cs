@@ -20,6 +20,8 @@ public class PlayerChiseling : MonoBehaviour
     //Get bone from workbench
     public ObjectChiselable bone;
 
+    public Animator chiselAnimator;
+
     public int chiselValue = 0;
 
     Inventory inventory;
@@ -34,6 +36,7 @@ public class PlayerChiseling : MonoBehaviour
         boneChiselCount.Add(2, 0);
         boneChiselCount.Add(3, 0);
         boneChiselCount.Add(4, 0);
+        chiselAnimator.SetBool("ChiselingActive", false);
     }
 
     // Update is called once per frame
@@ -132,7 +135,11 @@ public class PlayerChiseling : MonoBehaviour
         float startTime = Time.time;
 
         while (Input.GetMouseButtonDown(0) && Time.time - startTime < 3.0f)
+        {
+            chiselAnimator.SetBool("ChiselingActive", true);
             yield return null;
+        }
+
         if(Time.time - startTime >= 3.0f)
         {
             if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
@@ -146,5 +153,6 @@ public class PlayerChiseling : MonoBehaviour
             _chiselableObject.IncrementChiselCount(currentBoneOnWorkbench);
         }
         isChiseling = false;
+        chiselAnimator.SetBool("ChiselingActive", false);
     }
 }
