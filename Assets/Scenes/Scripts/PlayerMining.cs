@@ -9,6 +9,8 @@ public class PlayerMining : MonoBehaviour
     //Reference to the players inventory
     Inventory inventory = null;
 
+    public Animator pickaxeAnimator;
+
     void Start()
     {
         inventory = GetComponent<Inventory>();
@@ -19,6 +21,7 @@ public class PlayerMining : MonoBehaviour
         {
             //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
             //animation will be added later
+            pickaxeAnimator.SetBool("miningActive", true);
             this.MineCurrent();
         }
     }

@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMine: {fileID: 0}
+  pickaxeAnimator: {fileID: 1552721322444422885}
 --- !u!114 &-7341512732534295479
 MonoBehaviour:
   m_ObjectHideFlags: 0
