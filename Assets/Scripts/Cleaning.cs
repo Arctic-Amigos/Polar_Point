@@ -21,13 +21,17 @@ public class Cleaning : MonoBehaviour
     {
         objectRenderer = GetComponent<Renderer>();
         inventory = GetComponent<Inventory>();
+        if (inventory == null)
+        {
+            Debug.LogError("Inventory component not found on " + gameObject.name);
+        }
         UpdateMaterial();
     }
 
     void Update()
     {
 
-        //bool hasBrush = inventory.inventory_pos == -1; //will change once inventory script works
+        //bool hasBrush = inventory.inventory_pos == -3; //will change once inventory script works
         if (Input.GetKeyDown(KeyCode.F) && workBenchFull == false)
         {
             /*
