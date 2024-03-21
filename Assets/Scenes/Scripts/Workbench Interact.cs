@@ -63,26 +63,9 @@ public class WorkbenchInteract : MonoBehaviour
         {
             WorkbenchInteractable = true;
             endPos = other.transform.position + new Vector3(0, 2, 0);
-            Vector3 downD = new Vector3(1, 0, 0);
-            Quaternion otherRot = other.transform.rotation;
-            Vector3 forwardDirection = otherRot * Vector3.forward;
-            Vector3 upDirection = otherRot * Vector3.up;
-            Vector3 rightDirection = otherRot * Vector3.right;
-            Debug.Log(forwardDirection.x);
-            Debug.Log(forwardDirection.y);
-            Debug.Log(forwardDirection.z);
-            Debug.Log(upDirection.x);
-            Debug.Log(upDirection.y);
-            Debug.Log(upDirection.z);
-            Debug.Log(rightDirection.x);
-            Debug.Log(rightDirection.y);
-            Debug.Log(rightDirection.z);
-            Vector3 combined = forwardDirection + upDirection + rightDirection;
-            Vector3 direction = combined;// + downD;
-            Debug.Log(combined.x);
-            Debug.Log(combined.y);
-            Debug.Log(combined.z);
-            endRot = Quaternion.LookRotation(direction);
+            Quaternion endRotTemp = other.transform.rotation;
+            Quaternion rotation = Quaternion.Euler(90, 0, 0); // Currently gives a top-down view
+            endRot = endRotTemp * rotation;
         }
     }
     private void OnTriggerExit(Collider other)
