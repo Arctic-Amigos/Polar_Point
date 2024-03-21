@@ -17,13 +17,11 @@ public class Inventory : MonoBehaviour
     GameObject Bone4;
     GameObject Bone5;
     GameObject Pickaxe;
-    GameObject Brush;
     GameObject Chisel;
     GameObject ChiselableBone;
     GameObject ChiselableBone1;
     GameObject ChiselableBone2;
     GameObject CleanBone;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -177,7 +175,6 @@ public class Inventory : MonoBehaviour
     {
         Pickaxe = GameObject.FindWithTag("PickaxeTag");
         Chisel = GameObject.FindWithTag("HeldChiselTag");
-        Brush = GameObject.FindWithTag("BrushTag");
         ChiselableBone = GameObject.FindWithTag("HeldChiselableBoneTag");
         ChiselableBone1 = GameObject.FindWithTag("HeldCB1Tag");
         ChiselableBone2 = GameObject.FindWithTag("HeldCB2Tag");
@@ -189,7 +186,6 @@ public class Inventory : MonoBehaviour
         {
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
-            Brush.SetActive(true);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
@@ -199,7 +195,6 @@ public class Inventory : MonoBehaviour
         {
             Pickaxe.SetActive(true);
             Chisel.SetActive(false);
-            Brush.SetActive(false);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
@@ -209,7 +204,6 @@ public class Inventory : MonoBehaviour
         {
             Pickaxe.SetActive(false);
             Chisel.SetActive(true);
-            Brush.SetActive(false);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
@@ -219,35 +213,30 @@ public class Inventory : MonoBehaviour
         {
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
-            Brush.SetActive(false);
             CheckAndSetBone(0);
         }
         else if (inventory_pos == 1)
         {
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
-            Brush.SetActive(false);
             CheckAndSetBone(1);
         }
         else if (inventory_pos == 2)
         {
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
-            Brush.SetActive(false);
             CheckAndSetBone(2);
         }
         else if (inventory_pos == 3)
         {
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
-            Brush.SetActive(false);
             CheckAndSetBone(3);
         }
         else if (inventory_pos == 4)
         {
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
-            Brush.SetActive(false);
             CheckAndSetBone(4);
         }
     }
