@@ -20,6 +20,7 @@ TagManager:
   - HeldCleanBoneTag
   - UIPosition
   - HeldChiselTag
+  - Brushable
   layers:
   - Default
   - TransparentFX
