@@ -21,6 +21,7 @@ TagManager:
   - UIPosition
   - HeldChiselTag
   - Brushable
+  - BrushTag
   layers:
   - Default
   - TransparentFX
