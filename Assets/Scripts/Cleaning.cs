@@ -8,6 +8,7 @@ public class Cleaning : MonoBehaviour
     private Renderer objectRenderer;
     public int currentStage = 0;
     private bool isCleaning = false;
+    public PlayerCleaning player;
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class Cleaning : MonoBehaviour
     IEnumerator CleaningProgress()
     {
         isCleaning = true;
-        yield return new WaitForSeconds(0.5f); // Simulate cleaning effort
+        yield return new WaitForSeconds(1.0f); // Simulate cleaning effort
         if (currentStage < cleaningStages.Length - 1)
         {
             currentStage++;
