@@ -99,7 +99,7 @@ public class PlayerChiseling : MonoBehaviour
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
-        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true)
+        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true && workbench.IsWorkbenchInteracting())
         {
             chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
             inventory.inventory_pos = currentBoneOnWorkbench;
