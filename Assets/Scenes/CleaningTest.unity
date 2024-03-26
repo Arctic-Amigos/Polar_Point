@@ -809,6 +809,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChiselableBone
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: cleaningStages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: cleaningStages.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99c78780112285545babdfe3fe573b47, type: 2}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: cleaningStages.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb20ed8d271cc1249ad1438905f88a78, type: 2}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: cleaningStages.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: a6ae75c7231683c40a720e273ac5d543, type: 2}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: cleaningStages.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: cleaningStages.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.98
@@ -885,6 +909,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6837799055435189475, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99c78780112285545babdfe3fe573b47, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6185737081965217599, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
@@ -1047,7 +1075,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e107ae4e96654d42be8d238ed7de105, type: 2}
+  - {fileID: 2100000, guid: a6ae75c7231683c40a720e273ac5d543, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

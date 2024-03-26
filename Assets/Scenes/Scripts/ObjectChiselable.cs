@@ -66,20 +66,10 @@ public class ObjectChiselable : MonoBehaviour
         }
         if(chiselCount >= 3)
         {
-            this.tag = "Untagged";
+            this.tag = "Brushable";
             //same functionality as written below but now changed it to brushable so might change later
         }
     }
-    public bool IsFullyChiseled()
-    {
-        return chiselCount >= 3; //if 3 is fully chiseled state
-    }
-    public void MakeBrushable()
-    {
-        if (IsFullyChiseled())
-        {
-            this.tag = "Brushable"; // Set the object tag to "Brushable" 
-        }
-    }
+    
 
 }
