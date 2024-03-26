@@ -60,25 +60,25 @@ public class PlayerChiseling : MonoBehaviour
             Transform topLeft = bone.transform.GetChild(0);
             Transform topRight = bone.transform.GetChild(1);
             Transform bottomLeft = bone.transform.GetChild(2);
-            Transform lighterDirtLayer = bone.transform.GetChild(3);
+            Transform bottomRight = bone.transform.GetChild(3);
             if (chiselValue == 1)
             {
                 topLeft.gameObject.SetActive(false);
                 topRight.gameObject.SetActive(true);
                 bottomLeft.gameObject.SetActive(true);
-                //bottomRight.gameObject.SetActive(true);
+                bottomRight.gameObject.SetActive(true);
             }else if (chiselValue == 2)
             {
                 topLeft.gameObject.SetActive(false);
                 topRight.gameObject.SetActive(false);
                 bottomLeft.gameObject.SetActive(true);
-                //bottomRight.gameObject.SetActive(true);
+                bottomRight.gameObject.SetActive(true);
             }
             else if (chiselValue == 3) {
                 topLeft.gameObject.SetActive(false);
                 topRight.gameObject.SetActive(false);
                 bottomLeft.gameObject.SetActive(false);
-                //bottomRight.gameObject.SetActive(true);
+                bottomRight.gameObject.SetActive(true);
             }else if (chiselValue == 4)
             {
                 //Could set tag to brushable to start the brushing feature
@@ -90,7 +90,7 @@ public class PlayerChiseling : MonoBehaviour
                 topLeft.gameObject.SetActive(true);
                 topRight.gameObject.SetActive(true);
                 bottomLeft.gameObject.SetActive(true);
-                //bottomRight.gameObject.SetActive(true);
+                bottomRight.gameObject.SetActive(true);
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
@@ -115,7 +115,7 @@ public class PlayerChiseling : MonoBehaviour
             else if (chiselValue == 3)
             {
                 //chiseled three times
-                //inventory.SetInventory(inventory.inventory_pos, "ChiselableBone3);
+                inventory.SetInventory(inventory.inventory_pos, "ChiselableBone3");
             }
             else if (chiselValue == 4) 
             {
@@ -136,7 +136,7 @@ public class PlayerChiseling : MonoBehaviour
         {
             if(!isChiseling)
             {
-                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitinfo;
 
                 if (Physics.Raycast(ray, out hitinfo, Mathf.Infinity, ~layerMaskToIgnore))
@@ -149,9 +149,11 @@ public class PlayerChiseling : MonoBehaviour
                         StartCoroutine(Chiseling(chiselableObject));
 
                     }
-                }*/ //turn this stuff back on after demo
+                } //turn this stuff back on after demo
+                /*
                 chiselAnimator.SetBool("chiselingActive", true);
                 StartCoroutine(Chiseling(bone));
+                */
             }
         }
     }
