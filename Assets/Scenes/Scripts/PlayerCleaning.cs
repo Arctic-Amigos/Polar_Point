@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerCleaning : MonoBehaviour
 {
-    private Inventory inventory;
+    Inventory inventory;
+    //public Animator brushAnimator;
 
     void Start()
     {
@@ -13,7 +14,7 @@ public class PlayerCleaning : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0) )
+        if (Input.GetMouseButton(0) &&inventory.inventory_pos == -3 )
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
