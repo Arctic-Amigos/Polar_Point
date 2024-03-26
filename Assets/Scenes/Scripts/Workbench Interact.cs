@@ -103,4 +103,9 @@ public class WorkbenchInteract : MonoBehaviour
         }
         isMoving = false;
     }
+
+    public bool IsWorkbenchInteracting()
+    {
+        return interacting;
+    }
 }

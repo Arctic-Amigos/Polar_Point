@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerChiseling : MonoBehaviour
@@ -26,11 +27,15 @@ public class PlayerChiseling : MonoBehaviour
 
     Inventory inventory;
 
+    WorkbenchInteract workbench;
+
     public Dictionary<int, int> boneChiselCount = new Dictionary<int, int>();
 
     void Start()
     {
         inventory = GetComponent<Inventory>();
+        workbench = GetComponent<WorkbenchInteract>();
+
         boneChiselCount.Add(0, 0);
         boneChiselCount.Add(1, 0);
         boneChiselCount.Add(2, 0);
@@ -43,7 +48,7 @@ public class PlayerChiseling : MonoBehaviour
     void Update()
     {
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
-        if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false)
+        if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false && workbench.IsWorkbenchInteracting())
         {
             //Get the inventory slot of which bone was placed onto the workbench
             currentBoneOnWorkbench = inventory.inventory_pos;
@@ -52,7 +57,7 @@ public class PlayerChiseling : MonoBehaviour
 
             //remove bone from inventory and disable players ability to scroll
             inventory.SetInventory(currentBoneOnWorkbench, null);
-            //SetScrollingNotAllowed();
+            inventory.SetScrollingNotAllowed();
 
             bone.gameObject.SetActive(true);
 
@@ -127,7 +132,7 @@ public class PlayerChiseling : MonoBehaviour
                 //completely unchiseled
                 inventory.SetInventory(inventory.inventory_pos, "ChiselableBone");
             }
-            //inventory.SetScrollingAllowed();
+            inventory.SetScrollingAllowed();
 
             bone.gameObject.SetActive(false);
         }
@@ -149,7 +154,7 @@ public class PlayerChiseling : MonoBehaviour
                         StartCoroutine(Chiseling(chiselableObject));
 
                     }
-                } //turn this stuff back on after demo
+                }
                 /*
                 chiselAnimator.SetBool("chiselingActive", true);
                 StartCoroutine(Chiseling(bone));
@@ -157,7 +162,9 @@ public class PlayerChiseling : MonoBehaviour
             }
         }
     }
-    IEnumerator Chiseling(ObjectChiselable _chiselableObject)
+
+
+        IEnumerator Chiseling(ObjectChiselable _chiselableObject)
     {
         isChiseling = true;
         float startTime = Time.time;
