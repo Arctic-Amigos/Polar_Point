@@ -57,28 +57,40 @@ public class PlayerChiseling : MonoBehaviour
             bone.gameObject.SetActive(true);
 
             chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
-            Transform rockLayer = bone.transform.GetChild(0);
-            Transform heavyDirtLayer = bone.transform.GetChild(1);
-            Transform lightDirtLayer = bone.transform.GetChild(2);
+            Transform topLeft = bone.transform.GetChild(0);
+            Transform topRight = bone.transform.GetChild(1);
+            Transform bottomLeft = bone.transform.GetChild(2);
+            Transform lighterDirtLayer = bone.transform.GetChild(3);
             if (chiselValue == 1)
             {
-                rockLayer.gameObject.SetActive(false);
-                heavyDirtLayer.gameObject.SetActive(true);
-                lightDirtLayer.gameObject.SetActive(true);
+                topLeft.gameObject.SetActive(false);
+                topRight.gameObject.SetActive(true);
+                bottomLeft.gameObject.SetActive(true);
+                //bottomRight.gameObject.SetActive(true);
             }else if (chiselValue == 2)
             {
-                rockLayer.gameObject.SetActive(false);
-                heavyDirtLayer.gameObject.SetActive(false);
-                lightDirtLayer.gameObject.SetActive(true);
-            }else if (chiselValue == 3) {
+                topLeft.gameObject.SetActive(false);
+                topRight.gameObject.SetActive(false);
+                bottomLeft.gameObject.SetActive(true);
+                //bottomRight.gameObject.SetActive(true);
+            }
+            else if (chiselValue == 3) {
+                topLeft.gameObject.SetActive(false);
+                topRight.gameObject.SetActive(false);
+                bottomLeft.gameObject.SetActive(false);
+                //bottomRight.gameObject.SetActive(true);
+            }else if (chiselValue == 4)
+            {
                 //Could set tag to brushable to start the brushing feature
                 Debug.Log("Bone is fully chiseled");
                 bone.gameObject.SetActive(false);
-            }else
+            }
+            else
             {
-                rockLayer.gameObject.SetActive(true);
-                heavyDirtLayer.gameObject.SetActive(true);
-                lightDirtLayer.gameObject.SetActive(true);
+                topLeft.gameObject.SetActive(true);
+                topRight.gameObject.SetActive(true);
+                bottomLeft.gameObject.SetActive(true);
+                //bottomRight.gameObject.SetActive(true);
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
@@ -90,16 +102,29 @@ public class PlayerChiseling : MonoBehaviour
             workBenchFull = false;
 
             //set the bone back into the inventory and reenable players ability to scroll
-            if(chiselValue == 1)
+            if (chiselValue == 1)
             {
+                //chiseled once
                 inventory.SetInventory(inventory.inventory_pos, "ChiselableBone1");
-            }else if(chiselValue == 2)
+            }
+            else if (chiselValue == 2)
             {
+                //chiseled twice
                 inventory.SetInventory(inventory.inventory_pos, "ChiselableBone2");
-            }else if(chiselValue == 3) {
-                inventory.SetInventory(inventory.inventory_pos, "CleanBone");
-            }else
+            }
+            else if (chiselValue == 3)
             {
+                //chiseled three times
+                //inventory.SetInventory(inventory.inventory_pos, "ChiselableBone3);
+            }
+            else if (chiselValue == 4) 
+            {
+                //completely chiseled
+                inventory.SetInventory(inventory.inventory_pos, "CleanBone");
+            }
+            else
+            {
+                //completely unchiseled
                 inventory.SetInventory(inventory.inventory_pos, "ChiselableBone");
             }
             //inventory.SetScrollingAllowed();
