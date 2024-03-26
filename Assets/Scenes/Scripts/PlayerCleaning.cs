@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerCleaning : MonoBehaviour
 {
-    private Inventory inventory;
+    Inventory inventory;
+    //public Animator brushAnimator;
 
     void Start()
     {

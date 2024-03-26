@@ -9,6 +9,9 @@ public class WorkbenchInteract : MonoBehaviour
     private Camera newCamera;
     private GameObject cameraObject;
 
+    Inventory inventory;
+    GameObject pickaxe;
+
     bool interacting = false;
 
     GameObject player;
@@ -30,6 +33,8 @@ public class WorkbenchInteract : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
+        inventory = GetComponent<Inventory>();
+        pickaxe = GameObject.FindWithTag("PickaxeTag");
     }
 
     // Update is called once per frame
@@ -64,6 +69,15 @@ public class WorkbenchInteract : MonoBehaviour
             Destroy(cameraObject);
             rb.constraints = ~(RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ);
         }
+        /*
+        // Would be used to make the pickaxe follow the player cursor if it worked
+        if (interacting && inventory.inventory_pos == -2)
+        {
+            Vector3 cursorPosition = newCamera.ScreenToWorldPoint(Input.mousePosition);
+            cursorPosition.z = 0f;
+            pickaxe.transform.position = cursorPosition;
+        }
+        */
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -102,5 +116,10 @@ public class WorkbenchInteract : MonoBehaviour
             yield return null;
         }
         isMoving = false;
+    }
+
+    public bool IsWorkbenchInteracting()
+    {
+        return interacting;
     }
 }
