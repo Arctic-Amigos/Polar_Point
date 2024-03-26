@@ -137,7 +137,7 @@ public class PlayerChiseling : MonoBehaviour
             bone.gameObject.SetActive(false);
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -1)
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -1 && workbench.IsWorkbenchInteracting())
         {
             if(!isChiseling)
             {
@@ -165,15 +165,20 @@ public class PlayerChiseling : MonoBehaviour
 
 
         IEnumerator Chiseling(ObjectChiselable _chiselableObject)
-    {
+        {
         isChiseling = true;
-        float startTime = Time.time;
+        float startTime = 0f;
+        float holdTime = 3.0f;
 
         chiselAnimator.SetBool("chiselingActive", true);
 
         if (Input.GetMouseButtonDown(0))
         {
-            yield return null;
+            startTime = Time.time;
+            if(startTime + holdTime >= Time.time)
+            {
+                yield return null;
+            }
         }
   
         if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
@@ -188,5 +193,5 @@ public class PlayerChiseling : MonoBehaviour
         
         isChiseling = false;
         chiselAnimator.SetBool("chiselingActive", false);
-    }
+        }
 }
