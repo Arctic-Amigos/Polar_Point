@@ -9,8 +9,11 @@ public class WorkbenchInteract : MonoBehaviour
     private Camera newCamera;
     private GameObject cameraObject;
 
+    bool interacting = false;
+
     GameObject player;
     PlayerMovement playerMovement;
+    Rigidbody rb;
 
     private bool WorkbenchInteractable = false;
     private float elapsedTime = 0f;
@@ -26,15 +29,21 @@ public class WorkbenchInteract : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (WorkbenchInteractable)
+        if (WorkbenchInteractable && !interacting)
         {
             if (!isMoving && Input.GetKeyDown(KeyCode.E))
             {
+                rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+
+                playerMovement.enabled = false;
+                interacting = true;
+
                 cameraObject = new GameObject("NewCamera");
                 newCamera = cameraObject.AddComponent<Camera>();
                 newCamera.transform.position = Camera.main.transform.position;
@@ -44,18 +53,17 @@ public class WorkbenchInteract : MonoBehaviour
                 startPos = Camera.main.transform.position;
                 startRot = Camera.main.transform.rotation;
 
-                playerMovement.enabled = false;
-
                 WorkbenchFunctionality();
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!isMoving && Input.GetKeyDown(KeyCode.Escape))
         {
             playerMovement.enabled = true;
+            interacting = false;
             Destroy(cameraObject);
+            rb.constraints = ~(RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ);
         }
-       
     }
     private void OnTriggerEnter(Collider other)
     {

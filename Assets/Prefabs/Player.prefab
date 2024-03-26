@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 8248779440915312440}
   - component: {fileID: -7341512732534295479}
   - component: {fileID: -5532220028164236941}
+  - component: {fileID: 6082767295217613891}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -332,6 +333,23 @@ MonoBehaviour:
   bone: {fileID: 0}
   chiselAnimator: {fileID: 4947134107406031445}
   chiselValue: 0
+--- !u!114 &6082767295217613891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127600033320366487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e2f1967d31957429de33ad6c5a89dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  startRot: {x: 0, y: 0, z: 0, w: 0}
+  endRot: {x: 0, y: 0, z: 0, w: 0}
+  moveDuration: 0.5
 --- !u!1001 &1342435541074358682
 PrefabInstance:
   m_ObjectHideFlags: 0
