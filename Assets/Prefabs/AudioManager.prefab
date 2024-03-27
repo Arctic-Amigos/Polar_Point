@@ -147,3 +147,21 @@ MonoBehaviour:
     pitch: 1.49
     loop: 0
     source: {fileID: 0}
+  - name: PickUpItem
+    clip: {fileID: 8300000, guid: 54f5ad4cde6f6f84ab00d946a1dc5cb3, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: Door
+    clip: {fileID: 8300000, guid: 68fac357ade6eb04ea4eebab0c65cdfe, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: 971fc22569d85cf488f5596fd8854c27, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
