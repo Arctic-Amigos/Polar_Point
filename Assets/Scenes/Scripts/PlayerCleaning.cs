@@ -25,6 +25,7 @@ public class PlayerCleaning : MonoBehaviour
                 if (hit.collider.CompareTag("Brushable"))
                 {
                     Clean(hit.collider.gameObject);
+                    FindObjectOfType<AudioManager>().Play("Brushing");
                 }
                 
             }
@@ -37,7 +38,7 @@ public class PlayerCleaning : MonoBehaviour
         if (cleanable != null)
         {
             cleanable.StartCleaning(); // Call a method to start the cleaning process
-            FindObjectOfType<AudioManager>().Play("Brushing");
+            
         }
     }
 }

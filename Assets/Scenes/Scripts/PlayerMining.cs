@@ -23,6 +23,7 @@ public class PlayerMining : MonoBehaviour
             //animation will be added later
             pickaxeAnimator.SetBool("miningActive", true);
             this.MineCurrent();
+            AudioManager.instance.Play("Pickaxe");
         }
     }
     //Activated by sphere collider on player
@@ -66,6 +67,7 @@ public class PlayerMining : MonoBehaviour
             currentMine.ExitMine();
         }
         currentMine = null;
+        AudioManager.instance.Stop("Pickaxe");
     }
     //Called when player tries to mine an object
     public void MineCurrent()

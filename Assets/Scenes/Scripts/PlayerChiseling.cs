@@ -171,6 +171,7 @@ public class PlayerChiseling : MonoBehaviour
         float holdTime = 3.0f;
 
         chiselAnimator.SetBool("chiselingActive", true);
+        AudioManager.instance.Play("Chisel");
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -193,5 +194,6 @@ public class PlayerChiseling : MonoBehaviour
         
         isChiseling = false;
         chiselAnimator.SetBool("chiselingActive", false);
-        }
+        AudioManager.instance.Stop("Chisel");
+    }
 }

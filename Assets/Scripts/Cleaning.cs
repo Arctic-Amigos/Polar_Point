@@ -21,6 +21,7 @@ public class Cleaning : MonoBehaviour
         if (!isCleaning && currentStage < cleaningStages.Length - 1)
         {
             StartCoroutine(CleaningProgress());
+          
         }
     }
 
@@ -32,6 +33,11 @@ public class Cleaning : MonoBehaviour
         {
             currentStage++;
             UpdateMaterial();
+        }
+        if (currentStage == cleaningStages.Length - 1)
+        {
+            this.tag = "Untagged";
+            AudioManager.instance.Stop("Brushing");
         }
         isCleaning = false;
     }
