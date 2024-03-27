@@ -533,6 +533,17 @@ MonoBehaviour:
   startRot: {x: 0, y: 0, z: 0, w: 0}
   endRot: {x: 0, y: 0, z: 0, w: 0}
   moveDuration: 0.5
+--- !u!114 &1123392252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2201220510999477064, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 1396374205}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123392249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796d9402515c3b147b243fb8e08bb9ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1396374205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -942,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 959374478}
+      objectReference: {fileID: 1123392252}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.98

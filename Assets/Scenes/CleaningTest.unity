@@ -145,6 +145,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
   - {fileID: 2100000, guid: 90996c1a0c0a20248a7db0c628dce0aa, type: 2}
   currentStage: 0
+  player: {fileID: 0}
 --- !u!1 &89936233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5852272524961014038, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
@@ -255,6 +256,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
   - {fileID: 2100000, guid: 90996c1a0c0a20248a7db0c628dce0aa, type: 2}
   currentStage: 0
+  player: {fileID: 0}
 --- !u!1 &201763670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5027639114334579753, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
@@ -277,6 +279,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
   - {fileID: 2100000, guid: 90996c1a0c0a20248a7db0c628dce0aa, type: 2}
   currentStage: 0
+  player: {fileID: 0}
 --- !u!1 &232413213
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +526,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
   - {fileID: 2100000, guid: 90996c1a0c0a20248a7db0c628dce0aa, type: 2}
   currentStage: 0
+  player: {fileID: 0}
 --- !u!1 &572773734
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChiselableBone
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 180104438}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.98
