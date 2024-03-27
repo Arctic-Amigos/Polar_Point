@@ -152,6 +152,7 @@ public class PlayerChiseling : MonoBehaviour
                     {
                         //do stuff when player clicks chiselable object
                         StartCoroutine(Chiseling(chiselableObject));
+                        AudioManager.instance.Play("Chisel");
 
                     }
                 }
@@ -171,7 +172,7 @@ public class PlayerChiseling : MonoBehaviour
         float holdTime = 3.0f;
 
         chiselAnimator.SetBool("chiselingActive", true);
-        AudioManager.instance.Play("Chisel");
+        
 
         if (Input.GetMouseButtonDown(0))
         {

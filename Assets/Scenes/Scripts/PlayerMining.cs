@@ -22,8 +22,9 @@ public class PlayerMining : MonoBehaviour
             //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
             //animation will be added later
             pickaxeAnimator.SetBool("miningActive", true);
-            this.MineCurrent();
             AudioManager.instance.Play("Pickaxe");
+            this.MineCurrent();
+            
         }
     }
     //Activated by sphere collider on player
