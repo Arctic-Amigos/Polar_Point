@@ -57,3 +57,93 @@ MonoBehaviour:
     pitch: 1.49
     loop: 0
     source: {fileID: 0}
+  - name: WalkingDirt
+    clip: {fileID: 8300000, guid: 723f452b164246b4292a84108bcd4e0a, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: WalkieTalkieBeep
+    clip: {fileID: 8300000, guid: 36a29e85233ea9642bbef3db6ed4f283, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: Walk
+    clip: {fileID: 8300000, guid: bdd4678149995874f9f131bcdbb5ff76, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: Pickaxe
+    clip: {fileID: 8300000, guid: 11e4ee1e4cfcca44cb2b849f14f1f5d7, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: OutsideWind
+    clip: {fileID: 8300000, guid: 94f98aa55a2399741b432799967a7eae, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: Upbeat
+    clip: {fileID: 8300000, guid: a3f72d08b2226be4d92b11a5b9d49e9a, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: Marty
+    clip: {fileID: 8300000, guid: 66dba1658f870924fba9f331c5172db4, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 882e22608ee035e468cab75831386128, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: InsideCave
+    clip: {fileID: 8300000, guid: 3106c2b797e78074da29f9c4060a8267, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: Chisel
+    clip: {fileID: 8300000, guid: 61bf907de4c342044bf60a3d3a1df70a, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: Chill
+    clip: {fileID: 8300000, guid: 1779ac64fd4a10d4385c1e1a7037d42e, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: CaveDrip
+    clip: {fileID: 8300000, guid: 66e444c772979384dbda778a272b98df, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
+  - name: CalmSad
+    clip: {fileID: 8300000, guid: 88fe47e754b3b2f49a1632ea886d2653, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: AnimalCrossing
+    clip: {fileID: 8300000, guid: 03cfdcb185a138c4c92256c5d68e6e2f, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 1
+    source: {fileID: 0}
+  - name: WalkieEnd
+    clip: {fileID: 8300000, guid: 74bf5aa07e257b7489ce14cb2732e574, type: 3}
+    volume: 0.752
+    pitch: 1.49
+    loop: 0
+    source: {fileID: 0}
