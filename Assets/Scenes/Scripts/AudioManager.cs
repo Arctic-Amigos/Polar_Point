@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -26,11 +27,36 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    void Start()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Play("Theme");
+        // Play specific music based on the scene name
+        switch (scene.name)
+        {
+            case "Scene0-StartScreen":
+                Play("MainMenu"); // Adjust with your actual sound name for the main menu
+                break;
+            case "Scene2-Environment":
+                Play("OutsideWind");
+                break;
+            case "Scene3-CaveInterior":
+                Play("CaveDrip");
+                Play("InsideCave");
+                Stop("MainMenu");
+                Stop("OutsideWind");
+                break;
+            default:
+                // Optional: Play a default theme, or do nothing
+                break;
+        }
     }
+    void OnDestroy()
+    {
+        // Unsubscribe to ensure no memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
 
     public void Play(string name)
     {

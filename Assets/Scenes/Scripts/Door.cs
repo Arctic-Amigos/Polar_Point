@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AudioManager.instance.Play("Door");
         SceneManager.LoadScene(newSceneName);
     }
 }

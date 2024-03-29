@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode crouchKey = KeyCode.LeftControl;
 
     bool moving = false;
+    private bool walkingSoundPlaying = false;
 
     private Vector3 moveDirection;
     private Vector3 currentRotation;
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        AudioManager.instance.Play("Walk");
+        
         //=======Lateral movement==========
         MovePlayer();
         //======Jumping========
@@ -81,12 +82,18 @@ public class PlayerMovement : MonoBehaviour
                 sprintTimer = 0f;
             }
         }
-        if (!moving)
+        if (moving && !walkingSoundPlaying)
         {
-           
-            AudioManager.instance.Stop("Walk");
+            AudioManager.instance.Play("Walk");
+            walkingSoundPlaying = true; // Indicate that the walking sound is now playing
         }
-        
+        // If the player is not moving and the walking sound is playing, stop the sound
+        else if (!moving && walkingSoundPlaying)
+        {
+            AudioManager.instance.Stop("Walk");
+            walkingSoundPlaying = false; // Reset the flag as the walking sound has been stopped
+        }
+
         moving = false;
     }
 

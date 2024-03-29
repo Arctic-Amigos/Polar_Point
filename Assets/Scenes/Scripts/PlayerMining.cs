@@ -68,7 +68,7 @@ public class PlayerMining : MonoBehaviour
             currentMine.ExitMine();
         }
         currentMine = null;
-        AudioManager.instance.Stop("Pickaxe");
+        
     }
     //Called when player tries to mine an object
     public void MineCurrent()
@@ -76,6 +76,7 @@ public class PlayerMining : MonoBehaviour
         if(currentMine)
         {
             currentMine.MineResource();
+            AudioManager.instance.Stop("Pickaxe");
             ExitMine(); //Removes players ability to mine the same object after it has been destroyed
         }
     }
