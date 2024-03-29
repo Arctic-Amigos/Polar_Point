@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public float startYScale;
     public KeyCode crouchKey = KeyCode.LeftControl;
 
+    bool moving = false;
 
     private Vector3 moveDirection;
     private Vector3 currentRotation;
@@ -41,12 +42,14 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         normalSpeed = movementSpeed;
         startYScale = transform.localScale.y;
-
+       
     }
     void Update()
     {
+        
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        AudioManager.instance.Play("Walk");
         //=======Lateral movement==========
         MovePlayer();
         //======Jumping========
@@ -78,6 +81,13 @@ public class PlayerMovement : MonoBehaviour
                 sprintTimer = 0f;
             }
         }
+        if (!moving)
+        {
+           
+            AudioManager.instance.Stop("Walk");
+        }
+        
+        moving = false;
     }
 
 
@@ -85,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //calculate move direction
         
-       
+
         moveDirection = new Vector3(0, 0, 0);
 
        
@@ -94,18 +104,22 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             moveDirection += Camera.main.transform.forward;
+            moving = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             moveDirection -= Camera.main.transform.forward;
+            moving = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             moveDirection -= Camera.main.transform.right;
+            moving = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveDirection += Camera.main.transform.right;
+            moving = true;
         }
 
         // Check for double press of 'W' for sprinting
