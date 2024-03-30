@@ -141,7 +141,7 @@ public class PlayerChiseling : MonoBehaviour
         {
             if(!isChiseling)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitinfo;
 
                 if (Physics.Raycast(ray, out hitinfo, Mathf.Infinity, ~layerMaskToIgnore))
@@ -155,11 +155,12 @@ public class PlayerChiseling : MonoBehaviour
                         AudioManager.instance.Play("Chisel");
 
                     }
-                }
-                /*
+                }*/
+                
                 chiselAnimator.SetBool("chiselingActive", true);
+                AudioManager.instance.Play("Chisel");
                 StartCoroutine(Chiseling(bone));
-                */
+                
             }
         }
     }
@@ -168,19 +169,20 @@ public class PlayerChiseling : MonoBehaviour
         IEnumerator Chiseling(ObjectChiselable _chiselableObject)
         {
         isChiseling = true;
-        float startTime = 0f;
-        float holdTime = 3.0f;
+        //float startTime = 0f;
+        //float holdTime = 3.0f;
 
         chiselAnimator.SetBool("chiselingActive", true);
         
 
         if (Input.GetMouseButtonDown(0))
         {
-            startTime = Time.time;
+            yield return null;
+            /*startTime = Time.time;
             if(startTime + holdTime >= Time.time)
             {
                 yield return null;
-            }
+            }*/
         }
   
         if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
