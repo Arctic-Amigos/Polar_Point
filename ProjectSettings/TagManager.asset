@@ -22,6 +22,8 @@ TagManager:
   - HeldChiselTag
   - Brushable
   - BrushTag
+  - Fire
+  - HeldCB3Tag
   layers:
   - Default
   - TransparentFX

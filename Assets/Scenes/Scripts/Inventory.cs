@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     GameObject ChiselableBone;
     GameObject ChiselableBone1;
     GameObject ChiselableBone2;
+    GameObject ChiselableBone3;
     GameObject CleanBone;
     GameObject Brush;
 
@@ -102,6 +103,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(true);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
         }
             
@@ -110,6 +112,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(true);
             ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
         }
         if (GetInventory(x) == "ChiselableBone2")
@@ -117,6 +120,15 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(true);
+            ChiselableBone3.SetActive(false);
+            CleanBone.SetActive(false);
+        }
+        if (GetInventory(x) == "ChiselableBone3")
+        {
+            ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(true);
             CleanBone.SetActive(false);
         }
         if (GetInventory(x) == "CleanBone")
@@ -124,6 +136,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
             CleanBone.SetActive(true);
         }
         if (GetInventory(x) == null)
@@ -131,6 +144,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
         }
             
@@ -180,6 +194,7 @@ public class Inventory : MonoBehaviour
         ChiselableBone = GameObject.FindWithTag("HeldChiselableBoneTag");
         ChiselableBone1 = GameObject.FindWithTag("HeldCB1Tag");
         ChiselableBone2 = GameObject.FindWithTag("HeldCB2Tag");
+        ChiselableBone3 = GameObject.FindWithTag("HeldCB3Tag");
         CleanBone = GameObject.FindWithTag("HeldCleanBoneTag");
         Brush = GameObject.FindWithTag("BrushTag");
     }

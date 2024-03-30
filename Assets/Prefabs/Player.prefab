@@ -725,11 +725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_TagString
-      value: HeldCB1Tag
+      value: HeldCB3Tag
       objectReference: {fileID: 0}
     - target: {fileID: 1749331593741360755, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
