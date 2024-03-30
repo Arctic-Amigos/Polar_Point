@@ -6,11 +6,20 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     // First 3 spots in inventory will be static for hand, pickaxe, brush. Last 5 spots will be open for fossils/bones
-    // Hand, Pickaxe, Brush | Fossil, Fossil, Fossil, Fossil, Fossil
-    // -3  , -2     , -1    | 0     , 1     , 2     , 3     , 4
+    // Hand, Pickaxe, Chisel, Brush | Fossil, Fossil, Fossil, Fossil, Fossil
+    // -4  , -3     , -2    , -1    | 0     , 1     , 2     , 3     , 4
     string[] fossil_inventory = new string[5]; // Inventory spots that will be filled up with fossils/bones. Type can be changed to fossil/bone type as needed
     public int inventory_pos; // Position in inventory that will be scrolled through
     bool scrolling_allowed = true;
+    GameObject Box1;
+    GameObject Box2;
+    GameObject Box3;
+    GameObject Box4;
+    GameObject Box5;
+    GameObject Box6;
+    GameObject Box7;
+    GameObject Box8;
+    GameObject Box9;
     GameObject Bone1;
     GameObject Bone2;
     GameObject Bone3;
@@ -28,7 +37,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory_pos = -3;
+        inventory_pos = -4;
         StartDisplayBones();
         StartDisplayHeldObject();
     }
@@ -38,20 +47,22 @@ public class Inventory : MonoBehaviour
     {
         // Number button functionality
         if (Input.GetKeyDown(KeyCode.Alpha1) && scrolling_allowed)
-            inventory_pos = -3;
+            inventory_pos = -4;
         if (Input.GetKeyDown(KeyCode.Alpha2) && scrolling_allowed)
-            inventory_pos = -2;
+            inventory_pos = -3;
         if (Input.GetKeyDown(KeyCode.Alpha3) && scrolling_allowed)
-            inventory_pos = -1;
+            inventory_pos = -2;
         if (Input.GetKeyDown(KeyCode.Alpha4) && scrolling_allowed)
-            inventory_pos = 0;
+            inventory_pos = -1;
         if (Input.GetKeyDown(KeyCode.Alpha5) && scrolling_allowed)
-            inventory_pos = 1;
+            inventory_pos = 0;
         if (Input.GetKeyDown(KeyCode.Alpha6) && scrolling_allowed)
-            inventory_pos = 2;
+            inventory_pos = 1;
         if (Input.GetKeyDown(KeyCode.Alpha7) && scrolling_allowed)
-            inventory_pos = 3;
+            inventory_pos = 2;
         if (Input.GetKeyDown(KeyCode.Alpha8) && scrolling_allowed)
+            inventory_pos = 3;
+        if (Input.GetKeyDown(KeyCode.Alpha9) && scrolling_allowed)
             inventory_pos = 4;
         // Scrolling functionality
         float scroll = Input.GetAxis("Mouse ScrollWheel");
@@ -60,8 +71,8 @@ public class Inventory : MonoBehaviour
         else if (scroll < 0 && scrolling_allowed)
             inventory_pos++;
         if (inventory_pos > 4)
-            inventory_pos = -3;
-        if (inventory_pos < -3)
+            inventory_pos = -4;
+        if (inventory_pos < -4)
             inventory_pos = 4;
         // Other functions
         UpdateDisplayBones();
@@ -157,11 +168,31 @@ public class Inventory : MonoBehaviour
         Bone4 = GameObject.FindWithTag("Bone4Tag");
         Bone5 = GameObject.FindWithTag("Bone5Tag");
 
+        Box1 = GameObject.FindWithTag("HighlightBox1");
+        Box2 = GameObject.FindWithTag("HighlightBox2");
+        Box3 = GameObject.FindWithTag("HighlightBox3");
+        Box4 = GameObject.FindWithTag("HighlightBox4");
+        Box5 = GameObject.FindWithTag("HighlightBox5");
+        Box6 = GameObject.FindWithTag("HighlightBox6");
+        Box7 = GameObject.FindWithTag("HighlightBox7");
+        Box8 = GameObject.FindWithTag("HighlightBox8");
+        Box9 = GameObject.FindWithTag("HighlightBox9");
+
         Bone1.SetActive(false);
         Bone2.SetActive(false);
         Bone3.SetActive(false);
         Bone4.SetActive(false);
         Bone5.SetActive(false);
+
+        Box1.SetActive(false);
+        Box2.SetActive(false);
+        Box3.SetActive(false);
+        Box4.SetActive(false);
+        Box5.SetActive(false);
+        Box6.SetActive(false);
+        Box7.SetActive(false);
+        Box8.SetActive(false);
+        Box9.SetActive(false);
     }
     public void UpdateDisplayBones()
     {
@@ -200,41 +231,97 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateDisplayHeldObject()
     {
-        if (inventory_pos == -3)
+        if (inventory_pos == -4)
         {
+            Box1.SetActive(true);
+            Box2.SetActive(false);
+            Box3.SetActive(false);
+            Box4.SetActive(false);
+            Box5.SetActive(false);
+            Box6.SetActive(false);
+            Box7.SetActive(false);
+            Box8.SetActive(false);
+            Box9.SetActive(false);
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
+            Brush.SetActive(false);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
-            Brush.SetActive(true);
+        }
+        else if (inventory_pos == -3)
+        {
+            Box1.SetActive(false);
+            Box2.SetActive(true);
+            Box3.SetActive(false);
+            Box4.SetActive(false);
+            Box5.SetActive(false);
+            Box6.SetActive(false);
+            Box7.SetActive(false);
+            Box8.SetActive(false);
+            Box9.SetActive(false);
+            Pickaxe.SetActive(true);
+            Chisel.SetActive(false);
+            Brush.SetActive(false);
+            ChiselableBone.SetActive(false);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
+            CleanBone.SetActive(false);
         }
         else if (inventory_pos == -2)
         {
-            Pickaxe.SetActive(true);
-            Chisel.SetActive(false);
+            Box1.SetActive(false);
+            Box2.SetActive(false);
+            Box3.SetActive(true);
+            Box4.SetActive(false);
+            Box5.SetActive(false);
+            Box6.SetActive(false);
+            Box7.SetActive(false);
+            Box8.SetActive(false);
+            Box9.SetActive(false);
+            Pickaxe.SetActive(false);
+            Chisel.SetActive(true);
+            Brush.SetActive(false);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
-            Brush.SetActive(false);
         }
         else if (inventory_pos == -1)
         {
+            Box1.SetActive(false);
+            Box2.SetActive(false);
+            Box3.SetActive(false);
+            Box4.SetActive(true);
+            Box5.SetActive(false);
+            Box6.SetActive(false);
+            Box7.SetActive(false);
+            Box8.SetActive(false);
+            Box9.SetActive(false);
             Pickaxe.SetActive(false);
-            Chisel.SetActive(true);
+            Chisel.SetActive(false);
+            Brush.SetActive(true);
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
-            Brush.SetActive(false);
         }
         else if (inventory_pos == 0)
         {
+            Box1.SetActive(false);
+            Box2.SetActive(false);
+            Box3.SetActive(false);
+            Box4.SetActive(false);
+            Box5.SetActive(true);
+            Box6.SetActive(false);
+            Box7.SetActive(false);
+            Box8.SetActive(false);
+            Box9.SetActive(false);
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
             Brush.SetActive(false);
@@ -242,6 +329,16 @@ public class Inventory : MonoBehaviour
         }
         else if (inventory_pos == 1)
         {
+            
+            Box1.SetActive(false);
+            Box2.SetActive(false);
+            Box3.SetActive(false);
+            Box4.SetActive(false);
+            Box5.SetActive(false);
+            Box6.SetActive(true);
+            Box7.SetActive(false);
+            Box8.SetActive(false);
+            Box9.SetActive(false);
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
             Brush.SetActive(false);
@@ -249,6 +346,15 @@ public class Inventory : MonoBehaviour
         }
         else if (inventory_pos == 2)
         {
+            Box1.SetActive(false);
+            Box2.SetActive(false);
+            Box3.SetActive(false);
+            Box4.SetActive(false);
+            Box5.SetActive(false);
+            Box6.SetActive(false);
+            Box7.SetActive(true);
+            Box8.SetActive(false);
+            Box9.SetActive(false);
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
             Brush.SetActive(false);
@@ -256,6 +362,15 @@ public class Inventory : MonoBehaviour
         }
         else if (inventory_pos == 3)
         {
+            Box1.SetActive(false);
+            Box2.SetActive(false);
+            Box3.SetActive(false);
+            Box4.SetActive(false);
+            Box5.SetActive(false);
+            Box6.SetActive(false);
+            Box7.SetActive(false);
+            Box8.SetActive(true);
+            Box9.SetActive(false);
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
             Brush.SetActive(false);
@@ -263,6 +378,15 @@ public class Inventory : MonoBehaviour
         }
         else if (inventory_pos == 4)
         {
+            Box1.SetActive(false);
+            Box2.SetActive(false);
+            Box3.SetActive(false);
+            Box4.SetActive(false);
+            Box5.SetActive(false);
+            Box6.SetActive(false);
+            Box7.SetActive(false);
+            Box8.SetActive(false);
+            Box9.SetActive(true);
             Pickaxe.SetActive(false);
             Chisel.SetActive(false);
             Brush.SetActive(false);
@@ -277,26 +401,4 @@ public class Inventory : MonoBehaviour
     {
         scrolling_allowed = false;
     }
-
-    /* Doesn't really work yet
-    public void UpdateUIPositionIndicator()
-    {
-        if (inventory_pos == -3)
-            UIPositionIndicator.transform.position = new Vector3(99f * 1.49625f, 32f * 1.49625f, 0);
-        else if (inventory_pos == -2)
-            UIPositionIndicator.transform.position = new Vector3(183f * 1.49625f, 32f * 1.49625f, 0);
-        else if (inventory_pos == -1)
-            UIPositionIndicator.transform.position = new Vector3(267f * 1.49625f, 32f * 1.49625f, 0);
-        else if (inventory_pos == 0)
-            UIPositionIndicator.transform.position = new Vector3(361f * 1.49625f, 32f * 1.49625f, 0);
-        else if (inventory_pos == 1)
-            UIPositionIndicator.transform.position = new Vector3(445f * 1.49625f, 32f * 1.49625f, 0);
-        else if (inventory_pos == 2)
-            UIPositionIndicator.transform.position = new Vector3(529f * 1.49625f, 32f * 1.49625f, 0);
-        else if (inventory_pos == 3)
-            UIPositionIndicator.transform.position = new Vector3(613f * 1.49625f, 32f * 1.49625f, 0);
-        else if (inventory_pos == 4)
-            UIPositionIndicator.transform.position = new Vector3(697f * 1.49625f, 32f * 1.49625f, 0);
-    }
-    */
 }
