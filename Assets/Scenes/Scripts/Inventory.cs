@@ -207,6 +207,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
             Brush.SetActive(true);
         }
@@ -217,6 +218,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
             Brush.SetActive(false);
         }
@@ -227,6 +229,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone.SetActive(false);
             ChiselableBone1.SetActive(false);
             ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
             Brush.SetActive(false);
         }
