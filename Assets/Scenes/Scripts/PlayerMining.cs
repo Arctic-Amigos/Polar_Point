@@ -17,7 +17,7 @@ public class PlayerMining : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && inventory.inventory_pos == -2)
+        if(Input.GetMouseButtonDown(0) && inventory.inventory_pos == -3)
         {
             AudioManager.instance.Play("Pickaxe");
             pickaxeAnimator.SetBool("miningActive", true);

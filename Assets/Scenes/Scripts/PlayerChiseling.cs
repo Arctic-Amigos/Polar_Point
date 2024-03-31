@@ -53,7 +53,7 @@ public class PlayerChiseling : MonoBehaviour
             //Get the inventory slot of which bone was placed onto the workbench
             currentBoneOnWorkbench = inventory.inventory_pos;
             workBenchFull = true;
-            inventory.inventory_pos = -1;
+            inventory.inventory_pos = -2;
 
             //remove bone from inventory and disable players ability to scroll
             inventory.SetInventory(currentBoneOnWorkbench, null);
@@ -137,7 +137,7 @@ public class PlayerChiseling : MonoBehaviour
             bone.gameObject.SetActive(false);
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -1) //&& workbench.IsWorkbenchInteracting() add this back
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2) //&& workbench.IsWorkbenchInteracting() add this back
         {
             if(!isChiseling)
             {
