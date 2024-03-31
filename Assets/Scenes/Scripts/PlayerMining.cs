@@ -19,12 +19,12 @@ public class PlayerMining : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && inventory.inventory_pos == -2)
         {
-            //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
-            //animation will be added later
-            pickaxeAnimator.SetBool("miningActive", true);
             AudioManager.instance.Play("Pickaxe");
+            pickaxeAnimator.SetBool("miningActive", true);
             this.MineCurrent();
-            
+        }else
+        {
+            pickaxeAnimator.SetBool("miningActive", false);
         }
     }
     //Activated by sphere collider on player
