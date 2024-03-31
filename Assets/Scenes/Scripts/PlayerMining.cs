@@ -17,7 +17,7 @@ public class PlayerMining : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && inventory.inventory_pos == -2)
+        if(Input.GetMouseButtonDown(0) && inventory.inventory_pos == -3)
         {
             //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
             //animation will be added later

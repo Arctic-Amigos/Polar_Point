@@ -14,7 +14,7 @@ public class PlayerCleaning : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && inventory.inventory_pos == -3)
+        if (Input.GetMouseButton(0) && inventory.inventory_pos == -1)
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
