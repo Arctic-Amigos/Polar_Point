@@ -37,7 +37,7 @@ public class WorkbenchInteract : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
         pickaxe = GameObject.FindWithTag("PickaxeTag");
-        wbChisel = GameObject.FindWithTag("WBChisel");
+        //wbChisel = GameObject.FindWithTag("WBChisel");
     }
 
     // Update is called once per frame
