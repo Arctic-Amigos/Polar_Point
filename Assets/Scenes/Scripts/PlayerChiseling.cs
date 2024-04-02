@@ -126,6 +126,7 @@ public class PlayerChiseling : MonoBehaviour
             {
                 //completely chiseled
                 inventory.SetInventory(inventory.inventory_pos, "CleanBone");
+                inventory.SetScrollingAllowed();
             }
             else
             {
@@ -156,9 +157,30 @@ public class PlayerChiseling : MonoBehaviour
 
                     }
                 }*/
-                
-                AudioManager.instance.Play("Chisel");
-                StartCoroutine(Chiseling(bone));
+
+                isChiseling = true;
+                float startTime = Time.time;
+                float holdTime = 3.0f;
+
+
+
+                while (Input.GetMouseButtonDown(0) && Time.time - startTime < holdTime)
+                {
+                    yield return null;
+                }
+
+                if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
+                {
+                    boneChiselCount[currentBoneOnWorkbench]++;
+                }
+                else
+                {
+                    boneChiselCount[currentBoneOnWorkbench] = 1;
+                }
+                bone.IncrementChiselCount(currentBoneOnWorkbench);
+
+                isChiseling = false;
+                AudioManager.instance.Stop("Chisel");
                 
             }
         }
@@ -180,19 +202,14 @@ public class PlayerChiseling : MonoBehaviour
     IEnumerator Chiseling(ObjectChiselable _chiselableObject)
     {
     isChiseling = true;
-    //float startTime = 0f;
-    //float holdTime = 3.0f;
+    float startTime = Time.time;
+    float holdTime = 3.0f;
 
         
 
-    if (Input.GetMouseButtonDown(0))
+    while(Input.GetMouseButtonDown(0) && Time.time - startTime < holdTime)
     {
-        yield return null;
-        /*startTime = Time.time;
-        if(startTime + holdTime >= Time.time)
-        {
             yield return null;
-        }*/
     }
   
     if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
