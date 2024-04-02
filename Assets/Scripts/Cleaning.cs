@@ -46,4 +46,10 @@ public class Cleaning : MonoBehaviour
     {
         objectRenderer.material = cleaningStages[currentStage];
     }
+    public void StopCleaning()
+    {
+        StopAllCoroutines(); // Stops the CleaningProgress coroutine
+        isCleaning = false;
+        // Add any additional cleanup or reset logic here if needed
+    }
 }

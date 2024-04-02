@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCleaning : MonoBehaviour
 {
     Inventory inventory;
+    GameObject currentCleaningObject = null;
     //public Animator brushAnimator;
 
     void Start()
@@ -17,30 +18,57 @@ public class PlayerCleaning : MonoBehaviour
         inventory.SetScrollingAllowed();
         if (Input.GetMouseButton(0) && inventory.inventory_pos == -1)
         {
-            
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
             {
-                
-                // Check if the hit object is brushable
-                
-                if (hit.collider.CompareTag("Brushable"))
+                // Start cleaning if the hit object is brushable and not currently cleaning
+                if (hit.collider.CompareTag("Brushable") && currentCleaningObject == null)
                 {
-                    Clean(hit.collider.gameObject);
+                    currentCleaningObject = hit.collider.gameObject;
+                    Clean(currentCleaningObject);
                     FindObjectOfType<AudioManager>().Play("Brushing");
                 }
-                
+                else if (hit.collider.gameObject != currentCleaningObject)
+                {
+                    // If we hit a different object, stop cleaning the current one
+                    StopCleaning();
+                }
+            }
+            else
+            {
+                // If we didn't hit anything, stop cleaning
+                StopCleaning();
             }
         }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            // When releasing the button, stop cleaning
+            StopCleaning();
+        }
     }
+
     void Clean(GameObject objectToClean)
     {
-        // Assuming the object to clean has a component that manages cleaning stages
-        var cleanable = objectToClean.GetComponent<Cleaning>(); // Ensure you have a Cleanable component or similar
+        var cleanable = objectToClean.GetComponent<Cleaning>();
         if (cleanable != null)
         {
-            cleanable.StartCleaning(); // Call a method to start the cleaning process
-            
+            cleanable.StartCleaning(); // Start the cleaning process
+        }
+    }
+
+    void StopCleaning()
+    {
+        if (currentCleaningObject != null)
+        {
+            var cleanable = currentCleaningObject.GetComponent<Cleaning>();
+            if (cleanable != null)
+            {
+                cleanable.StopCleaning(); // You'll need to implement this
+            }
+            currentCleaningObject = null;
+            FindObjectOfType<AudioManager>().Stop("Brushing");
         }
     }
 }
+
+
