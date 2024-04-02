@@ -142,7 +142,7 @@ public class PlayerChiseling : MonoBehaviour
         {
             if(!isChiseling)
             {
-                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitinfo;
 
                 if (Physics.Raycast(ray, out hitinfo, Mathf.Infinity, ~layerMaskToIgnore))
@@ -152,18 +152,20 @@ public class PlayerChiseling : MonoBehaviour
                     if (chiselableObject != null)
                     {
                         //do stuff when player clicks chiselable object
-                        StartCoroutine(Chiseling(chiselableObject));
                         AudioManager.instance.Play("Chisel");
+                        StartCoroutine(Chiseling(chiselableObject));
+                        
 
                     }
-                }*/
+                }
                 
-                AudioManager.instance.Play("Chisel");
-                StartCoroutine(Chiseling(bone));
+                /*AudioManager.instance.Play("Chisel");
+                StartCoroutine(Chiseling(bone));*/
                 
             }
         }
     }
+
 
     IEnumerator ChiselAnim()
     {
