@@ -31,6 +31,7 @@ public class PlayerCleaning : MonoBehaviour
             }
         }
     }
+    
     void Clean(GameObject objectToClean)
     {
         // Assuming the object to clean has a component that manages cleaning stages
@@ -41,4 +42,5 @@ public class PlayerCleaning : MonoBehaviour
             
         }
     }
+    
 }
