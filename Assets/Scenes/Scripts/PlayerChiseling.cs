@@ -89,6 +89,7 @@ public class PlayerChiseling : MonoBehaviour
                 //Could set tag to brushable to start the brushing feature
                 Debug.Log("Bone is fully chiseled");
                 bone.gameObject.SetActive(false);
+                inventory.SetScrollingAllowed();
             }
             else
             {
