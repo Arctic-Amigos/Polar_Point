@@ -8,9 +8,11 @@ public class WorkbenchInteract : MonoBehaviour
 {
     private Camera newCamera;
     private GameObject cameraObject;
+    private GameObject bigCamera;
 
     Inventory inventory;
     GameObject pickaxe;
+    GameObject wbChisel;
 
     bool interacting = false;
 
@@ -35,6 +37,7 @@ public class WorkbenchInteract : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
         pickaxe = GameObject.FindWithTag("PickaxeTag");
+        wbChisel = GameObject.FindWithTag("WBChisel");
     }
 
     // Update is called once per frame
@@ -51,8 +54,14 @@ public class WorkbenchInteract : MonoBehaviour
 
                 cameraObject = new GameObject("NewCamera");
                 newCamera = cameraObject.AddComponent<Camera>();
+                newCamera.gameObject.AddComponent<AudioListener>();
+                newCamera.tag = "MainCamera";
                 newCamera.transform.position = Camera.main.transform.position;
                 newCamera.transform.rotation = Camera.main.transform.rotation;
+
+                bigCamera = GameObject.FindWithTag("MainCamera");
+                bigCamera.SetActive(false);
+
                 newCamera.enabled = true;
 
                 startPos = Camera.main.transform.position;
@@ -61,23 +70,19 @@ public class WorkbenchInteract : MonoBehaviour
                 WorkbenchFunctionality();
             }
         }
-        
+
         if (!isMoving && Input.GetKeyDown(KeyCode.Escape))
         {
+            bigCamera.SetActive(true);
             playerMovement.enabled = true;
             interacting = false;
             Destroy(cameraObject);
             rb.constraints = ~(RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ);
         }
-        /*
-        // Would be used to make the pickaxe follow the player cursor if it worked
-        if (interacting && inventory.inventory_pos == -2)
+        if (interacting)
         {
-            Vector3 cursorPosition = newCamera.ScreenToWorldPoint(Input.mousePosition);
-            cursorPosition.z = 0f;
-            pickaxe.transform.position = cursorPosition;
+
         }
-        */
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -92,7 +97,7 @@ public class WorkbenchInteract : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Workbench"))
+        if (other.CompareTag("Workbench"))
         {
             WorkbenchInteractable = false;
         }
