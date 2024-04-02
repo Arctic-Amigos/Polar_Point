@@ -617,7 +617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cleaningStages:
+  - {fileID: 2100000, guid: f81a980e220113d4f88a97aa8fe6397f, type: 2}
+  - {fileID: 2100000, guid: fd462cdb2ef7e7947b574fe608e8bf28, type: 2}
   - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
-  - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
-  - {fileID: 2100000, guid: 90996c1a0c0a20248a7db0c628dce0aa, type: 2}
   currentStage: 0
+  player: {fileID: 0}

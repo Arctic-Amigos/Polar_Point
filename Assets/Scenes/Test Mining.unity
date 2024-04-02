@@ -893,6 +893,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1123392252}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: cleaningStages.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f81a980e220113d4f88a97aa8fe6397f, type: 2}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.98
@@ -963,7 +967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003974738263726534, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4496618859083199249, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
