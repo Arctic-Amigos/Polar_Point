@@ -51293,7 +51293,8 @@ PrefabInstance:
       value: terrain_02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: dc440cd68cd90a74188a05066dd9fabb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc440cd68cd90a74188a05066dd9fabb, type: 3}
