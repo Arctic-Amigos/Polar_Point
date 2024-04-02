@@ -44,8 +44,8 @@ public class PlayerMining : MonoBehaviour
 
             //Trigger Text Dialogue
             //Set a 15 second timer. Start timer on first collision and only execute function if greater than 15 sec
-            TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
-            textDialogue.DisplayFoundMsg();
+            //TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
+            //textDialogue.DisplayFoundMsg();
         }
     }
     //Removes players ability to mine objects once they are too far away from mineable object
