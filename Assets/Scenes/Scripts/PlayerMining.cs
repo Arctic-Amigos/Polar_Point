@@ -24,7 +24,7 @@ public class PlayerMining : MonoBehaviour
         {
             //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
             //animation will be added later
-            AudioManager.instance.Play("Pickaxe");
+            FindObjectOfType<AudioManager>().Play("Pickaxe");
             this.MineCurrent();
             
         }
@@ -88,10 +88,12 @@ public class PlayerMining : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             pickaxeAnimator.SetBool("miningActive", true);
+
             yield return new WaitForSeconds(.3f);
         }else
         {
             pickaxeAnimator.SetBool("miningActive", false);
+            
         }
     }
     public void ReceiveResource()

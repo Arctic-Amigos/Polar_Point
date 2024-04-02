@@ -18,10 +18,12 @@ public class MenuButtons : MonoBehaviour
 
     public void StartBtn()
     {
+        FindObjectOfType<AudioManager>().Play("Button");
         SceneManager.LoadScene(newSceneName);
     }
     public void QuitBtn()
     {
+        FindObjectOfType<AudioManager>().Play("Button");
         Application.Quit();
     }
 
