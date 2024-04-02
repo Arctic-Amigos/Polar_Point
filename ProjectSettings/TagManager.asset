@@ -22,6 +22,17 @@ TagManager:
   - HeldChiselTag
   - Brushable
   - BrushTag
+  - Fire
+  - HeldCB3Tag
+  - HighlightBox1
+  - HighlightBox2
+  - HighlightBox3
+  - HighlightBox4
+  - HighlightBox5
+  - HighlightBox6
+  - HighlightBox7
+  - HighlightBox8
+  - HighlightBox9
   layers:
   - Default
   - TransparentFX

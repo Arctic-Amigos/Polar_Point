@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,14 +15,15 @@ public class PlayerMining : MonoBehaviour
     void Start()
     {
         inventory = GetComponent<Inventory>();
+        
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && inventory.inventory_pos == -2)
+        StartCoroutine(MiningAnim());
+        if (Input.GetMouseButton(0) && inventory.inventory_pos == -3)
         {
             //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
             //animation will be added later
-            pickaxeAnimator.SetBool("miningActive", true);
             AudioManager.instance.Play("Pickaxe");
             this.MineCurrent();
             
@@ -78,6 +80,18 @@ public class PlayerMining : MonoBehaviour
             currentMine.MineResource();
             AudioManager.instance.Stop("Pickaxe");
             ExitMine(); //Removes players ability to mine the same object after it has been destroyed
+        }
+    }
+
+    public IEnumerator MiningAnim()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            pickaxeAnimator.SetBool("miningActive", true);
+            yield return new WaitForSeconds(.3f);
+        }else
+        {
+            pickaxeAnimator.SetBool("miningActive", false);
         }
     }
     public void ReceiveResource()

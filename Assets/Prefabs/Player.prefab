@@ -715,6 +715,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: -5532220028164236941}
+    - target: {fileID: 1398716252290830024, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1605779521045270032, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -725,11 +729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_TagString
-      value: HeldCB1Tag
+      value: HeldCB3Tag
       objectReference: {fileID: 0}
     - target: {fileID: 1749331593741360755, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
@@ -791,7 +795,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4496618859083199249, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4678374850500818896, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558299045367144125, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -800,6 +812,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8459241823631223760, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461892721444522166, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

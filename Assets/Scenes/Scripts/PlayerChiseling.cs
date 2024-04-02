@@ -41,19 +41,19 @@ public class PlayerChiseling : MonoBehaviour
         boneChiselCount.Add(2, 0);
         boneChiselCount.Add(3, 0);
         boneChiselCount.Add(4, 0);
-        chiselAnimator.SetBool("chiselingActive", false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(ChiselAnim());
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
-        if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false && workbench.IsWorkbenchInteracting())
+        if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false) //&& workbench.IsWorkbenchInteracting() add this back
         {
             //Get the inventory slot of which bone was placed onto the workbench
             currentBoneOnWorkbench = inventory.inventory_pos;
             workBenchFull = true;
-            inventory.inventory_pos = -1;
+            inventory.inventory_pos = -2;
 
             //remove bone from inventory and disable players ability to scroll
             inventory.SetInventory(currentBoneOnWorkbench, null);
@@ -99,7 +99,7 @@ public class PlayerChiseling : MonoBehaviour
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
-        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true && workbench.IsWorkbenchInteracting())
+        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true) //&& workbench.IsWorkbenchInteracting() add this back
         {
             chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
             inventory.inventory_pos = currentBoneOnWorkbench;
@@ -137,11 +137,11 @@ public class PlayerChiseling : MonoBehaviour
             bone.gameObject.SetActive(false);
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -1 && workbench.IsWorkbenchInteracting())
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2) //&& workbench.IsWorkbenchInteracting() add this back
         {
             if(!isChiseling)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitinfo;
 
                 if (Physics.Raycast(ray, out hitinfo, Mathf.Infinity, ~layerMaskToIgnore))
@@ -155,46 +155,57 @@ public class PlayerChiseling : MonoBehaviour
                         AudioManager.instance.Play("Chisel");
 
                     }
-                }
-                /*
-                chiselAnimator.SetBool("chiselingActive", true);
+                }*/
+                
+                AudioManager.instance.Play("Chisel");
                 StartCoroutine(Chiseling(bone));
-                */
+                
             }
         }
     }
 
-
-        IEnumerator Chiseling(ObjectChiselable _chiselableObject)
+    IEnumerator ChiselAnim()
+    {
+        if (Input.GetMouseButton(0))
         {
-        isChiseling = true;
-        float startTime = 0f;
-        float holdTime = 3.0f;
-
-        chiselAnimator.SetBool("chiselingActive", true);
-        
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            startTime = Time.time;
-            if(startTime + holdTime >= Time.time)
-            {
-                yield return null;
-            }
-        }
-  
-        if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
-        {
-            boneChiselCount[currentBoneOnWorkbench]++;
+            chiselAnimator.SetBool("chiselingActive", true);
+            yield return new WaitForSeconds(.3f);
         }
         else
         {
-            boneChiselCount[currentBoneOnWorkbench] = 1;
+            chiselAnimator.SetBool("chiselingActive", false);
         }
-        _chiselableObject.IncrementChiselCount(currentBoneOnWorkbench);
+    }
+
+    IEnumerator Chiseling(ObjectChiselable _chiselableObject)
+    {
+    isChiseling = true;
+    //float startTime = 0f;
+    //float holdTime = 3.0f;
+
         
-        isChiseling = false;
-        chiselAnimator.SetBool("chiselingActive", false);
-        AudioManager.instance.Stop("Chisel");
+
+    if (Input.GetMouseButtonDown(0))
+    {
+        yield return null;
+        /*startTime = Time.time;
+        if(startTime + holdTime >= Time.time)
+        {
+            yield return null;
+        }*/
+    }
+  
+    if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
+    {
+        boneChiselCount[currentBoneOnWorkbench]++;
+    }
+    else
+    {
+        boneChiselCount[currentBoneOnWorkbench] = 1;
+    }
+    _chiselableObject.IncrementChiselCount(currentBoneOnWorkbench);
+        
+    isChiseling = false;
+    AudioManager.instance.Stop("Chisel");
     }
 }
