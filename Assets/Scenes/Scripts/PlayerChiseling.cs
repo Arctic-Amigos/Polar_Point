@@ -180,19 +180,18 @@ public class PlayerChiseling : MonoBehaviour
     IEnumerator Chiseling(ObjectChiselable _chiselableObject)
     {
     isChiseling = true;
-    //float startTime = 0f;
-    //float holdTime = 3.0f;
+    float startTime = 0f;
+    float holdTime = 3.0f;
 
         
 
-    if (Input.GetMouseButtonDown(0))
+    while(Input.GetMouseButton(0))
     {
-        yield return null;
-        /*startTime = Time.time;
+        startTime = Time.time;
         if(startTime + holdTime >= Time.time)
         {
             yield return null;
-        }*/
+        }
     }
   
     if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
