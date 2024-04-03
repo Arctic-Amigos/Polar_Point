@@ -78,7 +78,9 @@ public class PlayerMining : MonoBehaviour
         if(currentMine)
         {
             currentMine.MineResource();
-            AudioManager.instance.Stop("Pickaxe");
+            FindObjectOfType<AudioManager>().Stop("Pickaxe");
+ 
+            FindObjectOfType<AudioManager>().Play("PickUpItem");
             ExitMine(); //Removes players ability to mine the same object after it has been destroyed
         }
     }
