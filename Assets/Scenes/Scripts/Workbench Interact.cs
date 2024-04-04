@@ -37,7 +37,7 @@ public class WorkbenchInteract : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
         pickaxe = GameObject.FindWithTag("PickaxeTag");
-        //wbChisel = GameObject.FindWithTag("WBChisel");
+        wbChisel = GameObject.FindWithTag("WBChisel");
     }
 
     // Update is called once per frame
@@ -81,7 +81,18 @@ public class WorkbenchInteract : MonoBehaviour
         }
         if (interacting)
         {
+            Vector3 mousePos = Input.mousePosition;
 
+            // Convert the screen coordinates to world coordinates
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            // Keep the y position of the object unchanged
+            mousePos.y = wbChisel.transform.position.y;
+
+            // Update the position of the GameObject to match the mouse position
+            wbChisel.transform.position = mousePos;
+            Debug.Log("Mouse: " + mousePos.x + ", "  + mousePos.y + ", " + mousePos.z);
+            Debug.Log("Chisel: " + wbChisel.transform.position.x + ", " + wbChisel.transform.position.y + ", " + wbChisel.transform.position.z);
         }
     }
     private void OnTriggerEnter(Collider other)
