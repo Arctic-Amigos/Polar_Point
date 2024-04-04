@@ -63,7 +63,7 @@ public class PlayerCleaning : MonoBehaviour
             var cleanable = currentCleaningObject.GetComponent<Cleaning>();
             if (cleanable != null)
             {
-                cleanable.StopCleaning(); // You'll need to implement this
+                cleanable.StopCleaning();
             }
             currentCleaningObject = null;
             FindObjectOfType<AudioManager>().Stop("Brushing");
