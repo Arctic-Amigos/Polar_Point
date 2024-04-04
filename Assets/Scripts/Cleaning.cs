@@ -28,7 +28,7 @@ public class Cleaning : MonoBehaviour
     IEnumerator CleaningProgress()
     {
         isCleaning = true;
-        yield return new WaitForSeconds(1.0f); // Simulate cleaning effort
+        yield return new WaitForSeconds(0.3f); // Simulate cleaning effort
         if (currentStage < cleaningStages.Length - 1)
         {
             currentStage++;
