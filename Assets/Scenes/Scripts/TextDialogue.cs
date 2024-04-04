@@ -55,6 +55,10 @@ public class TextDialogue : MonoBehaviour
             posToRead += 1;
         }
     }
+    public void DisplayBoneType(string type)
+    {
+        
+    }
     //Make other function for other cases where we turn on the dialog
     private void TurnOff()
     {

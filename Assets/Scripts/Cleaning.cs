@@ -38,6 +38,10 @@ public class Cleaning : MonoBehaviour
         {
             this.tag = "Untagged";
             AudioManager.instance.Stop("Brushing");
+
+            //Trigger Text Dialogue
+            TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
+            textDialogue.DisplayBoneType(this.tag);
         }
         isCleaning = false;
     }
