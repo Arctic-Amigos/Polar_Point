@@ -152,16 +152,10 @@ public class PlayerChiseling : MonoBehaviour
                     if (chiselableObject != null)
                     {
                         //do stuff when player clicks chiselable object
-                        AudioManager.instance.Play("Chisel");
                         StartCoroutine(Chiseling(chiselableObject));
-                        
 
                     }
-                }
-                
-                /*AudioManager.instance.Play("Chisel");
-                StartCoroutine(Chiseling(bone));*/
-                
+                }  
             }
         }
     }
@@ -182,33 +176,33 @@ public class PlayerChiseling : MonoBehaviour
 
     IEnumerator Chiseling(ObjectChiselable _chiselableObject)
     {
-    isChiseling = true;
-    //float startTime = 0f;
-    //float holdTime = 3.0f;
+        AudioManager.instance.Play("Chisel");
+        isChiseling = true;
 
-        
+        float startTime = Time.time;
+        float elapsedTime = 0.0f;
 
-    if (Input.GetMouseButtonDown(0))
-    {
-        yield return null;
-        /*startTime = Time.time;
-        if(startTime + holdTime >= Time.time)
+        while (elapsedTime < 3.0f && Input.GetMouseButton(0))
         {
+            Debug.Log(elapsedTime);
+            elapsedTime = Time.time - startTime;
             yield return null;
-        }*/
-    }
-  
-    if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
-    {
-        boneChiselCount[currentBoneOnWorkbench]++;
-    }
-    else
-    {
-        boneChiselCount[currentBoneOnWorkbench] = 1;
-    }
-    _chiselableObject.IncrementChiselCount(currentBoneOnWorkbench);
-        
-    isChiseling = false;
-    AudioManager.instance.Stop("Chisel");
+        }
+
+        if (elapsedTime >= 3.0f)
+        {
+
+            if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
+            {
+                boneChiselCount[currentBoneOnWorkbench]++;
+            }
+            else
+            {
+                boneChiselCount[currentBoneOnWorkbench] = 1;
+            }
+            _chiselableObject.IncrementChiselCount(currentBoneOnWorkbench);
+        }
+        isChiseling = false;
+        AudioManager.instance.Stop("Chisel");
     }
 }
