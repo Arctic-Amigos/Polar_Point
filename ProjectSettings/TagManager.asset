@@ -33,6 +33,7 @@ TagManager:
   - HighlightBox7
   - HighlightBox8
   - HighlightBox9
+  - WBChisel
   layers:
   - Default
   - TransparentFX
