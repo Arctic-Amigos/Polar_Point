@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 7565562853800961888}
   - component: {fileID: 4152379370102913744}
   - component: {fileID: 868747403904589219}
-  - component: {fileID: 4014382705617482627}
   m_Layer: 0
   m_Name: bone_5
-  m_TagString: ObjectMineable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.277478, y: 0.023534384, z: 0}
-  m_LocalScale: {x: 22.91287, y: 22.91287, z: 22.912872}
+  m_LocalScale: {x: 22.912872, y: 22.912872, z: 22.912872}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,28 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e869f9e58c66c44a167503523d4480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cleaningStages:
-  - {fileID: 2100000, guid: 95cc1cd1164642d40ba826551fa6c852, type: 2}
+  cleaningStages: []
   currentStage: 0
   player: {fileID: 0}
---- !u!65 &4014382705617482627
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827231240252908301}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.06422115, y: 0.11746876, z: 0.052483164}
-  m_Center: {x: 0.01595465, y: 0.055045318, z: -0.0003048859}
