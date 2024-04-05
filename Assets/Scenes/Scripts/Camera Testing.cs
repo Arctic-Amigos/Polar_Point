@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class CameraTesting : MonoBehaviour
 {
+    GameObject wbChisel;
+    Vector3 startPosition;
     // Start is called before the first frame update
     void Start()
     {
-   
+        wbChisel = GameObject.FindWithTag("WBChisel");
+        startPosition = wbChisel.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePosScreen = Input.mousePosition;
-
-        // Convert the mouse position from screen space to world space
-        Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(mousePosScreen);
-
-        // Ensure the z position is appropriate for your setup
-        mousePosWorld.y = 0f;
-
-        // Update the position of the GameObject
-        transform.position = mousePosWorld;
-        Debug.Log("Mouse: " + mousePosWorld.x + ", " + mousePosWorld.y + ", " + mousePosWorld.z);
-        Debug.Log("Chisel: " + transform.position.x + ", " + transform.position.y + ", " + transform.position.z);
+        Vector3 currentPosition = wbChisel.transform.position;
+        currentPosition.x += Input.GetAxis("Mouse X") * 0.01f;
+        currentPosition.z += Input.GetAxis("Mouse Y") * 0.01f;
+        currentPosition.x = Mathf.Clamp(currentPosition.x, startPosition.x - 1, startPosition.x + 1);
+        currentPosition.z = Mathf.Clamp(currentPosition.z, startPosition.z - 1, startPosition.z + 1);
+        wbChisel.transform.position = currentPosition;
     }
+
 }
