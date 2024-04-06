@@ -33,6 +33,9 @@ TagManager:
   - HighlightBox7
   - HighlightBox8
   - HighlightBox9
+  - CleanBone1
+  - CleanBone2
+  - CleanBone3
   layers:
   - Default
   - TransparentFX
