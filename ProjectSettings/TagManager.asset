@@ -34,6 +34,21 @@ TagManager:
   - HighlightBox8
   - HighlightBox9
   - CleanBone1
+  - WBChisel
+  - CleanBone2
+  - CleanBone3
+  - CleanBone4
+  - CleanBone5
+  - CleanBone6
+  - CleanBone7
+  - CleanBone8
+  - CleanBone9
+  - CleanBone10
+  - CleanBone11
+  - CleanBone12
+  - CleanBone13
+  - CleanBone14
+  - CleanBone15
   layers:
   - Default
   - TransparentFX

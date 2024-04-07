@@ -43,17 +43,20 @@ public class Cleaning : MonoBehaviour
         }
         if (currentStage == cleaningStages.Length - 1 && availableTags.Count > 0)
         {
+            
             int randomNumber = Random.Range(0, availableTags.Count); // Random.Range is inclusive for min, exclusive for max
-            this.tag = "CleanBone" + availableTags[randomNumber];
+            this.tag = availableTags[randomNumber];
            
             // Remove the selected tag from the list to ensure it's not used again
             availableTags.RemoveAt(randomNumber);
+            
 
             AudioManager.instance.Stop("Brushing");
-
+            
             //Trigger Text Dialogue
             TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
             textDialogue.DisplayBoneType(this.tag);
+            
         }
         isCleaning = false;
     }
