@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,7 +45,7 @@ public class Cleaning : MonoBehaviour
         if (currentStage == cleaningStages.Length - 1 && availableTags.Count > 0)
         {
             
-            int randomNumber = Random.Range(0, availableTags.Count); // Random.Range is inclusive for min, exclusive for max
+            int randomNumber =  UnityEngine.Random.Range(0, availableTags.Count); // Random.Range is inclusive for min, exclusive for max
             this.tag = availableTags[randomNumber];
            
             // Remove the selected tag from the list to ensure it's not used again
@@ -52,10 +53,11 @@ public class Cleaning : MonoBehaviour
             
 
             AudioManager.instance.Stop("Brushing");
-            
+
             //Trigger Text Dialogue
             TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
-            textDialogue.DisplayBoneType(this.tag);
+            string daTag = this.tag;
+            textDialogue.DisplayBoneType(daTag);
             
         }
         isCleaning = false;
