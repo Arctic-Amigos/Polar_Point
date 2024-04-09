@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Podium : MonoBehaviour
+public class PlayerPodiumInteract : MonoBehaviour
 {
     public GameObject Carnotaurus;
+    GameObject Pedestal;
     Transform LeftLeg;
     Transform RightLeg;
     Transform Body;
@@ -27,9 +28,19 @@ public class Podium : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("CarnotaurusPedestal"))
         {
-            LeftLeg.gameObject.SetActive(true);
+
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
     }
 }

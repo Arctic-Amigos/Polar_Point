@@ -12,7 +12,10 @@ public class WorkbenchInteract : MonoBehaviour
 
     Inventory inventory;
     GameObject pickaxe;
+
+    GameObject workbench;
     GameObject wbChisel;
+    Vector3 chiselStartPosition;
 
     bool interacting = false;
 
@@ -30,6 +33,7 @@ public class WorkbenchInteract : MonoBehaviour
     public Quaternion startRot;
     public Quaternion endRot;
     public float moveDuration = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,9 @@ public class WorkbenchInteract : MonoBehaviour
         inventory = GetComponent<Inventory>();
         pickaxe = GameObject.FindWithTag("PickaxeTag");
         wbChisel = GameObject.FindWithTag("WBChisel");
+        workbench = GameObject.FindWithTag("Workbench");
+        chiselStartPosition = workbench.transform.position + new Vector3(1.4f, 3f, 0.7f);
+        wbChisel.transform.position = chiselStartPosition;
     }
 
     // Update is called once per frame
