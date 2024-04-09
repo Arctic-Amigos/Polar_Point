@@ -49,6 +49,7 @@ TagManager:
   - CleanBone13
   - CleanBone14
   - CleanBone15
+  - Crosshair
   layers:
   - Default
   - TransparentFX

@@ -48,7 +48,7 @@ public class PlayerChiseling : MonoBehaviour
     {
         StartCoroutine(ChiselAnim());
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
-        if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false) //&& workbench.IsWorkbenchInteracting() add this back
+        if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false && workbench.IsWorkbenchInteracting()) 
         {
             //Get the inventory slot of which bone was placed onto the workbench
             currentBoneOnWorkbench = inventory.inventory_pos;
@@ -100,7 +100,7 @@ public class PlayerChiseling : MonoBehaviour
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
-        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true) //&& workbench.IsWorkbenchInteracting() add this back
+        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true && workbench.IsWorkbenchInteracting()) 
         {
             chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
             inventory.inventory_pos = currentBoneOnWorkbench;
@@ -138,7 +138,7 @@ public class PlayerChiseling : MonoBehaviour
             bone.gameObject.SetActive(false);
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2) //&& workbench.IsWorkbenchInteracting() add this back
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2 && workbench.IsWorkbenchInteracting()) 
         {
             if(!isChiseling)
             {

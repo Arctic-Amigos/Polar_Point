@@ -17,6 +17,7 @@ public class WorkbenchInteract : MonoBehaviour
     bool interacting = false;
 
     GameObject player;
+    GameObject crosshair;
     PlayerMovement playerMovement;
     Rigidbody rb;
 
@@ -33,6 +34,7 @@ public class WorkbenchInteract : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        crosshair = GameObject.FindWithTag("Crosshair");
         playerMovement = player.GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
@@ -48,6 +50,8 @@ public class WorkbenchInteract : MonoBehaviour
             if (!isMoving && Input.GetKeyDown(KeyCode.E))
             {
                 rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                AudioManager.instance.Stop("Walk"); // Might be problematic later?
 
                 playerMovement.enabled = false;
                 interacting = true;
@@ -67,20 +71,20 @@ public class WorkbenchInteract : MonoBehaviour
                 startPos = Camera.main.transform.position;
                 startRot = Camera.main.transform.rotation;
 
+                crosshair.SetActive(false);
+
                 WorkbenchFunctionality();
             }
         }
 
-        if (!isMoving && Input.GetKeyDown(KeyCode.Escape))
+        if (!isMoving && Input.GetKeyDown(KeyCode.E) && interacting)
         {
-            bigCamera.SetActive(true);
-            playerMovement.enabled = true;
-            interacting = false;
-            Destroy(cameraObject);
-            rb.constraints = ~(RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ);
+            EndWorkbenchFunctionality();
+            
         }
         if (interacting)
         {
+            /*
             Vector3 mousePos = Input.mousePosition;
 
             // Convert the screen coordinates to world coordinates
@@ -93,6 +97,7 @@ public class WorkbenchInteract : MonoBehaviour
             wbChisel.transform.position = mousePos;
             Debug.Log("Mouse: " + mousePos.x + ", "  + mousePos.y + ", " + mousePos.z);
             Debug.Log("Chisel: " + wbChisel.transform.position.x + ", " + wbChisel.transform.position.y + ", " + wbChisel.transform.position.z);
+            */
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -100,9 +105,9 @@ public class WorkbenchInteract : MonoBehaviour
         if (other.CompareTag("Workbench"))
         {
             WorkbenchInteractable = true;
-            endPos = other.transform.position + new Vector3(0, 2, 0);
+            endPos = other.transform.position + new Vector3(1.4f, 3.4f, 0.7f);
             Quaternion endRotTemp = other.transform.rotation;
-            Quaternion rotation = Quaternion.Euler(90, 0, 0); // Currently gives a top-down view
+            Quaternion rotation = Quaternion.Euler(90, 180, 0); // Currently gives a top-down view
             endRot = endRotTemp * rotation;
         }
     }
@@ -119,6 +124,12 @@ public class WorkbenchInteract : MonoBehaviour
         StartCoroutine(MoveCamera());
     }
 
+    private void EndWorkbenchFunctionality()
+    {
+        StartCoroutine(EndMoveCamera());
+    }
+
+
     IEnumerator MoveCamera()
     {
         isMoving = true;
@@ -132,6 +143,30 @@ public class WorkbenchInteract : MonoBehaviour
             yield return null;
         }
         isMoving = false;
+    }
+
+    IEnumerator EndMoveCamera()
+    {
+        isMoving = true;
+        elapsedTime = 0f;
+        AudioListener audioListener = newCamera.gameObject.GetComponent<AudioListener>();
+        Destroy(audioListener);
+        while (elapsedTime < moveDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / moveDuration);
+            newCamera.transform.position = Vector3.Lerp(endPos, startPos, t);
+            newCamera.transform.rotation = Quaternion.Slerp(endRot, startRot, t);
+            yield return null;
+        }
+        isMoving = false;
+        Destroy(cameraObject);
+        bigCamera.SetActive(true);
+        playerMovement.enabled = true;
+        interacting = false;
+        rb.constraints = ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ);
+        rb.constraints = ~(RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ);
+        crosshair.SetActive(true);
     }
 
     public bool IsWorkbenchInteracting()

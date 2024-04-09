@@ -8,33 +8,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5701355467113645686}
     m_Modifications:
-    - target: {fileID: 921248054555839618, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1398716252290830024, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1707838191802817367, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Name
       value: ChiselableBone
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: cleaningStages.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f81a980e220113d4f88a97aa8fe6397f, type: 2}
-    - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 73.248024
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 73.24802
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 73.248024
       objectReference: {fileID: 0}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76,60 +52,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3332436081654323676, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1509762
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332436081654323676, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1509762
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332436081654323676, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1509762
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332436081654323676, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.56405
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332436081654323676, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.4413
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332436081654323676, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.7018
-      objectReference: {fileID: 0}
-    - target: {fileID: 3716688311187649658, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Name
-      value: dirtlayer2
-      objectReference: {fileID: 0}
     - target: {fileID: 4003974738263726534, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496618859083199249, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185737081965217599, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Name
-      value: dirtlayer4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558299045367144125, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7641840314802835544, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Name
-      value: dirtlayer3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459241823631223760, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461892721444522166, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
-      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -212,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de4d0ba3271445d4db46bd206eacc302, type: 3}
       propertyPath: m_Name
-      value: WorkBench
+      value: WorkBenchReal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de4d0ba3271445d4db46bd206eacc302, type: 3}
       propertyPath: m_TagString
