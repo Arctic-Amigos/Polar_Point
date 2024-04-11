@@ -17,22 +17,43 @@ public class TextDialogue : MonoBehaviour
 
     
     //Text Vectors
-    List<List<string>> msgVec = new List<List<string>> { 
+    private List<List<string>> msgVec = new List<List<string>> { 
         new List<string> { "\nWait... What is that??", "\nIt looks like you found a fossil!" },
         new List<string> {"You found a Untagged bone!", "\nThis is some info about the untagged bone"},
         new List<string> {"You found a dino2 bone!", "\nThis is some info about the dino2 bone"},
         new List<string> {"You found a dino3 bone!", "\nThis is some info about the dino3 bone"}
     };
 
-    string dino1 = "Untagged";
-    string dino2 = "dino2";
-    string dino3 = "dino3";
+    //ADJUST DATA STRUCTURE TO ACCOUNT FOR BOTH OF THESE INSTANCES.
+    //FOR BRUSHING:
+        //Just have a string for "you found a " + type + "bone!"
+        
+    //FOR PODIUM:
+        //This is where you have your fact
+
+
+    //FINISHING BRUSHING
+    //change the tag or just a name to me for just the type of dinosaur
+    //3 dinosaurs
+    //use that for determining name to say after brushing
+
+
+
+
+
+    //PLACING ON PODIUM
+    //passes in dinosaur name 
+    //and dinosaur body part
+    private string dino1 = "Tric";
+    private string dino2 = "dino2";
+    private string dino3 = "dino3";
 
 
     //3
-    //T-rex
-    //Dinosaur 2
-    //Dinosaur 3
+    //Triceratops
+    //Carnotaurus
+    //Diplosaurus
+
 
     void Start()
     {
@@ -60,6 +81,7 @@ public class TextDialogue : MonoBehaviour
     {
         if (!isOn)
         {
+            //Debug.Log("entered Found Message");
             dialogueCanvas.SetActive(true);
             msgNumber = 0;
             posToRead = 0;
@@ -70,25 +92,32 @@ public class TextDialogue : MonoBehaviour
     }
     public void DisplayBoneType(string type)
     {
-        if(!isOn)
-        {
-            dialogueCanvas.SetActive(true);
-            if(type == dino1)
-            {
-                msgNumber = 1;
-            }
-            else if(type == dino2)
-            {
-                msgNumber = 2;
-            }
-            else if (type == dino3)
-            {
-                msgNumber = 3;
-            }
-            posToRead = 0;
-            dialogueText.text = msgVec[msgNumber][posToRead];
-            posToRead += 1;
-        }
+
+        //Debug.Log("The tag: " + type);
+        //if(!isOn)
+        //{
+        //    dialogueCanvas.SetActive(true);
+        //    if(type == dino1)
+        //    {
+        //        msgNumber = 1;
+        //    }
+        //    else if(type == dino2)
+        //    {
+        //        msgNumber = 2;
+        //    }
+        //    else if (type == dino3)
+        //    {
+        //        msgNumber = 3;
+        //    }
+        //    posToRead = 0;
+        //    dialogueText.text = msgVec[msgNumber][posToRead];
+        //    posToRead += 1;
+        //}
+
+
+        dialogueCanvas.SetActive(true);
+        dialogueText.text = "You found a " + type + " bone!";
+
     }
     //Make other function for other cases where we turn on the dialog
     private void TurnOff()
