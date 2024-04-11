@@ -6,7 +6,7 @@ public class PlayerCleaning : MonoBehaviour
 {
     Inventory inventory;
     GameObject currentCleaningObject = null;
-    //public Animator brushAnimator;
+  
 
     void Start()
     {
@@ -15,6 +15,7 @@ public class PlayerCleaning : MonoBehaviour
 
     void Update()
     {
+        
         inventory.SetScrollingAllowed();
         if (Input.GetMouseButton(0) && inventory.inventory_pos == -1)
         {
@@ -69,6 +70,7 @@ public class PlayerCleaning : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("Brushing");
         }
     }
+    
 }
 
 
