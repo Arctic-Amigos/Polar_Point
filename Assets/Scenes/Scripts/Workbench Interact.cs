@@ -15,7 +15,8 @@ public class WorkbenchInteract : MonoBehaviour
 
     GameObject workbench;
     GameObject wbChisel;
-    Vector3 chiselStartPosition;
+    Vector3 toolStartPosition;
+    Vector3 toolCurrentPosition;
 
     bool interacting = false;
 
@@ -45,8 +46,8 @@ public class WorkbenchInteract : MonoBehaviour
         pickaxe = GameObject.FindWithTag("PickaxeTag");
         wbChisel = GameObject.FindWithTag("WBChisel");
         workbench = GameObject.FindWithTag("Workbench");
-        chiselStartPosition = workbench.transform.position + new Vector3(1.4f, 3f, 0.7f);
-        wbChisel.transform.position = chiselStartPosition;
+        toolStartPosition = workbench.transform.position + new Vector3(1.4f, 2.3f, 0.7f);
+        wbChisel.transform.position = toolStartPosition;
     }
 
     // Update is called once per frame
@@ -91,20 +92,12 @@ public class WorkbenchInteract : MonoBehaviour
         }
         if (interacting)
         {
-            /*
-            Vector3 mousePos = Input.mousePosition;
-
-            // Convert the screen coordinates to world coordinates
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            // Keep the y position of the object unchanged
-            mousePos.y = wbChisel.transform.position.y;
-
-            // Update the position of the GameObject to match the mouse position
-            wbChisel.transform.position = mousePos;
-            Debug.Log("Mouse: " + mousePos.x + ", "  + mousePos.y + ", " + mousePos.z);
-            Debug.Log("Chisel: " + wbChisel.transform.position.x + ", " + wbChisel.transform.position.y + ", " + wbChisel.transform.position.z);
-            */
+            toolCurrentPosition = wbChisel.transform.position;
+            toolCurrentPosition.x -= Input.GetAxis("Mouse X") * 0.01f;
+            toolCurrentPosition.z -= Input.GetAxis("Mouse Y") * 0.01f;
+            toolCurrentPosition.x = Mathf.Clamp(toolCurrentPosition.x, toolStartPosition.x - 1.05f, toolStartPosition.x + 1.05f);
+            toolCurrentPosition.z = Mathf.Clamp(toolCurrentPosition.z, toolStartPosition.z - 0.75f, toolStartPosition.z + 0.75f);
+            wbChisel.transform.position = toolCurrentPosition;
         }
     }
     private void OnTriggerEnter(Collider other)
