@@ -11,18 +11,19 @@ public class TextDialogue : MonoBehaviour
     public TextMeshProUGUI dialogueText;
 
     private bool isOn = false;
-    private int msgNumber = 0;
+    //private int msgNumber = 0;
     private int posToRead = 0;
 
+    string type = "";
+    string dinosaur = "";
+    string bodyPart = "";
+    Dictionary<string, List<string>> spinosaurusFacts = new Dictionary<string, List<string>>();
+    Dictionary<string, List<string>> carnotaurusFacts = new Dictionary<string, List<string>>();
+    Dictionary<string, List<string>> diplosaurusFacts = new Dictionary<string, List<string>>();
+  
 
-    
-    //Text Vectors
-    private List<List<string>> msgVec = new List<List<string>> { 
-        new List<string> { "\nWait... What is that??", "\nIt looks like you found a fossil!" },
-        new List<string> {"You found a Untagged bone!", "\nThis is some info about the untagged bone"},
-        new List<string> {"You found a dino2 bone!", "\nThis is some info about the dino2 bone"},
-        new List<string> {"You found a dino3 bone!", "\nThis is some info about the dino3 bone"}
-    };
+    //map inside map then an array for each thingk
+    //key for dinosaur, (inside do a key for body part) as value of that do an array of all the strings
 
     //ADJUST DATA STRUCTURE TO ACCOUNT FOR BOTH OF THESE INSTANCES.
     //FOR BRUSHING:
@@ -39,89 +40,137 @@ public class TextDialogue : MonoBehaviour
 
 
 
-
-
-    //PLACING ON PODIUM
-    //passes in dinosaur name 
-    //and dinosaur body part
-    private string dino1 = "Tric";
-    private string dino2 = "dino2";
-    private string dino3 = "dino3";
-
-
     //3
-    //Triceratops
+    //Spinosaurus
     //Carnotaurus
     //Diplosaurus
 
 
+    /* Populate Map */
     void Start()
     {
-      
+        //Spinosaurus
+        spinosaurusFacts["LeftLeg"] = new List<string> { "Did you know... \n(Press Enter)", "The Spinosaurus had a denser and more compact bone structure compared to other species of its kind", "This allowed it to have better control over its buoyancy when submerged underwater!" };
+        spinosaurusFacts["RightLeg"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        spinosaurusFacts["Body"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        spinosaurusFacts["LeftArm"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        spinosaurusFacts["RightArm"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        spinosaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        spinosaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+
+
+        //Carnotaurus
+        carnotaurusFacts["LeftLeg"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };     
+        carnotaurusFacts["RightLeg"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        carnotaurusFacts["Body"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        carnotaurusFacts["LeftArm"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        carnotaurusFacts["RightArm"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        carnotaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        carnotaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+
+        //Diplosaurus
+        diplosaurusFacts["LeftLeg"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        diplosaurusFacts["RightLeg"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        diplosaurusFacts["Body"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        diplosaurusFacts["LeftArm"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        diplosaurusFacts["RightArm"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        diplosaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+        diplosaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "Line 2" };
+
     }
     void Update()
     {
         if(UnityEngine.Input.GetKeyDown(KeyCode.Return))
         {
-            if(posToRead > msgVec[msgNumber].Count - 1)
+            //If Found Msg or postClean msg, its just one msg so just turn off on enter
+            if(type == "Found" || type == "PostClean")
             {
-                //If no more blocks to read, turnoff
                 isOn = false;
                 TurnOff();
             }
-            else 
+            else if(type == "PodiumFact")
             {
-                //Otherwise, read next msg
-                dialogueText.text = msgVec[msgNumber][posToRead];
-                posToRead += 1;
+
+                //For each dinosaur type go through the facts
+                if(dinosaur == "Spinosaurus")
+                {
+                    if(posToRead > spinosaurusFacts[bodyPart].Count - 1)
+                    {
+                        //if no more blocks to read, turn off
+                        isOn = false;
+                        TurnOff();
+                    }
+                    else
+                    {
+                        //otherwise read next message
+                        dialogueText.text = spinosaurusFacts[bodyPart][posToRead];
+                        posToRead += 1;
+                    }
+                    
+
+                }else if (dinosaur == "Carnotaurus")
+                {
+                    if (posToRead > carnotaurusFacts[bodyPart].Count - 1)
+                    {
+                        //if no more blocks to read, turn off
+                        isOn = false;
+                        TurnOff();
+                    }
+                    else
+                    {
+                        //otherwise read next message
+                        dialogueText.text = carnotaurusFacts[bodyPart][posToRead];
+                        posToRead += 1;
+                    }
+                }
+                else if (dinosaur == "Dipolosaurus")
+                {
+                    if (posToRead > diplosaurusFacts[bodyPart].Count - 1)
+                    {
+                        //if no more blocks to read, turn off
+                        isOn = false;
+                        TurnOff();
+                    }
+                    else
+                    {
+                        //otherwise read next message
+                        dialogueText.text = diplosaurusFacts[bodyPart][posToRead];
+                        posToRead += 1;
+                    }
+                }
             }
         }
     }
+
+    /* In Mine when collide with a mineable bone -> just says "It looks like you found a fossil!) */
     public void DisplayFoundMsg()
     {
+        
         if (!isOn)
         {
-            //Debug.Log("entered Found Message");
             dialogueCanvas.SetActive(true);
-            msgNumber = 0;
-            posToRead = 0;
-
-            dialogueText.text = msgVec[msgNumber][posToRead];
-            posToRead += 1;
+            dialogueText.text = "Hold it right there! It looks like you found a fossil!";
+            type = "Found";
             FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
         }
     }
-    public void DisplayBoneType(string type)
+
+    /* After finishing cleaning the bone only -> just says "You found a ___ bone" */
+    public void DisplayBoneType(string tag)
     {
-
-        //Debug.Log("The tag: " + type);
-        //if(!isOn)
-        //{
-        //    dialogueCanvas.SetActive(true);
-        //    if(type == dino1)
-        //    {
-        //        msgNumber = 1;
-        //    }
-        //    else if(type == dino2)
-        //    {
-        //        msgNumber = 2;
-        //    }
-        //    else if (type == dino3)
-        //    {
-        //        msgNumber = 3;
-        //    }
-        //    posToRead = 0;
-        //    dialogueText.text = msgVec[msgNumber][posToRead];
-        //    posToRead += 1;
-        //}
-
-
         dialogueCanvas.SetActive(true);
-        dialogueText.text = "You found a " + type + " bone!";
+        dialogueText.text = "You found a " + tag + " bone!";
+        type = "PostClean";
         FindObjectOfType<AudioManager>().Play("Marty");
-
     }
-    //Make other function for other cases where we turn on the dialog
+
+    public void DisplayPodiumFact(string _dinosaur, string _bodyPart)
+    {
+        type = "PodiumFact";
+        dinosaur = _dinosaur;
+        bodyPart = _bodyPart; 
+        posToRead = 0;
+    }
     private void TurnOff()
     {
         dialogueText.text = "";
@@ -129,3 +178,5 @@ public class TextDialogue : MonoBehaviour
     }
 
 }
+
+
