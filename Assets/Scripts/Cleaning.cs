@@ -11,7 +11,7 @@ public class Cleaning : MonoBehaviour
     private bool isCleaning = false;
     public PlayerCleaning player;
     private List<string> availableTags = new List<string>();
-    private const int NumberOfUniqueTags = 15;
+    private const int NumberOfUniqueTags = 22;
 
     void Start()
     {
@@ -46,8 +46,21 @@ public class Cleaning : MonoBehaviour
         {
             
             int randomNumber =  UnityEngine.Random.Range(0, availableTags.Count); // Random.Range is inclusive for min, exclusive for max
-            this.tag = availableTags[randomNumber];
-           
+
+            if (randomNumber <= 7)
+            {
+                this.tag = "Spinosaurus";
+            }
+            else if (randomNumber <= 14)
+            {
+                this.tag = "Carnotaurus";
+            }
+            else
+            {
+                this.tag = "Triceratops";
+            }
+
+
             // Remove the selected tag from the list to ensure it's not used again
             availableTags.RemoveAt(randomNumber);
             
