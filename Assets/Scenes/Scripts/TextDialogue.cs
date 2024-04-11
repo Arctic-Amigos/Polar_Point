@@ -88,6 +88,7 @@ public class TextDialogue : MonoBehaviour
 
             dialogueText.text = msgVec[msgNumber][posToRead];
             posToRead += 1;
+            FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
         }
     }
     public void DisplayBoneType(string type)
@@ -117,6 +118,7 @@ public class TextDialogue : MonoBehaviour
 
         dialogueCanvas.SetActive(true);
         dialogueText.text = "You found a " + type + " bone!";
+        FindObjectOfType<AudioManager>().Play("Marty");
 
     }
     //Make other function for other cases where we turn on the dialog

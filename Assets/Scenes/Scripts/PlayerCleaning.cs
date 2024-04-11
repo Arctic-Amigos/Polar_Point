@@ -6,7 +6,9 @@ public class PlayerCleaning : MonoBehaviour
 {
     Inventory inventory;
     GameObject currentCleaningObject = null;
-  
+    public Animator brushAnimator;
+    private bool isBrushing = false;
+
 
     void Start()
     {
@@ -15,7 +17,7 @@ public class PlayerCleaning : MonoBehaviour
 
     void Update()
     {
-        
+       
         inventory.SetScrollingAllowed();
         if (Input.GetMouseButton(0) && inventory.inventory_pos == -1)
         {
@@ -28,6 +30,10 @@ public class PlayerCleaning : MonoBehaviour
                     currentCleaningObject = hit.collider.gameObject;
                     Clean(currentCleaningObject);
                     FindObjectOfType<AudioManager>().Play("Brushing");
+                    if (!isBrushing) // Check if the coroutine is not already running
+                    {
+                        StartCoroutine(BrushAnim());
+                    }
                 }
                 else if (hit.collider.gameObject != currentCleaningObject)
                 {
@@ -54,6 +60,7 @@ public class PlayerCleaning : MonoBehaviour
         if (cleanable != null)
         {
             cleanable.StartCleaning(); // Start the cleaning process
+            isBrushing = true;
         }
     }
 
@@ -68,9 +75,22 @@ public class PlayerCleaning : MonoBehaviour
             }
             currentCleaningObject = null;
             FindObjectOfType<AudioManager>().Stop("Brushing");
+            isBrushing = false; 
+            brushAnimator.SetBool("brushActive", false);
         }
     }
+    public IEnumerator BrushAnim()
+    {
+        // Loop as long as the currentCleaningObject is not null, indicating cleaning is active.
+        while (currentCleaningObject != null)
+        {
+            brushAnimator.SetBool("brushActive", true);
+            yield return null; // This makes the coroutine wait until the next frame before continuing.
+        }
+        
+    }
     
+
 }
 
 

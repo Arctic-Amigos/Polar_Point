@@ -28,6 +28,10 @@ public class PlayerMining : MonoBehaviour
             this.MineCurrent();
             
         }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("Pickaxe");
+        }
     }
     //Activated by sphere collider on player
     void OnTriggerEnter(Collider other)
@@ -78,8 +82,6 @@ public class PlayerMining : MonoBehaviour
         if(currentMine)
         {
             currentMine.MineResource();
-            FindObjectOfType<AudioManager>().Stop("Pickaxe");
- 
             FindObjectOfType<AudioManager>().Play("PickUpItem");
             ExitMine(); //Removes players ability to mine the same object after it has been destroyed
         }

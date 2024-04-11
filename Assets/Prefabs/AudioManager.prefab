@@ -76,7 +76,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Pickaxe
-    clip: {fileID: 8300000, guid: 11e4ee1e4cfcca44cb2b849f14f1f5d7, type: 3}
+    clip: {fileID: 8300000, guid: 90f37f3a51bb27042ad4c17f45848e48, type: 3}
     volume: 0.752
     pitch: 1.49
     loop: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Marty
-    clip: {fileID: 8300000, guid: 66dba1658f870924fba9f331c5172db4, type: 3}
+    clip: {fileID: 8300000, guid: f9df871e94365aa49a4b1aeaca8aa75a, type: 3}
     volume: 0.752
     pitch: 1.49
     loop: 0

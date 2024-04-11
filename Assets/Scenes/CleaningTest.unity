@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796d9402515c3b147b243fb8e08bb9ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brushAnimator: {fileID: 1187760013}
 --- !u!114 &180104439 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -5532220028164236941, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
@@ -1524,6 +1525,7 @@ PrefabInstance:
     - {fileID: 7448723253351779114, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
     - {fileID: 7700585416951691965, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
     - {fileID: 5535277108681288174, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+    - {fileID: 2201220510999477064, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4672706129221245468, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
     m_AddedGameObjects:
