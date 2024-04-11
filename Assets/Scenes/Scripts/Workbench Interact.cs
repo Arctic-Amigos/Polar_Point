@@ -35,6 +35,8 @@ public class WorkbenchInteract : MonoBehaviour
     public Quaternion endRot;
     public float moveDuration = 0.5f;
 
+    //public Animator chiselAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,7 @@ public class WorkbenchInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //StartCoroutine(ChiselAnim());
         if (WorkbenchInteractable && !interacting)
         {
             if (!isMoving && Input.GetKeyDown(KeyCode.E))
@@ -98,6 +101,10 @@ public class WorkbenchInteract : MonoBehaviour
             toolCurrentPosition.x = Mathf.Clamp(toolCurrentPosition.x, toolStartPosition.x - 1.05f, toolStartPosition.x + 1.05f);
             toolCurrentPosition.z = Mathf.Clamp(toolCurrentPosition.z, toolStartPosition.z - 0.75f, toolStartPosition.z + 0.75f);
             wbChisel.transform.position = toolCurrentPosition;
+            if (inventory.inventory_pos == -2)
+            {
+                
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -173,4 +180,18 @@ public class WorkbenchInteract : MonoBehaviour
     {
         return interacting;
     }
+    /*
+    IEnumerator ChiselAnim()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            chiselAnimator.SetBool("chiselingActive", true);
+            yield return new WaitForSeconds(.3f);
+        }
+        else
+        {
+            chiselAnimator.SetBool("chiselingActive", false);
+        }
+    }
+    */
 }
