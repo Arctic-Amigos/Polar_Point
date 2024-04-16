@@ -542,7 +542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6991530122838577091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -552,15 +552,15 @@ RectTransform:
   m_GameObject: {fileID: 1691941003005404433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -13.208131}
-  m_LocalScale: {x: 0.228795, y: 0.228795, z: 0.228795}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.26, y: 0.23266163, z: 0.23266163}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8835945524262005080}
   m_Father: {fileID: 5613698811195391712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -159.28485, y: 8.953232}
+  m_AnchoredPosition: {x: -142, y: 8.953232}
   m_SizeDelta: {x: 2023, y: 1154}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6943918817744209640
@@ -1152,8 +1152,8 @@ Transform:
   m_GameObject: {fileID: 3513669807141500037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -103.80008, y: 49.52206, z: 12.123113}
-  m_LocalScale: {x: 0.9178489, y: 0.9178489, z: 0.9178489}
+  m_LocalPosition: {x: -126.2, y: 103, z: 10.266}
+  m_LocalScale: {x: 0.7772161, y: 0.7772161, z: 0.7772161}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6991530122838577091}
@@ -1582,7 +1582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1451, y: -377}
+  m_AnchoredPosition: {x: 1451, y: -419}
   m_SizeDelta: {x: 1000, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4589733918898843326
@@ -1615,8 +1615,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f965ab181209b3a4f8b874e700b81983, type: 2}
+  m_sharedMaterial: {fileID: 7673893675180415264, guid: f965ab181209b3a4f8b874e700b81983, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1640,8 +1640,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2142,7 +2142,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
