@@ -17,7 +17,7 @@ public class PlayerCleaning : MonoBehaviour
 
     void Update()
     {
-       
+        StartCoroutine(BrushAnim());
         inventory.SetScrollingAllowed();
         if (Input.GetMouseButton(0) && inventory.inventory_pos == -1)
         {
@@ -82,12 +82,15 @@ public class PlayerCleaning : MonoBehaviour
     public IEnumerator BrushAnim()
     {
         // Loop as long as the currentCleaningObject is not null, indicating cleaning is active.
-        while (currentCleaningObject != null)
+        if(Input.GetMouseButton(0))
         {
             brushAnimator.SetBool("brushActive", true);
-            yield return null; // This makes the coroutine wait until the next frame before continuing.
+            yield return new WaitForSeconds(.3f);
         }
-        
+        else
+        {
+            brushAnimator.SetBool("brushActive", false);
+        }
     }
     
 
