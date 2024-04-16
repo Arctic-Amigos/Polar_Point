@@ -15,6 +15,7 @@ public class WorkbenchInteract : MonoBehaviour
 
     GameObject workbench;
     GameObject wbChisel;
+    GameObject wbBrush;
     Vector3 toolStartPosition;
     Vector3 toolCurrentPosition;
 
@@ -47,9 +48,13 @@ public class WorkbenchInteract : MonoBehaviour
         inventory = GetComponent<Inventory>();
         pickaxe = GameObject.FindWithTag("PickaxeTag");
         wbChisel = GameObject.FindWithTag("WBChisel");
+        wbBrush = GameObject.FindWithTag("WBBrush");
         workbench = GameObject.FindWithTag("Workbench");
         toolStartPosition = workbench.transform.position + new Vector3(1.4f, 2.3f, 0.7f);
         wbChisel.transform.position = toolStartPosition;
+        wbBrush.transform.position = toolStartPosition;
+        wbChisel.SetActive(false);
+        wbBrush.SetActive(false);
     }
 
     // Update is called once per frame
@@ -96,15 +101,27 @@ public class WorkbenchInteract : MonoBehaviour
         if (interacting)
         {
             toolCurrentPosition = wbChisel.transform.position;
-            toolCurrentPosition.x -= Input.GetAxis("Mouse X") * 0.01f;
-            toolCurrentPosition.z -= Input.GetAxis("Mouse Y") * 0.01f;
-            toolCurrentPosition.x = Mathf.Clamp(toolCurrentPosition.x, toolStartPosition.x - 1.05f, toolStartPosition.x + 1.05f);
-            toolCurrentPosition.z = Mathf.Clamp(toolCurrentPosition.z, toolStartPosition.z - 0.75f, toolStartPosition.z + 0.75f);
-            wbChisel.transform.position = toolCurrentPosition;
             if (inventory.inventory_pos == -2)
             {
-                
+                wbChisel.SetActive(true);
+                wbBrush.SetActive(false);
             }
+            else if (inventory.inventory_pos == -1)
+            {
+                wbChisel.SetActive(false);
+                wbBrush.SetActive(true);
+            }
+            else
+            {
+                wbChisel.SetActive(false);
+                wbBrush.SetActive(false);
+            }
+            toolCurrentPosition.x -= Input.GetAxis("Mouse X") * 0.01f;
+            toolCurrentPosition.z -= Input.GetAxis("Mouse Y") * 0.01f;
+            toolCurrentPosition.x = Mathf.Clamp(toolCurrentPosition.x, toolStartPosition.x - 1.15f, toolStartPosition.x + 1.05f);
+            toolCurrentPosition.z = Mathf.Clamp(toolCurrentPosition.z, toolStartPosition.z - 0.6f, toolStartPosition.z + 0.6f);
+            wbChisel.transform.position = toolCurrentPosition;
+            wbBrush.transform.position = toolCurrentPosition;
         }
     }
     private void OnTriggerEnter(Collider other)
