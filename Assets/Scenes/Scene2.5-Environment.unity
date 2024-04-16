@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: b7898031b349c5843a63c39cb451aada, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -68741,7 +68741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1519983700021623361, guid: ba1abed9f502ad541a47846a00e406e1, type: 3}
       propertyPath: newSceneName
-      value: Scene1.5-HomeBase
+      value: Scene1.5-HomeBase 1
       objectReference: {fileID: 0}
     - target: {fileID: 3089884057730946173, guid: ba1abed9f502ad541a47846a00e406e1, type: 3}
       propertyPath: m_LocalPosition.x
