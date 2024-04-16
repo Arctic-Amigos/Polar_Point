@@ -39,6 +39,7 @@ TagManager:
   - Carnotaurus
   - Triceratops
   - WBBrush
+  - Tutorial
   layers:
   - Default
   - TransparentFX
