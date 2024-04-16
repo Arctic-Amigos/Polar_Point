@@ -13,8 +13,14 @@ public class Cleaning : MonoBehaviour
     private List<string> availableTags = new List<string>();
     private const int NumberOfUniqueTags = 22;
 
+    private string currentDinosaurName;
+    public Inventory inventory;
+    public PlayerChiseling playerChiseling;
+
+
     void Start()
     {
+
         // Initialize the list with unique tags
         for (int i = 1; i <= NumberOfUniqueTags; i++)
         {
@@ -49,15 +55,16 @@ public class Cleaning : MonoBehaviour
 
             if (randomNumber <= 7)
             {
-                this.tag = "Spinosaurus";
+                currentDinosaurName = "Spinosaurus";
+                
             }
             else if (randomNumber <= 14)
             {
-                this.tag = "Carnotaurus";
+                currentDinosaurName = "Carnotaurus";
             }
             else
             {
-                this.tag = "Triceratops";
+                currentDinosaurName = "Triceratops";
             }
 
 
@@ -69,9 +76,12 @@ public class Cleaning : MonoBehaviour
 
             //Trigger Text Dialogue
             TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
-            string daTag = this.tag;
+            string daTag = currentDinosaurName;
             textDialogue.DisplayBoneType(daTag);
-            
+
+            //Set inventory to dinosaurName
+            inventory.SetInventory(playerChiseling.currentBoneOnWorkbench, currentDinosaurName);
+            this.tag = "Untagged";
         }
         isCleaning = false;
     }

@@ -525,6 +525,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de8b47c20fbd474f85abb8e24f0fb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &537839362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7341512732534295479, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 710414591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537839357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e63b721d3124a4a8b51a41bff331f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &710414591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1364,6 +1375,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 537839362}
     - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: cleaningStages.Array.data[0]
       value: 

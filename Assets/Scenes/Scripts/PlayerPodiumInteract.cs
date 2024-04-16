@@ -13,16 +13,13 @@ public class PlayerPodiumInteract : MonoBehaviour
     Transform RightArm;
     Transform Tail;
     Transform Head;
+
+    Inventory inventory;
+
     // Start is called before the first frame update
     void Start()
     {
-        /*LeftLeg = Carnotaurus.transform.GetChild(0).GetChild(0);
-        RightLeg = Carnotaurus.transform.GetChild(0).GetChild(1);
-        Body = Carnotaurus.transform.GetChild(0).GetChild(2);
-        LeftArm = Carnotaurus.transform.GetChild(0).GetChild(3);
-        RightArm = Carnotaurus.transform.GetChild(0).GetChild(4);
-        Tail = Carnotaurus.transform.GetChild(0).GetChild(5);
-        Head = Carnotaurus.transform.GetChild(0).GetChild(6); */
+        inventory = GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -31,6 +28,24 @@ public class PlayerPodiumInteract : MonoBehaviour
         if (currentPodium != null)
         {
             Debug.Log(currentPodium.tag);
+        }
+        if(currentPodium.tag == "CarnotaurusPodium")
+        {
+            LeftLeg = currentPodium.transform.GetChild(0).GetChild(0);
+            RightLeg = currentPodium.transform.GetChild(0).GetChild(1);
+            Body = currentPodium.transform.GetChild(0).GetChild(2);
+            LeftArm = currentPodium.transform.GetChild(0).GetChild(3);
+            RightArm = currentPodium.transform.GetChild(0).GetChild(4);
+            Tail = currentPodium.transform.GetChild(0).GetChild(5);
+            Head = currentPodium.transform.GetChild(0).GetChild(6);
+
+            if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Carnotaurus")
+            {
+                Debug.Log("You placed a Carnotaurus bone");
+            }else
+            {
+                Debug.Log("This is a " + inventory.GetInventory(inventory.inventory_pos) + " bone");
+            }
         }
     }
 

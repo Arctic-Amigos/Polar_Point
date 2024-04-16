@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -50,53 +51,62 @@ public class PlayerChiseling : MonoBehaviour
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
         if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false) 
         {
-            //Get the inventory slot of which bone was placed onto the workbench
-            currentBoneOnWorkbench = inventory.inventory_pos;
-            workBenchFull = true;
-            inventory.inventory_pos = -2;
+            if (inventory.GetInventory(inventory.inventory_pos) == "ChiselableBone" ||
+                inventory.GetInventory(inventory.inventory_pos) == "ChiselableBone1" ||
+                inventory.GetInventory(inventory.inventory_pos) == "ChiselableBone2" ||
+                inventory.GetInventory(inventory.inventory_pos) == "ChiselableBone3")
+            {
+                //Get the inventory slot of which bone was placed onto the workbench
+                currentBoneOnWorkbench = inventory.inventory_pos;
+                workBenchFull = true;
+                inventory.inventory_pos = -2;
 
-            //remove bone from inventory and disable players ability to scroll
-            inventory.SetInventory(currentBoneOnWorkbench, null);
-            inventory.SetScrollingNotAllowed();
+                //remove bone from inventory and disable players ability to scroll
+                inventory.SetInventory(currentBoneOnWorkbench, null);
+                inventory.SetScrollingNotAllowed();
 
-            bone.gameObject.SetActive(true);
+                bone.gameObject.SetActive(true);
 
-            chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
-            Transform topLeft = bone.transform.GetChild(0);
-            Transform topRight = bone.transform.GetChild(1);
-            Transform bottomLeft = bone.transform.GetChild(2);
-            Transform bottomRight = bone.transform.GetChild(3);
-            if (chiselValue == 1)
-            {
-                topLeft.gameObject.SetActive(false);
-                topRight.gameObject.SetActive(true);
-                bottomLeft.gameObject.SetActive(true);
-                bottomRight.gameObject.SetActive(true);
-            }else if (chiselValue == 2)
-            {
-                topLeft.gameObject.SetActive(false);
-                topRight.gameObject.SetActive(false);
-                bottomLeft.gameObject.SetActive(true);
-                bottomRight.gameObject.SetActive(true);
-            }
-            else if (chiselValue == 3) {
-                topLeft.gameObject.SetActive(false);
-                topRight.gameObject.SetActive(false);
-                bottomLeft.gameObject.SetActive(false);
-                bottomRight.gameObject.SetActive(true);
-            }else if (chiselValue == 4)
-            {
-                //Could set tag to brushable to start the brushing feature
-                Debug.Log("Bone is fully chiseled");
-                bone.gameObject.SetActive(false);
-                inventory.SetScrollingAllowed();
-            }
-            else
-            {
-                topLeft.gameObject.SetActive(true);
-                topRight.gameObject.SetActive(true);
-                bottomLeft.gameObject.SetActive(true);
-                bottomRight.gameObject.SetActive(true);
+                chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
+                Transform topLeft = bone.transform.GetChild(0);
+                Transform topRight = bone.transform.GetChild(1);
+                Transform bottomLeft = bone.transform.GetChild(2);
+                Transform bottomRight = bone.transform.GetChild(3);
+                if (chiselValue == 1)
+                {
+                    topLeft.gameObject.SetActive(false);
+                    topRight.gameObject.SetActive(true);
+                    bottomLeft.gameObject.SetActive(true);
+                    bottomRight.gameObject.SetActive(true);
+                }
+                else if (chiselValue == 2)
+                {
+                    topLeft.gameObject.SetActive(false);
+                    topRight.gameObject.SetActive(false);
+                    bottomLeft.gameObject.SetActive(true);
+                    bottomRight.gameObject.SetActive(true);
+                }
+                else if (chiselValue == 3)
+                {
+                    topLeft.gameObject.SetActive(false);
+                    topRight.gameObject.SetActive(false);
+                    bottomLeft.gameObject.SetActive(false);
+                    bottomRight.gameObject.SetActive(true);
+                }
+                else if (chiselValue == 4)
+                {
+                    //Could set tag to brushable to start the brushing feature
+                    Debug.Log("Bone is fully chiseled");
+                    bone.gameObject.tag = "Brushable";
+                    inventory.SetScrollingAllowed();
+                }
+                else
+                {
+                    topLeft.gameObject.SetActive(true);
+                    topRight.gameObject.SetActive(true);
+                    bottomLeft.gameObject.SetActive(true);
+                    bottomRight.gameObject.SetActive(true);
+                }
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
