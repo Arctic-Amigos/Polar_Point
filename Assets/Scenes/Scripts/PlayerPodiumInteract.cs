@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPodiumInteract : MonoBehaviour
 {
-    public GameObject Carnotaurus;
+    Podium currentPodium = null;
     GameObject Pedestal;
     Transform LeftLeg;
     Transform RightLeg;
@@ -16,31 +16,36 @@ public class PlayerPodiumInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LeftLeg = Carnotaurus.transform.GetChild(0);
-        RightLeg = Carnotaurus.transform.GetChild(1);
-        Body = Carnotaurus.transform.GetChild(2);
-        LeftArm = Carnotaurus.transform.GetChild(3);
-        RightArm = Carnotaurus.transform.GetChild(4);
-        Tail = Carnotaurus.transform.GetChild(5);
-        Head = Carnotaurus.transform.GetChild(6);
+        /*LeftLeg = Carnotaurus.transform.GetChild(0).GetChild(0);
+        RightLeg = Carnotaurus.transform.GetChild(0).GetChild(1);
+        Body = Carnotaurus.transform.GetChild(0).GetChild(2);
+        LeftArm = Carnotaurus.transform.GetChild(0).GetChild(3);
+        RightArm = Carnotaurus.transform.GetChild(0).GetChild(4);
+        Tail = Carnotaurus.transform.GetChild(0).GetChild(5);
+        Head = Carnotaurus.transform.GetChild(0).GetChild(6); */
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentPodium != null)
+        {
+            Debug.Log(currentPodium.tag);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("CarnotaurusPedestal"))
+        Podium obj;
+        if (other.TryGetComponent(out obj))
         {
-
+            Debug.Log("called");
+            currentPodium = obj;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-
+        currentPodium = null;
     }
 }
