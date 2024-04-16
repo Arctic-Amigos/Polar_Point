@@ -33299,7 +33299,7 @@ GameObject:
   - component: {fileID: 1265734597}
   - component: {fileID: 1265734598}
   m_Layer: 0
-  m_Name: Tutorial
+  m_Name: Tutorial1
   m_TagString: Tutorial
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
