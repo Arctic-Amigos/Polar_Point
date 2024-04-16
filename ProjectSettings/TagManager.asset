@@ -38,6 +38,7 @@ TagManager:
   - Spinosaurus
   - Carnotaurus
   - Triceratops
+  - WBBrush
   layers:
   - Default
   - TransparentFX
