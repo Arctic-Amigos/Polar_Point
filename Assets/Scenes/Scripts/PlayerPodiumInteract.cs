@@ -25,13 +25,9 @@ public class PlayerPodiumInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentPodium == null)
+        //Get the bones on the specific podium
+        if (currentPodium != null)
         {
-            Debug.Log("Not near a podium");
-        }else if(currentPodium.tag == "CarnotaurusPodium")
-        {
-            Debug.Log("This is the " +  currentPodium.tag);
-            
             LeftLeg = currentPodium.transform.GetChild(0).GetChild(0);
             RightLeg = currentPodium.transform.GetChild(0).GetChild(1);
             Body = currentPodium.transform.GetChild(0).GetChild(2);
@@ -39,13 +35,19 @@ public class PlayerPodiumInteract : MonoBehaviour
             RightArm = currentPodium.transform.GetChild(0).GetChild(4);
             Tail = currentPodium.transform.GetChild(0).GetChild(5);
             Head = currentPodium.transform.GetChild(0).GetChild(6);
-
+            Debug.Log("You are near the " + currentPodium.tag);
+        }
+        if(currentPodium != null && currentPodium.tag == "CarnotaurusPodium")
+        {
             if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Carnotaurus")
             {
                 Debug.Log("You placed a Carnotaurus bone");
-            }else
+            }
+        }else if(currentPodium.tag == "TriceratopsPodium")
+        {
+            if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Triceratops")
             {
-                Debug.Log("This is a " + inventory.GetInventory(inventory.inventory_pos) + " bone");
+                Debug.Log("You placed a Triceratops bone");
             }
         }
     }
