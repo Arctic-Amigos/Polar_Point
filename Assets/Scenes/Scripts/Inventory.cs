@@ -401,4 +401,5 @@ public class Inventory : MonoBehaviour
     {
         scrolling_allowed = false;
     }
+   
 }
