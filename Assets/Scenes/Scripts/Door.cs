@@ -20,7 +20,8 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AudioManager.instance.Play("Door");
-        PersistentGameManager.SaveInfo();
+        var pgm = new PersistentGameManager();
+        pgm.SaveInfo();
         SceneManager.LoadScene(newSceneName);
     }
 }
