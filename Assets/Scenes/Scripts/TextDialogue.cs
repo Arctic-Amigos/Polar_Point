@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.Windows;
 using System.ComponentModel;
 using UnityEngine.ProBuilder.MeshOperations;
+using System;
 
 public class TextDialogue : MonoBehaviour
 {
@@ -24,8 +25,8 @@ public class TextDialogue : MonoBehaviour
     Dictionary<string, List<string>> diplosaurusFacts = new Dictionary<string, List<string>>();
 
     private int tutorialNumber = 0;
-    List<string> tutorial1 = new List<string>();
-    List<string> tutorial2 = new List<string>();
+    List<string> tutorial1 = new List<string>(); //spawn point
+    List<string> tutorial2 = new List<string>(); //cave
     List<string> tutorial3 = new List<string>();
     List<string> tutorial4 = new List<string>();
     List<string> tutorial5 = new List<string>();
@@ -113,7 +114,6 @@ public class TextDialogue : MonoBehaviour
                         dialogueText.text = spinosaurusFacts[bodyPart][posToRead];
                         posToRead += 1;
                     }
-                    
 
                 }else if (dinosaur == "Carnotaurus")
                 {
@@ -210,7 +210,6 @@ public class TextDialogue : MonoBehaviour
             dialogueText.text = "Hold it right there! It looks like you found a fossil!";
             type = "Found";
             FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
-      
             FindObjectOfType<AudioManager>().Play("Marty");
         }
     }
@@ -233,6 +232,7 @@ public class TextDialogue : MonoBehaviour
     }
     public void DisplayTutorial(int _tutorialNumber)
     {
+        Debug.Log("Entered Tutorial FUnction");
         tutorialNumber = _tutorialNumber;
         if(tutorialNumber == 2)
         {
