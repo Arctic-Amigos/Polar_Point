@@ -32,6 +32,8 @@ public class PlayerChiseling : MonoBehaviour
 
     public Dictionary<int, int> boneChiselCount = new Dictionary<int, int>();
 
+    public bool requestOffBench = false;
+
     void Start()
     {
         inventory = GetComponent<Inventory>();
@@ -46,6 +48,11 @@ public class PlayerChiseling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log(inventory.GetInventory(0));
+        }
         StartCoroutine(ChiselAnim());
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
         if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false) 
@@ -55,6 +62,7 @@ public class PlayerChiseling : MonoBehaviour
                 inventory.GetInventory(inventory.inventory_pos) == "ChiselableBone2" ||
                 inventory.GetInventory(inventory.inventory_pos) == "ChiselableBone3")
             {
+                requestOffBench = false;
                 //Get the inventory slot of which bone was placed onto the workbench
                 currentBoneOnWorkbench = inventory.inventory_pos;
                 workBenchFull = true;
@@ -109,9 +117,8 @@ public class PlayerChiseling : MonoBehaviour
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
-        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true && !doneCleaning) 
+        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true && doneCleaning) 
         {
-            Debug.Log("called");
             chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
             inventory.inventory_pos = currentBoneOnWorkbench;
             currentBoneOnWorkbench = -5; //random number not equal to a slot in the inventory
@@ -137,7 +144,8 @@ public class PlayerChiseling : MonoBehaviour
             else if (chiselValue == 4) 
             {
                 //completely chiseled
-                inventory.SetInventory(inventory.inventory_pos, "CleanBone");
+                //inventory.SetInventory(inventory.inventory_pos, "CleanBone");
+                //Move on to brushing
             }
             else
             {
@@ -146,7 +154,10 @@ public class PlayerChiseling : MonoBehaviour
             }
             inventory.SetScrollingAllowed();
 
+
+
             bone.gameObject.SetActive(false);
+            requestOffBench = true;
         }
 
         if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2) 
@@ -193,14 +204,14 @@ public class PlayerChiseling : MonoBehaviour
         float startTime = Time.time;
         float elapsedTime = 0.0f;
 
-        while (elapsedTime < 3.0f && Input.GetMouseButton(0))
+        while (elapsedTime < 1.0f && Input.GetMouseButton(0))
         {
             Debug.Log(elapsedTime);
             elapsedTime = Time.time - startTime;
             yield return null;
         }
 
-        if (elapsedTime >= 3.0f)
+        if (elapsedTime >= 1.0f)
         {
 
             if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
