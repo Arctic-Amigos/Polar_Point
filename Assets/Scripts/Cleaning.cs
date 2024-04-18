@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cleaning : MonoBehaviour
@@ -104,6 +105,11 @@ public class Cleaning : MonoBehaviour
     {
         currentStage = stage;
         UpdateMaterial();
+    }
+
+    public string getDinosaurName()
+    {
+        return currentDinosaurName;
     }
     
 
