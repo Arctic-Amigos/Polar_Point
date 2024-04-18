@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
     // First 3 spots in inventory will be static for hand, pickaxe, brush. Last 5 spots will be open for fossils/bones
     // Hand, Pickaxe, Chisel, Brush | Fossil, Fossil, Fossil, Fossil, Fossil
     // -4  , -3     , -2    , -1    | 0     , 1     , 2     , 3     , 4
-    string[] fossil_inventory = new string[5]; // Inventory spots that will be filled up with fossils/bones. Type can be changed to fossil/bone type as needed
+    public string[] fossil_inventory = new string[5]; // Inventory spots that will be filled up with fossils/bones. Type can be changed to fossil/bone type as needed
     public int inventory_pos; // Position in inventory that will be scrolled through
     bool scrolling_allowed = true;
     GameObject Box1;
@@ -38,6 +38,14 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         inventory_pos = -4;
+        
+        inventory_pos = PersistentGameManager.inventoryPos;
+        fossil_inventory[0] = PersistentGameManager.inventory0;
+        fossil_inventory[1] = PersistentGameManager.inventory1;
+        fossil_inventory[2] = PersistentGameManager.inventory2;
+        fossil_inventory[3] = PersistentGameManager.inventory3;
+        fossil_inventory[4] = PersistentGameManager.inventory4;
+
         StartDisplayBones();
         StartDisplayHeldObject();
     }
