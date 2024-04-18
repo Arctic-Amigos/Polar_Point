@@ -28,14 +28,13 @@ public class PlayerChiseling : MonoBehaviour
 
     Inventory inventory;
 
-    WorkbenchInteract workbench;
+    public bool doneCleaning;
 
     public Dictionary<int, int> boneChiselCount = new Dictionary<int, int>();
 
     void Start()
     {
         inventory = GetComponent<Inventory>();
-        workbench = GetComponent<WorkbenchInteract>();
 
         boneChiselCount.Add(0, 0);
         boneChiselCount.Add(1, 0);
@@ -110,8 +109,9 @@ public class PlayerChiseling : MonoBehaviour
             }
         }
         //if player interacts with workbench with a bone on the table remove the bone and set the players inventory position to where the bone was previously
-        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true) 
+        else if(Input.GetKeyDown(KeyCode.F) && workBenchFull == true && !doneCleaning) 
         {
+            Debug.Log("called");
             chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
             inventory.inventory_pos = currentBoneOnWorkbench;
             currentBoneOnWorkbench = -5; //random number not equal to a slot in the inventory
@@ -120,6 +120,7 @@ public class PlayerChiseling : MonoBehaviour
             //set the bone back into the inventory and reenable players ability to scroll
             if (chiselValue == 1)
             {
+                doneCleaning = false;
                 //chiseled once
                 inventory.SetInventory(inventory.inventory_pos, "ChiselableBone1");
             }

@@ -46,6 +46,7 @@ public class Cleaning : MonoBehaviour
         yield return new WaitForSeconds(0.3f); // Simulate cleaning effort
         if (currentStage < cleaningStages.Length - 1)
         {
+            Debug.Log(playerChiseling.doneCleaning);
             currentStage++;
             UpdateMaterial();
         }
@@ -67,6 +68,7 @@ public class Cleaning : MonoBehaviour
             {
                 currentDinosaurName = "Triceratops";
             }
+            playerChiseling.doneCleaning = true;
 
 
             // Remove the selected tag from the list to ensure it's not used again
