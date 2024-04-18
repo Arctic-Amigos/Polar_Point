@@ -25,12 +25,13 @@ public class PlayerPodiumInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentPodium != null)
+        if (currentPodium == null)
         {
-            Debug.Log(currentPodium.tag);
-        }
-        if(currentPodium.tag == "CarnotaurusPodium")
+            Debug.Log("Not near a podium");
+        }else if(currentPodium.tag == "CarnotaurusPodium")
         {
+            Debug.Log("This is the " +  currentPodium.tag);
+            
             LeftLeg = currentPodium.transform.GetChild(0).GetChild(0);
             RightLeg = currentPodium.transform.GetChild(0).GetChild(1);
             Body = currentPodium.transform.GetChild(0).GetChild(2);
