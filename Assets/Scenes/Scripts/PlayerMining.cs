@@ -11,6 +11,7 @@ public class PlayerMining : MonoBehaviour
     Inventory inventory = null;
 
     public Animator pickaxeAnimator;
+    private bool miningPlaying = false;
 
     void Start()
     {
@@ -24,13 +25,19 @@ public class PlayerMining : MonoBehaviour
         {
             //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
             //animation will be added later
-            FindObjectOfType<AudioManager>().Play("Pickaxe");
+            if (!miningPlaying)
+            {
+                AudioManager.instance.Play("Pickaxe");
+                miningPlaying = true;
+            }
             this.MineCurrent();
             
         }
-        else
+        else if (miningPlaying)
         {
-            FindObjectOfType<AudioManager>().Stop("Pickaxe");
+            // If the sound is playing and we should no longer be mining, stop the sound and reset the flag.
+            AudioManager.instance.Stop("Pickaxe");
+            miningPlaying = false;
         }
     }
     //Activated by sphere collider on player
@@ -58,6 +65,7 @@ public class PlayerMining : MonoBehaviour
         if(other.CompareTag("ObjectMineable"))
         {
             ExitMine();
+            StopMiningAudio();
         }
     }
     //State of being able to mine object
@@ -82,6 +90,7 @@ public class PlayerMining : MonoBehaviour
         if(currentMine)
         {
             currentMine.MineResource();
+            StopMiningAudio();
             FindObjectOfType<AudioManager>().Play("PickUpItem");
             ExitMine(); //Removes players ability to mine the same object after it has been destroyed
         }
@@ -112,5 +121,13 @@ public class PlayerMining : MonoBehaviour
             Debug.Log("Inventory is full!");
         }
     }
-   
+    public void StopMiningAudio()
+    {
+        if (miningPlaying)
+        {
+            AudioManager.instance.Stop("Pickaxe");
+            miningPlaying = false;
+        }
+    }
+
 }

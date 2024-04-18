@@ -152,6 +152,8 @@ public class TextDialogue : MonoBehaviour
             dialogueText.text = "Hold it right there! It looks like you found a fossil!";
             type = "Found";
             FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
+      
+            FindObjectOfType<AudioManager>().Play("Marty");
         }
     }
 

@@ -8,6 +8,8 @@ public class PlayerCleaning : MonoBehaviour
     GameObject currentCleaningObject = null;
     public Animator brushAnimator;
     private bool isBrushing = false;
+    public Dictionary<int, int> boneCleaningState = new Dictionary<int, int>();
+    public Dictionary<int, string> boneCleaningTag = new Dictionary<int, string>();
 
 
     void Start()
@@ -72,6 +74,8 @@ public class PlayerCleaning : MonoBehaviour
             if (cleanable != null)
             {
                 cleanable.StopCleaning();
+                boneCleaningState[inventory.inventory_pos] = cleanable.currentStage;
+                //inventory.UpdateCleaningState(inventory.inventory_pos, cleanable.currentStage);
             }
             currentCleaningObject = null;
             FindObjectOfType<AudioManager>().Stop("Brushing");
@@ -79,10 +83,31 @@ public class PlayerCleaning : MonoBehaviour
             brushAnimator.SetBool("brushActive", false);
         }
     }
+    public void SaveCleanState(int inventoryPos, int state, string tag)
+    {
+        boneCleaningState[inventoryPos] = state;
+        boneCleaningTag[inventoryPos] = tag;
+    }
+
+    public void LoadCleanState(GameObject objectToClean, int inventoryPos)
+    {
+        if (objectToClean != null && inventory != null && boneCleaningState.ContainsKey(inventoryPos))
+        {
+            int stage = boneCleaningState[inventoryPos];
+            string tag = boneCleaningTag[inventoryPos];
+
+            Cleaning cleaningComponent = objectToClean.GetComponent<Cleaning>();
+            if (cleaningComponent != null)
+            {
+                cleaningComponent.SetCleaningStage(stage);
+                objectToClean.tag = tag;
+            }
+        }
+    }
     public IEnumerator BrushAnim()
     {
         // Loop as long as the currentCleaningObject is not null, indicating cleaning is active.
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             brushAnimator.SetBool("brushActive", true);
             yield return new WaitForSeconds(.3f);
@@ -92,7 +117,9 @@ public class PlayerCleaning : MonoBehaviour
             brushAnimator.SetBool("brushActive", false);
         }
     }
+
     
+
 
 }
 

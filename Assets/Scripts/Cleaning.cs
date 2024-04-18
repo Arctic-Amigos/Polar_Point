@@ -16,6 +16,7 @@ public class Cleaning : MonoBehaviour
     private string currentDinosaurName;
     public Inventory inventory;
     public PlayerChiseling playerChiseling;
+    
 
 
     void Start()
@@ -78,12 +79,13 @@ public class Cleaning : MonoBehaviour
 
             //Trigger Text Dialogue
             TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
-            string daTag = currentDinosaurName;
-            textDialogue.DisplayBoneType(daTag);
+            
+            textDialogue.DisplayBoneType(currentDinosaurName);
 
-            //Set inventory to dinosaurName
-            inventory.SetInventory(playerChiseling.currentBoneOnWorkbench, currentDinosaurName);
-            this.tag = "Untagged";
+            
+            gameObject.tag = currentDinosaurName;
+            if (player != null)
+                player.SaveCleanState(inventory.inventory_pos, currentStage, currentDinosaurName);
         }
         isCleaning = false;
     }
@@ -98,4 +100,12 @@ public class Cleaning : MonoBehaviour
         isCleaning = false;
         // Add any additional cleanup or reset logic here if needed
     }
+    public void SetCleaningStage(int stage)
+    {
+        currentStage = stage;
+        UpdateMaterial();
+    }
+    
+
+  
 }
