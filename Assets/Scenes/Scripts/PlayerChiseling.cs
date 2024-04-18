@@ -154,7 +154,12 @@ public class PlayerChiseling : MonoBehaviour
             }
             inventory.SetScrollingAllowed();
 
+            Cleaning boneCleaningComponent = bone.GetComponent <Cleaning>();
+            string dinosaurName = boneCleaningComponent.getDinosaurName();
 
+            inventory.SetInventory(inventory.inventory_pos, dinosaurName);
+
+            Debug.Log(inventory.GetInventory(inventory.inventory_pos));
 
             bone.gameObject.SetActive(false);
             requestOffBench = true;
