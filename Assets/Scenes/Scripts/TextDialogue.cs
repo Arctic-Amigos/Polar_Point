@@ -14,6 +14,7 @@ public class TextDialogue : MonoBehaviour
     private bool isOn = false;
     //private int msgNumber = 0;
     private int posToRead = 0;
+    bool hadFirstCaveCollision = false;
 
     string type = "";
     string dinosaur = "";
@@ -81,9 +82,9 @@ public class TextDialogue : MonoBehaviour
 
         tutorial1 = new List<string> { "Welcome to Antarctica!!", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
         tutorial2 = new List<string> { "Wow! There’s a dinosaur bone right there!", "Scroll on the scroll wheel to select different items in your inventory.", "Select the pickaxe", "Press left click on the mouse to mine the bone." };
-        tutorial3 = new List<string> { "Line 1", "Line 2" };
-        tutorial4 = new List<string> { "Line 1", "Line 2" };
-        tutorial5 = new List<string> { "Line 1", "Line 2" };
+        tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
+        tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press e to place it on the workbench.", "Press f to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
+        //tutorial5 = new List<string> { "Line 1", "Line 2" };
     }
     void Update()
     {
@@ -159,12 +160,41 @@ public class TextDialogue : MonoBehaviour
                     }
                 }else if(tutorialNumber == 2)
                 {
-
-                }else if(tutorialNumber == 3){
-
-                }else if(tutorialNumber == 4)
+                    if (posToRead > tutorial2.Count - 1)
+                    {
+                        isOn = false;
+                        TurnOff();
+                    }
+                    else
+                    {
+                        dialogueText.text = tutorial2[posToRead];
+                        posToRead += 1;
+                    }
+                }
+                else if(tutorialNumber == 3){
+                    if (posToRead > tutorial3.Count - 1)
+                    {
+                        isOn = false;
+                        TurnOff();
+                    }
+                    else
+                    {
+                        dialogueText.text = tutorial3[posToRead];
+                        posToRead += 1;
+                    }
+                }
+                else if(tutorialNumber == 4)
                 {
-
+                    if (posToRead > tutorial4.Count - 1)
+                    {
+                        isOn = false;
+                        TurnOff();
+                    }
+                    else
+                    {
+                        dialogueText.text = tutorial4[posToRead];
+                        posToRead += 1;
+                    }
                 }
             }
         }
@@ -173,7 +203,8 @@ public class TextDialogue : MonoBehaviour
     /* In Mine when collide with a mineable bone -> just says "It looks like you found a fossil!) */
     public void DisplayFoundMsg()
     {
-        if (!isOn)
+        //So this wont do anything on the first cave collision
+        if (!isOn && hadFirstCaveCollision)
         {
             dialogueCanvas.SetActive(true);
             dialogueText.text = "Hold it right there! It looks like you found a fossil!";
@@ -203,6 +234,10 @@ public class TextDialogue : MonoBehaviour
     public void DisplayTutorial(int _tutorialNumber)
     {
         tutorialNumber = _tutorialNumber;
+        if(tutorialNumber == 2)
+        {
+            hadFirstCaveCollision = true;
+        }
         type = "Tutorial";
         dialogueCanvas.SetActive(true);
         posToRead = 0;
