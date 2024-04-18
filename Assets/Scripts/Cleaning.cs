@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cleaning : MonoBehaviour
@@ -13,8 +14,15 @@ public class Cleaning : MonoBehaviour
     private List<string> availableTags = new List<string>();
     private const int NumberOfUniqueTags = 22;
 
+    private string currentDinosaurName;
+    public Inventory inventory;
+    public PlayerChiseling playerChiseling;
+    
+
+
     void Start()
     {
+
         // Initialize the list with unique tags
         for (int i = 1; i <= NumberOfUniqueTags; i++)
         {
@@ -39,6 +47,7 @@ public class Cleaning : MonoBehaviour
         yield return new WaitForSeconds(0.3f); // Simulate cleaning effort
         if (currentStage < cleaningStages.Length - 1)
         {
+            Debug.Log(playerChiseling.doneCleaning);
             currentStage++;
             UpdateMaterial();
         }
@@ -49,16 +58,18 @@ public class Cleaning : MonoBehaviour
 
             if (randomNumber <= 7)
             {
-                this.tag = "Spinosaurus";
+                currentDinosaurName = "Spinosaurus";
+                
             }
             else if (randomNumber <= 14)
             {
-                this.tag = "Carnotaurus";
+                currentDinosaurName = "Carnotaurus";
             }
             else
             {
-                this.tag = "Triceratops";
+                currentDinosaurName = "Triceratops";
             }
+            playerChiseling.doneCleaning = true;
 
 
             // Remove the selected tag from the list to ensure it's not used again
@@ -69,9 +80,13 @@ public class Cleaning : MonoBehaviour
 
             //Trigger Text Dialogue
             TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
-            string daTag = this.tag;
-            textDialogue.DisplayBoneType(daTag);
             
+            textDialogue.DisplayBoneType(currentDinosaurName);
+
+            
+            gameObject.tag = currentDinosaurName;
+            if (player != null)
+                player.SaveCleanState(inventory.inventory_pos, currentStage, currentDinosaurName);
         }
         isCleaning = false;
     }
@@ -86,4 +101,17 @@ public class Cleaning : MonoBehaviour
         isCleaning = false;
         // Add any additional cleanup or reset logic here if needed
     }
+    public void SetCleaningStage(int stage)
+    {
+        currentStage = stage;
+        UpdateMaterial();
+    }
+
+    public string getDinosaurName()
+    {
+        return currentDinosaurName;
+    }
+    
+
+  
 }
