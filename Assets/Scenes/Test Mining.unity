@@ -650,8 +650,121 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 1
   m_Center: {x: 0.000000044703484, y: 0.15434997, z: 0}
+--- !u!1001 &1216334637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3550161265298367108, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_Name
+      value: Pedestal With Triceratops
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.455277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.13026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.12908
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3550161265298367108, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1216334640}
+    - targetCorrespondingSourceObject: {fileID: 3550161265298367108, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1216334639}
+  m_SourcePrefab: {fileID: 100100000, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+--- !u!1 &1216334638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3550161265298367108, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+  m_PrefabInstance: {fileID: 1216334637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1216334639
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216334638}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0.00000004470349, y: 0.15434997, z: 0}
+--- !u!114 &1216334640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216334638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83730ec82f2accd44b646c519ad594c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1246235704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6364,6 +6477,7 @@ GameObject:
   - component: {fileID: 1621477142788469572}
   - component: {fileID: 3559061514495362958}
   - component: {fileID: 1036519403}
+  - component: {fileID: 3559061514495362959}
   m_Layer: 0
   m_Name: Pedestal_EntireBody
   m_TagString: CarnotaurusPodium
@@ -7054,6 +7168,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3559061514495362959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054759854203545179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83730ec82f2accd44b646c519ad594c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3566038660127227595
 Transform:
   m_ObjectHideFlags: 0
@@ -15590,3 +15716,4 @@ SceneRoots:
   - {fileID: 217991202}
   - {fileID: 2391269889762229473}
   - {fileID: 710414591}
+  - {fileID: 1216334637}
