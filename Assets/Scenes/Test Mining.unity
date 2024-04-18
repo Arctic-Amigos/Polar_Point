@@ -664,6 +664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pedestal With Triceratops
       objectReference: {fileID: 0}
+    - target: {fileID: 3550161265298367108, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
+      propertyPath: m_TagString
+      value: TriceratopsPodium
+      objectReference: {fileID: 0}
     - target: {fileID: 4183673014870980670, guid: 7ac8ed5e58b4f6543a1d235dfbd7ec69, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.455277

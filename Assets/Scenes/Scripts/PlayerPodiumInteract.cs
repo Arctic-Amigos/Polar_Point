@@ -16,6 +16,10 @@ public class PlayerPodiumInteract : MonoBehaviour
 
     Inventory inventory;
 
+    int numBonesOnCar = 0;
+    int numBonesOnTri = 0;
+    int numBonesOnSte = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,21 @@ public class PlayerPodiumInteract : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Carnotaurus")
             {
+                numBonesOnCar++;
+                if(numBonesOnCar == 1)
+                {
+                    LeftLeg.gameObject.SetActive(true);
+
+                }else if(numBonesOnCar == 2)
+                {
+                    RightLeg.gameObject.SetActive(true);
+
+                }else if(numBonesOnCar == 3)
+                {
+                    Body.gameObject.SetActive(true);
+                }
+                inventory.SetInventory(inventory.inventory_pos, null);
+
                 Debug.Log("You placed a Carnotaurus bone");
             }
         }else if(currentPodium.tag == "TriceratopsPodium")

@@ -40,6 +40,8 @@ TagManager:
   - Triceratops
   - WBBrush
   - Tutorial
+  - CarnotaurusPodium
+  - TriceratopsPodium
   layers:
   - Default
   - TransparentFX
