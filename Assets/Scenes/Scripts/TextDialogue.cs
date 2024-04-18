@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Windows;
 using System.ComponentModel;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class TextDialogue : MonoBehaviour
 {
@@ -20,17 +21,24 @@ public class TextDialogue : MonoBehaviour
     Dictionary<string, List<string>> spinosaurusFacts = new Dictionary<string, List<string>>();
     Dictionary<string, List<string>> carnotaurusFacts = new Dictionary<string, List<string>>();
     Dictionary<string, List<string>> diplosaurusFacts = new Dictionary<string, List<string>>();
-  
 
-    //map inside map then an array for each thingk
+    private int tutorialNumber = 0;
+    List<string> tutorial1 = new List<string>();
+    List<string> tutorial2 = new List<string>();
+    List<string> tutorial3 = new List<string>();
+    List<string> tutorial4 = new List<string>();
+    List<string> tutorial5 = new List<string>();
+
+
+    //map inside map then an array for each thing
     //key for dinosaur, (inside do a key for body part) as value of that do an array of all the strings
 
     //ADJUST DATA STRUCTURE TO ACCOUNT FOR BOTH OF THESE INSTANCES.
     //FOR BRUSHING:
-        //Just have a string for "you found a " + type + "bone!"
-        
+    //Just have a string for "you found a " + type + "bone!"
+
     //FOR PODIUM:
-        //This is where you have your fact
+    //This is where you have your fact
 
 
     //FINISHING BRUSHING
@@ -39,11 +47,6 @@ public class TextDialogue : MonoBehaviour
     //use that for determining name to say after brushing
 
 
-
-    //3
-    //Spinosaurus
-    //Carnotaurus
-    //Diplosaurus
 
 
     /* Populate Map */
@@ -58,25 +61,29 @@ public class TextDialogue : MonoBehaviour
         spinosaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "The Spinosauruses skull is roughly 6 feet long?", "This must be a baby!" };
         spinosaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "That Spinosauruses are both longer AND heavier than the Tyrannosaurus!?!?", "This makes it the largest carnivorous dinosaur of them all!" };
 
-
         //Carnotaurus
-        carnotaurusFacts["LeftLeg"] = new List<string> { "Did you know... \n(Press Enter)", "That “Carnotaurus” means “meat-eating bull”?", "Despite this name, many refer to it as resembling a Trex with horns." };     
+        carnotaurusFacts["LeftLeg"] = new List<string> { "Did you know... \n(Press Enter)", "That “Carnotaurus” means “meat-eating bull”?", "Despite this name, many refer to it as resembling a Trex with horns." };
         carnotaurusFacts["RightLeg"] = new List<string> { "Did you know... \n(Press Enter)", "This dinosaur had lots of scales!" };
         carnotaurusFacts["Body"] = new List<string> { "Did you know... \n(Press Enter)", "That the Carnotaurus could grow up to 25 feet long?", "This makes it as big as a small basketball court!" };
         carnotaurusFacts["LeftArm"] = new List<string> { "Did you know... \n(Press Enter)", "The Carnotaurus has the smallest forelimbs of all theropods!", "Their arms are even smaller than those of the T-rex!" };
         carnotaurusFacts["RightArm"] = new List<string> { "Did you know... \n(Press Enter)", "That this dinosaur lived in the Campanian Age? That’s nearly 66 million years ago!" };
-        carnotaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "It is thought that Carnotaurus’ horns could be used for fighting rivals, attacking prey.",  "Also helping them find a mate, and identify other Carnotaurus." };
+        carnotaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "It is thought that Carnotaurus’ horns could be used for fighting rivals, attacking prey.", "Also helping them find a mate, and identify other Carnotaurus." };
         carnotaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "That no one has ever found the tail or lower legs of a Carnotaurus?", "That means what scientists think it looks like is purely theoretical." };
 
         //Diplosaurus
         diplosaurusFacts["LeftLeg"] = new List<string> { "Did you know... \n(Press Enter)", "That “Triceratops”’ name comes from the Greek words meaning “three-horned face”?", "This is because of its three horns atop of its head." };
         diplosaurusFacts["RightLeg"] = new List<string> { "Did you know... \n(Press Enter)", "The Triceratops moved in herds in order to avoid getting eaten by predators!" };
-        diplosaurusFacts["Body"] = new List<string> { "Did you know... \n(Press Enter)", "That the Triceratops was a herbivore?", "It had a parrot-shaped beat in order to eat plants most efficiently!"};
-        diplosaurusFacts["LeftArm"] = new List<string> { "Did you know... \n(Press Enter)", "The Triceratops is currently one of the most-found fossils!"};
-        diplosaurusFacts["RightArm"] = new List<string> { "Did you know... \n(Press Enter)", "That the Triceratops’ frill was used to protect its neck?", "Additionally, it was used to attract a mate."};
-        diplosaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "The Triceratops’ skull is one of the largest of any land animal.", "Their skulls were about 10 feet long!"};
-        diplosaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "Did you know that the Triceratops’ main predator was the T-Rex?", " The Triceratops utilized its horn as a defense against the T-Rex!"};
+        diplosaurusFacts["Body"] = new List<string> { "Did you know... \n(Press Enter)", "That the Triceratops was a herbivore?", "It had a parrot-shaped beat in order to eat plants most efficiently!" };
+        diplosaurusFacts["LeftArm"] = new List<string> { "Did you know... \n(Press Enter)", "The Triceratops is currently one of the most-found fossils!" };
+        diplosaurusFacts["RightArm"] = new List<string> { "Did you know... \n(Press Enter)", "That the Triceratops’ frill was used to protect its neck?", "Additionally, it was used to attract a mate." };
+        diplosaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "The Triceratops’ skull is one of the largest of any land animal.", "Their skulls were about 10 feet long!" };
+        diplosaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "That the Triceratops’ main predator was the T-Rex?", " The Triceratops utilized its horn as a defense against the T-Rex!" };
 
+        tutorial1 = new List<string> { "Welcome to Antarctica!!", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
+        tutorial2 = new List<string> { "Wow! There’s a dinosaur bone right there!", "Scroll on the scroll wheel to select different items in your inventory.", "Select the pickaxe", "Press left click on the mouse to mine the bone." };
+        tutorial3 = new List<string> { "Line 1", "Line 2" };
+        tutorial4 = new List<string> { "Line 1", "Line 2" };
+        tutorial5 = new List<string> { "Line 1", "Line 2" };
     }
     void Update()
     {
@@ -90,7 +97,6 @@ public class TextDialogue : MonoBehaviour
             }
             else if(type == "PodiumFact")
             {
-
                 //For each dinosaur type go through the facts
                 if(dinosaur == "Spinosaurus")
                 {
@@ -138,6 +144,28 @@ public class TextDialogue : MonoBehaviour
                         posToRead += 1;
                     }
                 }
+            }else if (type == "Tutorial")
+            {
+                //Tutorial Stuff 
+                if(tutorialNumber == 1)
+                {
+                    if(posToRead > tutorial1.Count - 1){
+                        isOn = false;
+                        TurnOff();
+                    }
+                    else{
+                        dialogueText.text = tutorial1[posToRead];
+                        posToRead += 1;
+                    }
+                }else if(tutorialNumber == 2)
+                {
+
+                }else if(tutorialNumber == 3){
+
+                }else if(tutorialNumber == 4)
+                {
+
+                }
             }
         }
     }
@@ -145,7 +173,6 @@ public class TextDialogue : MonoBehaviour
     /* In Mine when collide with a mineable bone -> just says "It looks like you found a fossil!) */
     public void DisplayFoundMsg()
     {
-        
         if (!isOn)
         {
             dialogueCanvas.SetActive(true);
@@ -161,7 +188,7 @@ public class TextDialogue : MonoBehaviour
     public void DisplayBoneType(string tag)
     {
         dialogueCanvas.SetActive(true);
-        dialogueText.text = "You found a " + tag + " bone!";
+        dialogueText.text = "You found a " + tag + " bone! Lets put that bone on the pedestal";
         type = "PostClean";
         FindObjectOfType<AudioManager>().Play("Marty");
     }
@@ -171,6 +198,13 @@ public class TextDialogue : MonoBehaviour
         type = "PodiumFact";
         dinosaur = _dinosaur;
         bodyPart = _bodyPart; 
+        posToRead = 0;
+    }
+    public void DisplayTutorial(int _tutorialNumber)
+    {
+        tutorialNumber = _tutorialNumber;
+        type = "Tutorial";
+        dialogueCanvas.SetActive(true);
         posToRead = 0;
     }
     private void TurnOff()
