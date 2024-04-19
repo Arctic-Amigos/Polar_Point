@@ -26,10 +26,10 @@ public class TextDialogue : MonoBehaviour
     Dictionary<string, List<string>> diplosaurusFacts = new Dictionary<string, List<string>>();
 
     
-    List<string> tutorial1 = new List<string>();
+    List<string> tutorial1 = new List<string> { "Welcome to Antarctica!!", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
     List<string> tutorial2 = new List<string> { "Wow! There’s a dinosaur bone right there!", "Scroll on the scroll wheel to select different items in your inventory.", "Select the pickaxe", "Press left click on the mouse to mine the bone." };
-    List<string> tutorial3 = new List<string>();
-    List<string> tutorial4 = new List<string>();
+    List<string> tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
+    List<string> tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press e to place it on the workbench.", "Press f to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
 
 
     //map inside map then an array for each thing
@@ -81,9 +81,9 @@ public class TextDialogue : MonoBehaviour
         diplosaurusFacts["Head"] = new List<string> { "Did you know... \n(Press Enter)", "The Triceratops’ skull is one of the largest of any land animal.", "Their skulls were about 10 feet long!" };
         diplosaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "That the Triceratops’ main predator was the T-Rex?", " The Triceratops utilized its horn as a defense against the T-Rex!" };
 
-        tutorial1 = new List<string> { "Welcome to Antarctica!!", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
-        tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
-        tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press e to place it on the workbench.", "Press f to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
+        //tutorial1 = new List<string> { "Welcome to Antarctica!!", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
+        //tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
+        //tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press e to place it on the workbench.", "Press f to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
         //tutorial5 = new List<string> { "Line 1", "Line 2" };
     }
     void Update()
@@ -250,7 +250,7 @@ public class TextDialogue : MonoBehaviour
         Debug.Log("Entered Tutorial FUnction");
         posToRead = 0;
         tutorialNumber = _tutorialNumber;
-        if(tutorialNumber == 2)
+        if (tutorialNumber == 2)
         {
             hadFirstCaveCollision = true;
             dialogueText.text = tutorial2[posToRead];
@@ -258,8 +258,8 @@ public class TextDialogue : MonoBehaviour
         posToRead += 1;
         type = "Tutorial";
         Debug.Log(type);
-        
-        
+
+
     }
     private void TurnOff()
     {
