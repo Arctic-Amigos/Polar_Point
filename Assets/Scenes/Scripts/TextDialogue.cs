@@ -17,19 +17,19 @@ public class TextDialogue : MonoBehaviour
     private int posToRead = 0;
     bool hadFirstCaveCollision = false;
 
-    string type = "";
-    string dinosaur = "";
-    string bodyPart = "";
+    public string type = "";
+    public int tutorialNumber = 0;
+    private string dinosaur = "";
+    private string bodyPart = "";
     Dictionary<string, List<string>> spinosaurusFacts = new Dictionary<string, List<string>>();
     Dictionary<string, List<string>> carnotaurusFacts = new Dictionary<string, List<string>>();
     Dictionary<string, List<string>> diplosaurusFacts = new Dictionary<string, List<string>>();
 
-    private int tutorialNumber = 0;
-    List<string> tutorial1 = new List<string>(); //spawn point
-    List<string> tutorial2 = new List<string>(); //cave
+    
+    List<string> tutorial1 = new List<string>();
+    List<string> tutorial2 = new List<string> { "Wow! There’s a dinosaur bone right there!", "Scroll on the scroll wheel to select different items in your inventory.", "Select the pickaxe", "Press left click on the mouse to mine the bone." };
     List<string> tutorial3 = new List<string>();
     List<string> tutorial4 = new List<string>();
-    List<string> tutorial5 = new List<string>();
 
 
     //map inside map then an array for each thing
@@ -82,25 +82,33 @@ public class TextDialogue : MonoBehaviour
         diplosaurusFacts["Tail"] = new List<string> { "Did you know... \n(Press Enter)", "That the Triceratops’ main predator was the T-Rex?", " The Triceratops utilized its horn as a defense against the T-Rex!" };
 
         tutorial1 = new List<string> { "Welcome to Antarctica!!", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
-        tutorial2 = new List<string> { "Wow! There’s a dinosaur bone right there!", "Scroll on the scroll wheel to select different items in your inventory.", "Select the pickaxe", "Press left click on the mouse to mine the bone." };
         tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
         tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press e to place it on the workbench.", "Press f to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
         //tutorial5 = new List<string> { "Line 1", "Line 2" };
     }
     void Update()
     {
+
         if(UnityEngine.Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log(type); //Changed type in function call but doesnt get updated here, didnt get updated..... bruh
+            //type = "Tutorial";
+            //tutorialNumber = 2;
+            //Once we get these to actually update we are chilling
+
+
             //If Found Msg or postClean msg, its just one msg so just turn off on enter
             if(type == "Found" || type == "PostClean")
             {
+                Debug.Log("entered found");
                 isOn = false;
                 TurnOff();
             }
             else if(type == "PodiumFact")
             {
+                Debug.Log("podium");
                 //For each dinosaur type go through the facts
-                if(dinosaur == "Spinosaurus")
+                if (dinosaur == "Spinosaurus")
                 {
                     if(posToRead > spinosaurusFacts[bodyPart].Count - 1)
                     {
@@ -145,8 +153,10 @@ public class TextDialogue : MonoBehaviour
                         posToRead += 1;
                     }
                 }
-            }else if (type == "Tutorial")
+            }
+            else if (type.Equals("Tutorial"))
             {
+                Debug.Log("Entered Tutorial");
                 //Tutorial Stuff 
                 if(tutorialNumber == 1)
                 {
@@ -160,6 +170,7 @@ public class TextDialogue : MonoBehaviour
                     }
                 }else if(tutorialNumber == 2)
                 {
+                    Debug.Log("In tutorial 2 update");
                     if (posToRead > tutorial2.Count - 1)
                     {
                         isOn = false;
@@ -197,12 +208,14 @@ public class TextDialogue : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("exited");
         }
     }
 
     /* In Mine when collide with a mineable bone -> just says "It looks like you found a fossil!) */
     public void DisplayFoundMsg()
     {
+
         //So this wont do anything on the first cave collision
         if (!isOn && hadFirstCaveCollision)
         {
@@ -225,6 +238,7 @@ public class TextDialogue : MonoBehaviour
 
     public void DisplayPodiumFact(string _dinosaur, string _bodyPart)
     {
+        dialogueCanvas.SetActive(true);
         type = "PodiumFact";
         dinosaur = _dinosaur;
         bodyPart = _bodyPart; 
@@ -232,15 +246,20 @@ public class TextDialogue : MonoBehaviour
     }
     public void DisplayTutorial(int _tutorialNumber)
     {
+        dialogueCanvas.SetActive(true);
         Debug.Log("Entered Tutorial FUnction");
+        posToRead = 0;
         tutorialNumber = _tutorialNumber;
         if(tutorialNumber == 2)
         {
             hadFirstCaveCollision = true;
+            dialogueText.text = tutorial2[posToRead];
         }
+        posToRead += 1;
         type = "Tutorial";
-        dialogueCanvas.SetActive(true);
-        posToRead = 0;
+        Debug.Log(type);
+        
+        
     }
     private void TurnOff()
     {
