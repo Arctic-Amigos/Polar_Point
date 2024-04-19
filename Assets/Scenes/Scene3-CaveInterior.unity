@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.182
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19162422, g: 0.21612749, b: 0.25467867, a: 0.182}
+  m_IndirectSpecularColor: {r: 0.1916241, g: 0.21612728, b: 0.2546784, a: 0.182}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6082767295217613891, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8127600033320366487, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: m_Name
       value: Player
@@ -556,7 +560,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
