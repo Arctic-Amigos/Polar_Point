@@ -981,7 +981,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fd462cdb2ef7e7947b574fe608e8bf28, type: 2}
   - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
   currentStage: 0
-  player: {fileID: 0}
+  player: {fileID: 2201220510999477064, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  inventory: {fileID: 0}
+  playerChiseling: {fileID: 0}
 --- !u!1001 &2090712384397934226
 PrefabInstance:
   m_ObjectHideFlags: 0
