@@ -75,6 +75,7 @@ public class PlayerChiseling : MonoBehaviour
                 bone.gameObject.SetActive(true);
 
                 chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
+                Debug.Log("HIIII " + chiselValue);
                 Transform topLeft = bone.transform.GetChild(0);
                 Transform topRight = bone.transform.GetChild(1);
                 Transform bottomLeft = bone.transform.GetChild(2);
@@ -159,7 +160,7 @@ public class PlayerChiseling : MonoBehaviour
 
             inventory.SetInventory(inventory.inventory_pos, dinosaurName);
 
-            Debug.Log(inventory.GetInventory(inventory.inventory_pos));
+            boneChiselCount[inventory.inventory_pos] = 0;
 
             bone.gameObject.SetActive(false);
             requestOffBench = true;

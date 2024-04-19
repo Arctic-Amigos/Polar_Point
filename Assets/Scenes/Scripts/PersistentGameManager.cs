@@ -24,14 +24,14 @@ public class PersistentGameManager : MonoBehaviour
         
     }
 
-    public static void SaveInfo()
+    public void SaveInfo()
     {
-        Inventory inventory = new Inventory();
-        inventoryPos = inventory.inventory_pos;
-        inventory0 = inventory.fossil_inventory[0];
-        inventory1 = inventory.fossil_inventory[1];
-        inventory2 = inventory.fossil_inventory[2];
-        inventory3 = inventory.fossil_inventory[3];
-        inventory4 = inventory.fossil_inventory[4];
+        Inventory inv = GameObject.FindObjectOfType<Inventory>();
+        inventoryPos = inv.inventory_pos;
+        inventory0 = inv.fossil_inventory[0];
+        inventory1 = inv.fossil_inventory[1];
+        inventory2 = inv.fossil_inventory[2];
+        inventory3 = inv.fossil_inventory[3];
+        inventory4 = inv.fossil_inventory[4];
     }
 }
