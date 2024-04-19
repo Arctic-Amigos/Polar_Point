@@ -15,7 +15,10 @@ public class PlayerPodiumInteract : MonoBehaviour
     Transform[] triceratopsParts;
     Transform[] spinosaurusParts;
 
+    Dictionary<int, string> bodyPartIntToString = new Dictionary<int, string>();
+
     Inventory inventory;
+    TextDialogue textDialogue;
 
     static int numBonesOnCar = 0;
     static int numBonesOnTri = 0;
@@ -25,6 +28,7 @@ public class PlayerPodiumInteract : MonoBehaviour
     void Start()
     {
         inventory = GetComponent<Inventory>();
+        textDialogue = FindObjectOfType<TextDialogue>();
 
         carnotaurusParts = new Transform[]
         {
@@ -58,6 +62,14 @@ public class PlayerPodiumInteract : MonoBehaviour
             spinosaurusPodium.transform.GetChild(5),
             spinosaurusPodium.transform.GetChild(6)
         };
+
+        bodyPartIntToString.Add(0, "LeftLeg");
+        bodyPartIntToString.Add(1, "RightLeft");
+        bodyPartIntToString.Add(2, "Body");
+        bodyPartIntToString.Add(3, "LeftArm");
+        bodyPartIntToString.Add(4, "RightArm");
+        bodyPartIntToString.Add(5, "Tail");
+        bodyPartIntToString.Add(6, "Head");
     }
 
     // Update is called once per frame
@@ -93,6 +105,8 @@ public class PlayerPodiumInteract : MonoBehaviour
                 numBonesOnCar++;
                 inventory.SetInventory(inventory.inventory_pos, null);
 
+                textDialogue.DisplayPodiumFact("Carnotaurus", bodyPartIntToString[numBonesOnCar]);
+
                 Debug.Log("You placed a Carnotaurus bone");
             }
         }else if(currentPodium != null && currentPodium.tag == "TriceratopsPodium")
@@ -101,15 +115,20 @@ public class PlayerPodiumInteract : MonoBehaviour
             {
                 numBonesOnTri++;
                 inventory.SetInventory(inventory.inventory_pos, null);
+
+                textDialogue.DisplayPodiumFact("Carnotaurus", bodyPartIntToString[numBonesOnTri]);
+
                 Debug.Log("You placed a Triceratops bone");
             }
         }else if(currentPodium != null && currentPodium.tag == "SpinosaurusPodium")
         {
-            Debug.Log("in spino pod");
             if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Spinosaurus")
             {
                 numBonesOnSpi++;
                 inventory.SetInventory(inventory.inventory_pos, null);
+
+                textDialogue.DisplayPodiumFact("Carnotaurus", bodyPartIntToString[numBonesOnSpi]);
+
                 Debug.Log("You placed a Spinosaurus bone");
             }
         }

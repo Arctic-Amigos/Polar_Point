@@ -21,7 +21,7 @@ public class PlayerMining : MonoBehaviour
     private void Update()
     {
         StartCoroutine(MiningAnim());
-        if (Input.GetMouseButton(0) && inventory.inventory_pos == -3)
+        if (Input.GetMouseButton(0) && inventory.inventory_pos == -3 && !inventory.IndexIsEmpty(5))
         {
             //Puts player into a mining animation (think of it as swinging your pickaxe in minecraft)
             //animation will be added later
