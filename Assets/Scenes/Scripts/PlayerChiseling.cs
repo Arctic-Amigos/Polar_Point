@@ -51,7 +51,7 @@ public class PlayerChiseling : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log(inventory.GetInventory(0));
+            Debug.Log(inventory.GetInventory(inventory.inventory_pos));
         }
         StartCoroutine(ChiselAnim());
         //if player interacts with workbench with a bone in their hand allow them to start chiseling

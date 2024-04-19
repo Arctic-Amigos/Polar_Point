@@ -63,6 +63,11 @@ public class PlayerPodiumInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.M)) {
+            numBonesOnCar++;
+            numBonesOnSpi++;
+            numBonesOnTri++;
+        }
         for(int i = 0; i < carnotaurusParts.Length; i++)
         {
             carnotaurusParts[i].gameObject.SetActive(i < numBonesOnCar);
@@ -73,6 +78,10 @@ public class PlayerPodiumInteract : MonoBehaviour
         }
         for (int i = 0; i < spinosaurusParts.Length; i++)
         {
+            if(numBonesOnSpi == 3)
+            {
+                spinosaurusPodium.transform.GetChild(0).GetChild(2).GetChild(0).gameObject.SetActive(true);
+            }
             spinosaurusParts[i].gameObject.SetActive(i < numBonesOnSpi);
         }
 
@@ -96,6 +105,7 @@ public class PlayerPodiumInteract : MonoBehaviour
             }
         }else if(currentPodium != null && currentPodium.tag == "SpinosaurusPodium")
         {
+            Debug.Log("in spino pod");
             if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Spinosaurus")
             {
                 numBonesOnSpi++;
