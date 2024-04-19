@@ -28,41 +28,46 @@ public class PlayerPodiumInteract : MonoBehaviour
 
         carnotaurusParts = new Transform[]
         {
-            carnotaurusPodium.transform.GetChild(0).GetChild(0),
-            carnotaurusPodium.transform.GetChild(0).GetChild(1),
-            carnotaurusPodium.transform.GetChild(0).GetChild(2),
-            carnotaurusPodium.transform.GetChild(0).GetChild(3),
-            carnotaurusPodium.transform.GetChild(0).GetChild(4),
-            carnotaurusPodium.transform.GetChild(0).GetChild(5),
-            carnotaurusPodium.transform.GetChild(0).GetChild(6)
+            carnotaurusPodium.transform.GetChild(0),
+            carnotaurusPodium.transform.GetChild(1),
+            carnotaurusPodium.transform.GetChild(2),
+            carnotaurusPodium.transform.GetChild(3),
+            carnotaurusPodium.transform.GetChild(4),
+            carnotaurusPodium.transform.GetChild(5),
+            carnotaurusPodium.transform.GetChild(6)
         };
 
         triceratopsParts = new Transform[]
         {
-            triceratopsPodium.transform.GetChild(0).GetChild(0),
-            triceratopsPodium.transform.GetChild(0).GetChild(1),
-            triceratopsPodium.transform.GetChild(0).GetChild(2),
-            triceratopsPodium.transform.GetChild(0).GetChild(3),
-            triceratopsPodium.transform.GetChild(0).GetChild(4),
-            triceratopsPodium.transform.GetChild(0).GetChild(5),
-            triceratopsPodium.transform.GetChild(0).GetChild(6)
+            triceratopsPodium.transform.GetChild(0),
+            triceratopsPodium.transform.GetChild(1),
+            triceratopsPodium.transform.GetChild(2),
+            triceratopsPodium.transform.GetChild(3),
+            triceratopsPodium.transform.GetChild(4),
+            triceratopsPodium.transform.GetChild(5),
+            triceratopsPodium.transform.GetChild(6)
         };
 
         spinosaurusParts = new Transform[]
         {
-            spinosaurusPodium.transform.GetChild(0).GetChild(0),
-            spinosaurusPodium.transform.GetChild(0).GetChild(1),
-            spinosaurusPodium.transform.GetChild(0).GetChild(2),
-            spinosaurusPodium.transform.GetChild(0).GetChild(3),
-            spinosaurusPodium.transform.GetChild(0).GetChild(4),
-            spinosaurusPodium.transform.GetChild(0).GetChild(5),
-            spinosaurusPodium.transform.GetChild(0).GetChild(6)
+            spinosaurusPodium.transform.GetChild(0),
+            spinosaurusPodium.transform.GetChild(1),
+            spinosaurusPodium.transform.GetChild(2),
+            spinosaurusPodium.transform.GetChild(3),
+            spinosaurusPodium.transform.GetChild(4),
+            spinosaurusPodium.transform.GetChild(5),
+            spinosaurusPodium.transform.GetChild(6)
         };
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.M)) {
+            numBonesOnCar++;
+            numBonesOnSpi++;
+            numBonesOnTri++;
+        }
         for(int i = 0; i < carnotaurusParts.Length; i++)
         {
             carnotaurusParts[i].gameObject.SetActive(i < numBonesOnCar);
@@ -73,6 +78,10 @@ public class PlayerPodiumInteract : MonoBehaviour
         }
         for (int i = 0; i < spinosaurusParts.Length; i++)
         {
+            if(numBonesOnSpi == 3)
+            {
+                spinosaurusPodium.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+            }
             spinosaurusParts[i].gameObject.SetActive(i < numBonesOnSpi);
         }
 
@@ -96,6 +105,7 @@ public class PlayerPodiumInteract : MonoBehaviour
             }
         }else if(currentPodium != null && currentPodium.tag == "SpinosaurusPodium")
         {
+            Debug.Log("in spino pod");
             if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Spinosaurus")
             {
                 numBonesOnSpi++;
