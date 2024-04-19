@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CallDialogue : TextDialogue
+public class CallDialogue : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,10 @@ public class CallDialogue : TextDialogue
         if (gameObject.name == "Tutorial2")
         {
             int tutorialNum = 2;
-            DisplayTutorial(tutorialNum);
+            //DisplayTutorial(tutorialNum);
 
-            //TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
-            //textDialogue.DisplayTutorial(tutorialNum);
+            TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
+            textDialogue.DisplayTutorial(tutorialNum);
         }
 
 
