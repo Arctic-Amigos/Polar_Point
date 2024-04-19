@@ -51,7 +51,7 @@ public class PlayerChiseling : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log(inventory.GetInventory(0));
+            Debug.Log(inventory.GetInventory(inventory.inventory_pos));
         }
         StartCoroutine(ChiselAnim());
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
@@ -157,6 +157,8 @@ public class PlayerChiseling : MonoBehaviour
 
             Cleaning boneCleaningComponent = bone.GetComponent <Cleaning>();
             string dinosaurName = boneCleaningComponent.getDinosaurName();
+
+            boneCleaningComponent.SetCleaningStage(0);
 
             inventory.SetInventory(inventory.inventory_pos, dinosaurName);
 

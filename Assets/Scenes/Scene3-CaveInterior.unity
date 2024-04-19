@@ -492,6 +492,39 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2116114355}
   m_SourcePrefab: {fileID: 100100000, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+--- !u!114 &42782379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5532220028164236941, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 42782378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c75acf0282685b46bcdabfac9dd9a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &42782380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7341512732534295479, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 42782378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e63b721d3124a4a8b51a41bff331f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &42782381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2201220510999477064, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 42782378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796d9402515c3b147b243fb8e08bb9ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &59621497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1405,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChiselableBone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 42782381}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 42782380}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: 42782379}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1676,6 +1721,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChiselableBone (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 42782381}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 42782380}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: 42782379}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1866,6 +1923,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChiselableBone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 42782381}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 42782380}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: 42782379}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2086,6 +2155,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChiselableBone
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 42782381}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 42782380}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: 42782379}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2224,6 +2305,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChiselableBone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 42782381}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 42782380}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: 42782379}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
