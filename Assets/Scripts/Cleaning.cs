@@ -92,6 +92,7 @@ public class Cleaning : MonoBehaviour
 
             
             gameObject.tag = currentDinosaurName;
+            currentStage = 0;
             /*
             if (player != null)
                 player.SaveCleanState(inventory.inventory_pos, currentStage, currentDinosaurName);

@@ -158,6 +158,8 @@ public class PlayerChiseling : MonoBehaviour
             Cleaning boneCleaningComponent = bone.GetComponent <Cleaning>();
             string dinosaurName = boneCleaningComponent.getDinosaurName();
 
+            boneCleaningComponent.SetCleaningStage(0);
+
             inventory.SetInventory(inventory.inventory_pos, dinosaurName);
 
             boneChiselCount[inventory.inventory_pos] = 0;
