@@ -2185,6 +2185,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6406691686719979520, guid: 86c9a62308f10654ea4443ec5e786510, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1310218764}
+    - target: {fileID: 6406691686719979520, guid: 86c9a62308f10654ea4443ec5e786510, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: 1310218763}
     - target: {fileID: 7961849189128416236, guid: 86c9a62308f10654ea4443ec5e786510, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13887,6 +13895,28 @@ MonoBehaviour:
   carnotaurusPodium: {fileID: 919132148589543976}
   triceratopsPodium: {fileID: 919132149433066918}
   spinosaurusPodium: {fileID: 919132148218197938}
+--- !u!114 &1310218763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5532220028164236941, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 1310218758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310218759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c75acf0282685b46bcdabfac9dd9a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1310218764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7341512732534295479, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 1310218758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310218759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e63b721d3124a4a8b51a41bff331f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1317456233
 GameObject:
   m_ObjectHideFlags: 0
