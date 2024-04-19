@@ -17,11 +17,14 @@ public class Cleaning : MonoBehaviour
     private string currentDinosaurName;
     public Inventory inventory;
     public PlayerChiseling playerChiseling;
+
+    ObjectChiselable objectChiselable;
     
 
 
     void Start()
     {
+        objectChiselable = GetComponent<ObjectChiselable>();
 
         // Initialize the list with unique tags
         for (int i = 1; i <= NumberOfUniqueTags; i++)
@@ -70,6 +73,8 @@ public class Cleaning : MonoBehaviour
                 currentDinosaurName = "Triceratops";
             }
             playerChiseling.doneCleaning = true;
+            currentStage = 0;
+            objectChiselable.boneChiselCounts[inventory.inventory_pos] = 0;
 
 
             // Remove the selected tag from the list to ensure it's not used again
@@ -85,8 +90,10 @@ public class Cleaning : MonoBehaviour
 
             
             gameObject.tag = currentDinosaurName;
+            /*
             if (player != null)
                 player.SaveCleanState(inventory.inventory_pos, currentStage, currentDinosaurName);
+            */
         }
         isCleaning = false;
     }
