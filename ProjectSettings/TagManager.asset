@@ -42,6 +42,7 @@ TagManager:
   - Tutorial
   - CarnotaurusPodium
   - TriceratopsPodium
+  - SpinosaurusPodium
   layers:
   - Default
   - TransparentFX

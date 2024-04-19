@@ -755,6 +755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pedestal With Spinosaurus
       objectReference: {fileID: 0}
+    - target: {fileID: 3550161265298367108, guid: 146ce4bf793bb8740aa207a4f9af4e02, type: 3}
+      propertyPath: m_TagString
+      value: SpinosaurusPodium
+      objectReference: {fileID: 0}
     - target: {fileID: 4183673014870980670, guid: 146ce4bf793bb8740aa207a4f9af4e02, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.455277
@@ -1000,7 +1004,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1264,7 +1268,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

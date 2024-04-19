@@ -74,7 +74,9 @@ public class Cleaning : MonoBehaviour
             }
             playerChiseling.doneCleaning = true;
             currentStage = 0;
-            objectChiselable.boneChiselCounts[inventory.inventory_pos] = 0;
+            Debug.Log("prechiselcount " + objectChiselable.boneChiselCounts[playerChiseling.currentBoneOnWorkbench]);
+            objectChiselable.boneChiselCounts[playerChiseling.currentBoneOnWorkbench] = 0;
+            Debug.Log("postchiselcount " + objectChiselable.boneChiselCounts[playerChiseling.currentBoneOnWorkbench]);
 
 
             // Remove the selected tag from the list to ensure it's not used again
