@@ -43,6 +43,9 @@ TagManager:
   - CarnotaurusPodium
   - TriceratopsPodium
   - SpinosaurusPodium
+  - HeldSpinosaurus
+  - HeldCarnotaurus
+  - HeldTriceratops
   layers:
   - Default
   - TransparentFX
