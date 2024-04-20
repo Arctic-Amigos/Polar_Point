@@ -13863,6 +13863,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.14053082
       objectReference: {fileID: 0}
+    - target: {fileID: 3840343569045438508, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: movementSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4893996289586642411, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: m_IsActive
       value: 1
