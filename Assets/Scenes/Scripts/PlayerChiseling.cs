@@ -64,12 +64,6 @@ public class PlayerChiseling : MonoBehaviour
             workbenchChisel.SetActive(false);
             workbenchBrush.SetActive(false);
         }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("x: " + workbenchChisel.transform.position.x);
-            Debug.Log("z: " + workbenchChisel.transform.position.z);
-        }
         StartCoroutine(ChiselAnim());
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
         if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && workBenchFull == false) 
@@ -214,9 +208,10 @@ public class PlayerChiseling : MonoBehaviour
         }
     }
 
+    //HARDCODED TO BONES ON WORKBENCH IN 1.5 HOMEBASE
     bool WithinBounds(float x, float z)
     {
-        if(x < 2.51f && x > 1.08f && z < -1.19f && z > -1.97f)
+        if(x < 2.35f && x > 1.00f && z < 3.39f && z > 2.54f)
         {
             return true;
         }
@@ -267,5 +262,10 @@ public class PlayerChiseling : MonoBehaviour
         }
         isChiseling = false;
         AudioManager.instance.Stop("Chisel");
+    }
+
+    public GameObject GetWorkbenchBrush()
+    {
+        return workbenchBrush;
     }
 }

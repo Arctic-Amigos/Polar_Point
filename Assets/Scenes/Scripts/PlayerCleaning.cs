@@ -11,17 +11,30 @@ public class PlayerCleaning : MonoBehaviour
     public Dictionary<int, int> boneCleaningState = new Dictionary<int, int>();
     public Dictionary<int, string> boneCleaningTag = new Dictionary<int, string>();
 
+    WorkbenchInteract workbenchInteract;
+    GameObject workbenchBrush;
+
 
     void Start()
     {
         inventory = GetComponent<Inventory>(); // Ensure the player has the Inventory component
+        workbenchInteract = GetComponent<WorkbenchInteract>();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("x: " + workbenchBrush.transform.position.x);
+            Debug.Log("z: " + workbenchBrush.transform.position.z);
+        }
+        if (inventory.inventory_pos == -1)
+        {
+            workbenchBrush = workbenchInteract.wbBrush;
+        }
         StartCoroutine(BrushAnim());
         inventory.SetScrollingAllowed();
-        if (Input.GetMouseButton(0) && inventory.inventory_pos == -1)
+        if (Input.GetMouseButton(0) && inventory.inventory_pos == -1 && WithinBounds(workbenchBrush.transform.position.x, workbenchBrush.transform.position.z))
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
@@ -118,8 +131,15 @@ public class PlayerCleaning : MonoBehaviour
         }
     }
 
-    
-
+    //HARDCODED TO BONES ON WORKBENCH IN 1.5 HOMEBASE
+    bool WithinBounds(float x, float z)
+    {
+        if (x < 2.2f && x > 1.05f && z < 3.5f && z > 2.6f)
+        {
+            return true;
+        }
+        return false;
+    }
 
 }
 
