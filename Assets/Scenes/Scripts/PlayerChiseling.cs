@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -39,6 +40,9 @@ public class PlayerChiseling : MonoBehaviour
     public Dictionary<int, int> boneChiselCount = new Dictionary<int, int>();
 
     public bool requestOffBench = false;
+
+    //Progress bar
+    public UnityEngine.UI.Slider progressBar;
 
     void Start()
     {
@@ -234,20 +238,24 @@ public class PlayerChiseling : MonoBehaviour
 
     IEnumerator Chiseling(ObjectChiselable _chiselableObject)
     {
+        
         AudioManager.instance.Play("Chisel");
         isChiseling = true;
 
         float startTime = Time.time;
         float elapsedTime = 0.0f;
 
-        while (elapsedTime < 1.0f && Input.GetMouseButton(0))
+        progressBar.gameObject.SetActive(true);
+
+        while (elapsedTime < 3.0f && Input.GetMouseButton(0))
         {
+            progressBar.value = elapsedTime / 3.0f;
             Debug.Log(elapsedTime);
             elapsedTime = Time.time - startTime;
             yield return null;
         }
 
-        if (elapsedTime >= 1.0f)
+        if (elapsedTime >= 3.0f)
         {
 
             if (boneChiselCount.ContainsKey(currentBoneOnWorkbench))
@@ -262,6 +270,7 @@ public class PlayerChiseling : MonoBehaviour
         }
         isChiseling = false;
         AudioManager.instance.Stop("Chisel");
+        progressBar.gameObject.SetActive(false);
     }
 
     public GameObject GetWorkbenchBrush()
