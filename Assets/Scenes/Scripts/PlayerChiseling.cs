@@ -182,7 +182,7 @@ public class PlayerChiseling : MonoBehaviour
             requestOffBench = true;
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2 && WithinBounds(workbenchChisel.transform.position.x, workbenchChisel.transform.position.z)) 
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2 && WithinBounds(workbenchChisel.transform.position.x, workbenchChisel.transform.position.z) && workbenchInteract.IsWorkbenchInteracting()) 
         {
             if(!isChiseling)
             {
