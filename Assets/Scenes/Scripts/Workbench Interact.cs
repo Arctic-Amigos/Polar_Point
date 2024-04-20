@@ -213,10 +213,21 @@ public class WorkbenchInteract : MonoBehaviour
     {
         return toolCurrentPosition;
     }
+    // FOR BLAKE 4/19
+    /*
     public Camera GetToolCamera()
     {
         return toolCamera;
     }
+    */
+
+
+
+
+
+
+
+    // NOT FOR BLAKE 4/19
     /*
     IEnumerator ChiselAnim()
     {

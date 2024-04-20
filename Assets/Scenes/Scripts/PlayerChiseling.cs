@@ -181,8 +181,8 @@ public class PlayerChiseling : MonoBehaviour
                 //rayOrigin += new Vector3(0f, 0f, -0.4f);
                 //Vector3 rayDirection = Vector3.down;
                 //Ray ray = new Ray(rayOrigin, rayDirection);
-                Camera wbiToolCamera = workbenchInteract.GetToolCamera();
-                Ray ray = wbiToolCamera.ScreenPointToRay(Input.mousePosition);
+                //Camera wbiToolCamera = workbenchInteract.GetToolCamera();
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit hitinfo;
 
