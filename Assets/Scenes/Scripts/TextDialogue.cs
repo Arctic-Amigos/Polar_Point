@@ -224,7 +224,6 @@ public class TextDialogue : MonoBehaviour
     /* In Mine when collide with a mineable bone -> just says "It looks like you found a fossil!) */
     public void DisplayFoundMsg()
     {
-
         //So this wont do anything on the first cave collision
         if (!isOn && hadFirstCaveCollision)
         {
@@ -262,19 +261,23 @@ public class TextDialogue : MonoBehaviour
         posToRead = 0;
         tutorialNumber = _tutorialNumber;
 
-        if(tutorialNumber == 1) {
+        if(tutorialNumber == 1 && hasShownTutorial1) {
             dialogueText.text = tutorial1[posToRead];
         }
-        else if (tutorialNumber == 2)
+        else if (tutorialNumber == 2 && hasShownTutorial2)
         {
             hadFirstCaveCollision = true;
             dialogueText.text = tutorial2[posToRead];
-        }else if (tutorialNumber == 3)
+        }else if (tutorialNumber == 3 && hasShownTutorial3)
         {
             dialogueText.text = tutorial3[posToRead];
-        }else if (tutorialNumber == 4)
+        }else if (tutorialNumber == 4 && hasShownTutorial4)
         {
             dialogueText.text = tutorial4[posToRead];
+        }
+        else
+        {
+            dialogueCanvas.SetActive(false);
         }
         posToRead += 1;
         type = "Tutorial";
