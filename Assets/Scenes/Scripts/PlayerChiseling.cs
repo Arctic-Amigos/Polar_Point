@@ -32,6 +32,7 @@ public class PlayerChiseling : MonoBehaviour
     WorkbenchInteract workbenchInteract;
 
     GameObject workbenchChisel;
+    GameObject workbenchBrush;
 
     public bool doneCleaning;
 
@@ -45,6 +46,7 @@ public class PlayerChiseling : MonoBehaviour
         workbenchInteract = GetComponent<WorkbenchInteract>();
 
         workbenchChisel = workbenchInteract.wbChisel;
+        workbenchBrush = workbenchInteract.wbBrush;
 
         boneChiselCount.Add(0, 0);
         boneChiselCount.Add(1, 0);
@@ -56,6 +58,12 @@ public class PlayerChiseling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If player stops interacting with workbench, disable chisel and brush
+        if(!workbenchInteract.IsWorkbenchInteracting())
+        {
+            workbenchChisel.SetActive(false);
+            workbenchBrush.SetActive(false);
+        }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
