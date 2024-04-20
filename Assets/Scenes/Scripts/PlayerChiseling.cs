@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerChiseling : MonoBehaviour
 
@@ -28,6 +29,8 @@ public class PlayerChiseling : MonoBehaviour
 
     Inventory inventory;
 
+    WorkbenchInteract workbenchInteract;
+
     public bool doneCleaning;
 
     public Dictionary<int, int> boneChiselCount = new Dictionary<int, int>();
@@ -37,6 +40,7 @@ public class PlayerChiseling : MonoBehaviour
     void Start()
     {
         inventory = GetComponent<Inventory>();
+        workbenchInteract = GetComponent<WorkbenchInteract>();
 
         boneChiselCount.Add(0, 0);
         boneChiselCount.Add(1, 0);
@@ -172,7 +176,14 @@ public class PlayerChiseling : MonoBehaviour
         {
             if(!isChiseling)
             {
+                // FOR BLAKE 4/19
+                //Vector3 rayOrigin = workbenchInteract.GetToolCurrentPosition();
+                //rayOrigin += new Vector3(0f, 0f, -0.4f);
+                //Vector3 rayDirection = Vector3.down;
+                //Ray ray = new Ray(rayOrigin, rayDirection);
+                //Camera wbiToolCamera = workbenchInteract.GetToolCamera();
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
                 RaycastHit hitinfo;
 
                 if (Physics.Raycast(ray, out hitinfo, Mathf.Infinity, ~layerMaskToIgnore))
