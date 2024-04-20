@@ -33,6 +33,7 @@ public class Inventory : MonoBehaviour
     GameObject ChiselableBone3;
     GameObject CleanBone;
     GameObject Brush;
+    GameObject Spinosaurus;
 
     // Start is called before the first frame update
     void Start()
@@ -124,6 +125,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
+            Spinosaurus.SetActive(false);
         }
             
         if (GetInventory(x) == "ChiselableBone1")
@@ -133,6 +135,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
+            Spinosaurus.SetActive(false);
         }
         if (GetInventory(x) == "ChiselableBone2")
         {
@@ -141,6 +144,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone2.SetActive(true);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
+            Spinosaurus.SetActive(false);
         }
         if (GetInventory(x) == "ChiselableBone3")
         {
@@ -149,6 +153,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(true);
             CleanBone.SetActive(false);
+            Spinosaurus.SetActive(false);
         }
         if (GetInventory(x) == "CleanBone")
         {
@@ -157,6 +162,17 @@ public class Inventory : MonoBehaviour
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(true);
+            Spinosaurus.SetActive(false);
+        }
+        if(GetInventory(x) == "Spinosaurus")
+        {
+            ChiselableBone.SetActive(true);
+            ChiselableBone1.SetActive(false);
+            ChiselableBone2.SetActive(false);
+            ChiselableBone3.SetActive(false);
+            CleanBone.SetActive(false);
+            Spinosaurus.SetActive(true);
+
         }
         if (GetInventory(x) == null)
         {
@@ -165,6 +181,7 @@ public class Inventory : MonoBehaviour
             ChiselableBone2.SetActive(false);
             ChiselableBone3.SetActive(false);
             CleanBone.SetActive(false);
+            Spinosaurus.SetActive(false);
         }
             
     }
@@ -236,6 +253,8 @@ public class Inventory : MonoBehaviour
         ChiselableBone3 = GameObject.FindWithTag("HeldCB3Tag");
         CleanBone = GameObject.FindWithTag("HeldCleanBoneTag");
         Brush = GameObject.FindWithTag("BrushTag");
+        Spinosaurus = GameObject.FindWithTag("Spinosaurus");
+
     }
     public void UpdateDisplayHeldObject()
     {
