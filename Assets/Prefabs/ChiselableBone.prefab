@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3486258267970159975, guid: cab4d9e5b0f04fa4b931f9e069d94076, type: 3}
+      propertyPath: m_TagString
+      value: HeldSpinosaurus
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -982,8 +986,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4d7f674465e441f4eb4e256ce7dea851, type: 2}
   currentStage: 0
   player: {fileID: 2201220510999477064, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
-  inventory: {fileID: 0}
-  playerChiseling: {fileID: 0}
+  inventory: {fileID: -7341512732534295479, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  playerChiseling: {fileID: -5532220028164236941, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
 --- !u!1001 &2090712384397934226
 PrefabInstance:
   m_ObjectHideFlags: 0
