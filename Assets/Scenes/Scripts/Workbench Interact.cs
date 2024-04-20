@@ -17,8 +17,8 @@ public class WorkbenchInteract : MonoBehaviour
     GameObject pickaxe;
 
     GameObject workbench;
-    GameObject wbChisel;
-    GameObject wbBrush;
+    public GameObject wbChisel;
+    public GameObject wbBrush;
     Vector3 toolStartPosition;
     Vector3 toolCurrentPosition;
 

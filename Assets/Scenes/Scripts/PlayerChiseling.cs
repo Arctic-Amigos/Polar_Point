@@ -31,6 +31,8 @@ public class PlayerChiseling : MonoBehaviour
 
     WorkbenchInteract workbenchInteract;
 
+    GameObject workbenchChisel;
+
     public bool doneCleaning;
 
     public Dictionary<int, int> boneChiselCount = new Dictionary<int, int>();
@@ -41,6 +43,8 @@ public class PlayerChiseling : MonoBehaviour
     {
         inventory = GetComponent<Inventory>();
         workbenchInteract = GetComponent<WorkbenchInteract>();
+
+        workbenchChisel = workbenchInteract.wbChisel;
 
         boneChiselCount.Add(0, 0);
         boneChiselCount.Add(1, 0);
@@ -53,9 +57,10 @@ public class PlayerChiseling : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log(inventory.GetInventory(inventory.inventory_pos));
+            Debug.Log("x: " + workbenchChisel.transform.position.x);
+            Debug.Log("z: " + workbenchChisel.transform.position.z);
         }
         StartCoroutine(ChiselAnim());
         //if player interacts with workbench with a bone in their hand allow them to start chiseling
@@ -79,7 +84,6 @@ public class PlayerChiseling : MonoBehaviour
                 bone.gameObject.SetActive(true);
 
                 chiselValue = boneChiselCount[currentBoneOnWorkbench]; //get the chisel state of the bone currently placed on workbench
-                Debug.Log("HIIII " + chiselValue);
                 Transform topLeft = bone.transform.GetChild(0);
                 Transform topRight = bone.transform.GetChild(1);
                 Transform bottomLeft = bone.transform.GetChild(2);
@@ -172,7 +176,7 @@ public class PlayerChiseling : MonoBehaviour
             requestOffBench = true;
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2) 
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2 && WithinBounds(workbenchChisel.transform.position.x, workbenchChisel.transform.position.z)) 
         {
             if(!isChiseling)
             {
@@ -182,7 +186,7 @@ public class PlayerChiseling : MonoBehaviour
                 //Vector3 rayDirection = Vector3.down;
                 //Ray ray = new Ray(rayOrigin, rayDirection);
                 //Camera wbiToolCamera = workbenchInteract.GetToolCamera();
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit hitinfo;
 
@@ -193,12 +197,22 @@ public class PlayerChiseling : MonoBehaviour
                     if (chiselableObject != null)
                     {
                         //do stuff when player clicks chiselable object
-                        StartCoroutine(Chiseling(chiselableObject));
+                        
 
                     }
-                }  
+                }*/
+                StartCoroutine(Chiseling(bone));
             }
         }
+    }
+
+    bool WithinBounds(float x, float z)
+    {
+        if(x < 2.51f && x > 1.08f && z < -1.19f && z > -1.97f)
+        {
+            return true;
+        }
+        return false;
     }
 
 
