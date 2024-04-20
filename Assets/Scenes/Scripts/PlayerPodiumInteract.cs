@@ -63,13 +63,13 @@ public class PlayerPodiumInteract : MonoBehaviour
             spinosaurusPodium.transform.GetChild(6)
         };
 
-        bodyPartIntToString.Add(0, "LeftLeg");
-        bodyPartIntToString.Add(1, "RightLeft");
-        bodyPartIntToString.Add(2, "Body");
-        bodyPartIntToString.Add(3, "LeftArm");
-        bodyPartIntToString.Add(4, "RightArm");
-        bodyPartIntToString.Add(5, "Tail");
-        bodyPartIntToString.Add(6, "Head");
+        bodyPartIntToString.Add(1, "LeftLeg");
+        bodyPartIntToString.Add(2, "RightLeg");
+        bodyPartIntToString.Add(3, "Body");
+        bodyPartIntToString.Add(4, "LeftArm");
+        bodyPartIntToString.Add(5, "RightArm");
+        bodyPartIntToString.Add(6, "Tail");
+        bodyPartIntToString.Add(7, "Head");
     }
 
     // Update is called once per frame
@@ -116,7 +116,7 @@ public class PlayerPodiumInteract : MonoBehaviour
                 numBonesOnTri++;
                 inventory.SetInventory(inventory.inventory_pos, null);
 
-                textDialogue.DisplayPodiumFact("Carnotaurus", bodyPartIntToString[numBonesOnTri]);
+                textDialogue.DisplayPodiumFact("Triceratops", bodyPartIntToString[numBonesOnTri]);
 
                 Debug.Log("You placed a Triceratops bone");
             }
@@ -127,7 +127,7 @@ public class PlayerPodiumInteract : MonoBehaviour
                 numBonesOnSpi++;
                 inventory.SetInventory(inventory.inventory_pos, null);
 
-                textDialogue.DisplayPodiumFact("Carnotaurus", bodyPartIntToString[numBonesOnSpi]);
+                textDialogue.DisplayPodiumFact("Spinosaurus", bodyPartIntToString[numBonesOnSpi]);
 
                 Debug.Log("You placed a Spinosaurus bone");
             }
