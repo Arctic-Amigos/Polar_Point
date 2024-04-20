@@ -33698,6 +33698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1265734597}
   - component: {fileID: 1265734598}
+  - component: {fileID: 1265734599}
   m_Layer: 0
   m_Name: Tutorial1
   m_TagString: Tutorial
@@ -33741,6 +33742,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1265734599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265734596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39f909be92069d4d8e8efe12af8f1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1274689013
 GameObject:
   m_ObjectHideFlags: 0
@@ -69390,7 +69403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3089884057730946173, guid: ba1abed9f502ad541a47846a00e406e1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0391265
+      value: 0.45055893
       objectReference: {fileID: 0}
     - target: {fileID: 3089884057730946173, guid: ba1abed9f502ad541a47846a00e406e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69402,7 +69415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3089884057730946173, guid: ba1abed9f502ad541a47846a00e406e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.278
+      value: 17.391
       objectReference: {fileID: 0}
     - target: {fileID: 3089884057730946173, guid: ba1abed9f502ad541a47846a00e406e1, type: 3}
       propertyPath: m_LocalRotation.w
