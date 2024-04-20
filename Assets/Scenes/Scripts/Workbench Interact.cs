@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 public class WorkbenchInteract : MonoBehaviour
 {
     private Camera newCamera;
+    // FOR BLAKE 4/19
+    //Camera toolCamera;
+    //GameObject toolCameraObject;
     private GameObject cameraObject;
     private GameObject bigCamera;
 
@@ -55,6 +58,12 @@ public class WorkbenchInteract : MonoBehaviour
         wbBrush.transform.position = toolStartPosition;
         wbChisel.SetActive(false);
         wbBrush.SetActive(false);
+
+        // FOR BLAKE 4/19
+        //toolCameraObject = new GameObject("ToolCamera");
+        //toolCamera = toolCameraObject.AddComponent<Camera>();
+        //toolCamera.targetDisplay = -1;
+        //toolCamera.transform.rotation = Quaternion.Euler(90, 180, 0);
     }
 
     // Update is called once per frame
@@ -87,6 +96,7 @@ public class WorkbenchInteract : MonoBehaviour
                 startPos = Camera.main.transform.position;
                 startRot = Camera.main.transform.rotation;
 
+
                 crosshair.SetActive(false);
 
                 WorkbenchFunctionality();
@@ -101,6 +111,8 @@ public class WorkbenchInteract : MonoBehaviour
         if (interacting)
         {
             toolCurrentPosition = wbChisel.transform.position;
+            // FOR BLAKE 4/19
+            //toolCamera.transform.position = toolCurrentPosition;
             if (inventory.inventory_pos == -2)
             {
                 wbChisel.SetActive(true);
@@ -197,6 +209,25 @@ public class WorkbenchInteract : MonoBehaviour
     {
         return interacting;
     }
+    public Vector3 GetToolCurrentPosition()
+    {
+        return toolCurrentPosition;
+    }
+    // FOR BLAKE 4/19
+    /*
+    public Camera GetToolCamera()
+    {
+        return toolCamera;
+    }
+    */
+
+
+
+
+
+
+
+    // NOT FOR BLAKE 4/19
     /*
     IEnumerator ChiselAnim()
     {
