@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerCleaning : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerCleaning : MonoBehaviour
     private bool isBrushing = false;
     public Dictionary<int, int> boneCleaningState = new Dictionary<int, int>();
     public Dictionary<int, string> boneCleaningTag = new Dictionary<int, string>();
+
+    public GameObject bone;
 
     WorkbenchInteract workbenchInteract;
     GameObject workbenchBrush;
@@ -23,44 +26,26 @@ public class PlayerCleaning : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("x: " + workbenchBrush.transform.position.x);
-            Debug.Log("z: " + workbenchBrush.transform.position.z);
-        }
         if (inventory.inventory_pos == -1)
         {
             workbenchBrush = workbenchInteract.wbBrush;
         }
         StartCoroutine(BrushAnim());
         inventory.SetScrollingAllowed();
-        if (Input.GetMouseButton(0) && inventory.inventory_pos == -1 && WithinBounds(workbenchBrush.transform.position.x, workbenchBrush.transform.position.z))
+
+        // Check if the mouse button is pressed and the workbench brush is within the bounds of the bone's capsule collider
+        if (Input.GetMouseButton(0) && inventory.inventory_pos == -1 && WithinBounds(workbenchBrush.transform.position, bone) && !bone.GetComponent<Cleaning>().finishedBrushing)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-            {
-                // Start cleaning if the hit object is brushable and not currently cleaning
-                if (hit.collider.CompareTag("Brushable") && currentCleaningObject == null)
+            // Start cleaning if the workbench brush is within bounds and not currently cleaning
+                // No need for raycasting, since we're already checking bounds
+                // Just start cleaning the current object
+                Clean(bone);
+                FindObjectOfType<AudioManager>().Play("Brushing");
+                if (!isBrushing) // Check if the coroutine is not already running
                 {
-                    currentCleaningObject = hit.collider.gameObject;
-                    Clean(currentCleaningObject);
-                    FindObjectOfType<AudioManager>().Play("Brushing");
-                    if (!isBrushing) // Check if the coroutine is not already running
-                    {
-                        StartCoroutine(BrushAnim());
-                    }
+                    StartCoroutine(BrushAnim());
                 }
-                else if (hit.collider.gameObject != currentCleaningObject)
-                {
-                    // If we hit a different object, stop cleaning the current one
-                    StopCleaning();
-                }
-            }
-            else
-            {
-                // If we didn't hit anything, stop cleaning
-                StopCleaning();
-            }
+            
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -132,14 +117,26 @@ public class PlayerCleaning : MonoBehaviour
     }
 
     //HARDCODED TO BONES ON WORKBENCH IN 1.5 HOMEBASE
-    bool WithinBounds(float x, float z)
+    bool WithinBounds(Vector3 position, GameObject obj)
     {
-        if (x < 2.2f && x > 1.05f && z < 3.5f && z > 2.6f)
+        SphereCollider sphereCollider = obj.GetComponent<SphereCollider>();
+        if (sphereCollider != null)
         {
-            return true;
+            Vector3 colliderCenter = obj.transform.TransformPoint(sphereCollider.center);
+            float radius = sphereCollider.radius * obj.transform.lossyScale.x;
+            Vector2 pointOnPlane = new Vector2(position.x, position.z);
+            Vector2 colliderCenterOnPlane = new Vector2(colliderCenter.x, colliderCenter.z);
+
+            if (Vector2.Distance(pointOnPlane, colliderCenterOnPlane) <= radius)
+            {
+                return true;
+            }
         }
         return false;
     }
+
+
+
 
 }
 

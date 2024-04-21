@@ -14,6 +14,8 @@ public class Cleaning : MonoBehaviour
     private List<string> availableTags = new List<string>();
     private const int NumberOfUniqueTags = 22;
 
+    public bool finishedBrushing = false;
+
     private string currentDinosaurName;
     public Inventory inventory;
     public PlayerChiseling playerChiseling;
@@ -25,6 +27,7 @@ public class Cleaning : MonoBehaviour
     void Start()
     {
         objectChiselable = GetComponent<ObjectChiselable>();
+        finishedBrushing = false;
 
         // Initialize the list with unique tags
         for (int i = 1; i <= NumberOfUniqueTags; i++)
@@ -47,7 +50,7 @@ public class Cleaning : MonoBehaviour
     IEnumerator CleaningProgress()
     {
         isCleaning = true;
-        yield return new WaitForSeconds(0.3f); // Simulate cleaning effort
+        yield return new WaitForSeconds(0.6f); // Simulate cleaning effort
         if (currentStage < cleaningStages.Length - 1)
         {
             currentStage++;
@@ -72,7 +75,6 @@ public class Cleaning : MonoBehaviour
                 currentDinosaurName = "Triceratops";
             }
             playerChiseling.doneCleaning = true;
-            currentStage = 0;
             Debug.Log("prechiselcount " + objectChiselable.boneChiselCounts[playerChiseling.currentBoneOnWorkbench]);
             objectChiselable.boneChiselCounts[playerChiseling.currentBoneOnWorkbench] = 0;
             Debug.Log("postchiselcount " + objectChiselable.boneChiselCounts[playerChiseling.currentBoneOnWorkbench]);
@@ -92,6 +94,7 @@ public class Cleaning : MonoBehaviour
             
             gameObject.tag = currentDinosaurName;
             currentStage = 0;
+            finishedBrushing = true;
             /*
             if (player != null)
                 player.SaveCleanState(inventory.inventory_pos, currentStage, currentDinosaurName);

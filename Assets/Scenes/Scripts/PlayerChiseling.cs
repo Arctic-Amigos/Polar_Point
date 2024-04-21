@@ -178,6 +178,8 @@ public class PlayerChiseling : MonoBehaviour
 
             boneChiselCount[inventory.inventory_pos] = 0;
 
+            bone.GetComponent<Cleaning>().finishedBrushing = false;
+
             bone.gameObject.SetActive(false);
             requestOffBench = true;
         }
@@ -196,9 +198,13 @@ public class PlayerChiseling : MonoBehaviour
         }
     }
 
-    //HARDCODED TO BONES ON WORKBENCH IN 1.5 HOMEBASE
+
     bool WithinBounds(Vector3 point, GameObject obj)
     {
+        //Iterates through colliders on chiselablebone children
+        //child(0) and (1) have sphere colliders
+        //the other two have box colliders
+
         for (int i = 0; i < obj.transform.childCount; i++)
         {
             Collider[] colliders = obj.transform.GetChild(i).GetComponents<Collider>();
@@ -208,7 +214,7 @@ public class PlayerChiseling : MonoBehaviour
                 {
                     SphereCollider sphereCollider = (SphereCollider)collider;
                     Vector3 colliderCenter = obj.transform.GetChild(i).TransformPoint(sphereCollider.center);
-                    float radius = sphereCollider.radius * obj.transform.lossyScale.x; // Adjust for scale
+                    float radius = sphereCollider.radius * obj.transform.lossyScale.x;
                     Vector3 pointOnPlane = new Vector3(point.x, colliderCenter.y, point.z);
 
                     if (Vector3.Distance(pointOnPlane, colliderCenter) <= radius)
@@ -220,7 +226,7 @@ public class PlayerChiseling : MonoBehaviour
                 {
                     BoxCollider boxCollider = (BoxCollider)collider;
                     Vector3 colliderCenter = obj.transform.GetChild(i).TransformPoint(boxCollider.center);
-                    Vector3 colliderExtents = Vector3.Scale(boxCollider.size, obj.transform.lossyScale) * 0.5f; // Adjust for scale
+                    Vector3 colliderExtents = Vector3.Scale(boxCollider.size, obj.transform.lossyScale) * 0.5f;
                     Vector3 pointOnPlane = new Vector3(point.x, colliderCenter.y, point.z);
 
                     if (Mathf.Abs(pointOnPlane.x - colliderCenter.x) <= colliderExtents.x && Mathf.Abs(pointOnPlane.z - colliderCenter.z) <= colliderExtents.z)
