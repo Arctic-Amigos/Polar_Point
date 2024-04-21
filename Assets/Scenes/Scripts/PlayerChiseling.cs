@@ -178,7 +178,7 @@ public class PlayerChiseling : MonoBehaviour
 
             boneChiselCount[inventory.inventory_pos] = 0;
 
-            bone.GetComponent<Cleaning>().finishedBrushing = false;
+            bone.GetComponent<Cleaning>().finishedBrushing = false; //Reset the finished brushing state once bone is off the workbench
 
             bone.gameObject.SetActive(false);
             requestOffBench = true;
