@@ -182,42 +182,53 @@ public class PlayerChiseling : MonoBehaviour
             requestOffBench = true;
         }
 
-        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2 && WithinBounds(workbenchChisel.transform.position.x, workbenchChisel.transform.position.z) && workbenchInteract.IsWorkbenchInteracting()) 
+        if(Input.GetMouseButtonDown(0) && workBenchFull && inventory.inventory_pos == -2 && workbenchInteract.IsWorkbenchInteracting()) 
         {
             if(!isChiseling)
             {
-                // FOR BLAKE 4/19
-                //Vector3 rayOrigin = workbenchInteract.GetToolCurrentPosition();
-                //rayOrigin += new Vector3(0f, 0f, -0.4f);
-                //Vector3 rayDirection = Vector3.down;
-                //Ray ray = new Ray(rayOrigin, rayDirection);
-                //Camera wbiToolCamera = workbenchInteract.GetToolCamera();
-                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                RaycastHit hitinfo;
-
-                if (Physics.Raycast(ray, out hitinfo, Mathf.Infinity, ~layerMaskToIgnore))
+                Debug.Log(chiselValue);
+                Vector3 chiselPosition = workbenchChisel.transform.position;
+                if(WithinBounds(chiselPosition, bone.gameObject))
                 {
-                    ObjectChiselable chiselableObject = hitinfo.collider.gameObject.GetComponent<ObjectChiselable>();
-                    
-                    if (chiselableObject != null)
-                    {
-                        //do stuff when player clicks chiselable object
-                        
-
-                    }
-                }*/
-                StartCoroutine(Chiseling(bone));
+                    StartCoroutine(Chiseling(bone));
+                }
             }
         }
     }
 
     //HARDCODED TO BONES ON WORKBENCH IN 1.5 HOMEBASE
-    bool WithinBounds(float x, float z)
+    bool WithinBounds(Vector3 point, GameObject obj)
     {
-        if(x < 2.35f && x > 1.00f && z < 3.39f && z > 2.54f)
+        for (int i = 0; i < obj.transform.childCount; i++)
         {
-            return true;
+            Collider[] colliders = obj.transform.GetChild(i).GetComponents<Collider>();
+            foreach (Collider collider in colliders)
+            {
+                if (collider is SphereCollider)
+                {
+                    SphereCollider sphereCollider = (SphereCollider)collider;
+                    Vector3 colliderCenter = obj.transform.GetChild(i).TransformPoint(sphereCollider.center);
+                    float radius = sphereCollider.radius * obj.transform.lossyScale.x; // Adjust for scale
+                    Vector3 pointOnPlane = new Vector3(point.x, colliderCenter.y, point.z);
+
+                    if (Vector3.Distance(pointOnPlane, colliderCenter) <= radius)
+                    {
+                        return true;
+                    }
+                }
+                else if (collider is BoxCollider)
+                {
+                    BoxCollider boxCollider = (BoxCollider)collider;
+                    Vector3 colliderCenter = obj.transform.GetChild(i).TransformPoint(boxCollider.center);
+                    Vector3 colliderExtents = Vector3.Scale(boxCollider.size, obj.transform.lossyScale) * 0.5f; // Adjust for scale
+                    Vector3 pointOnPlane = new Vector3(point.x, colliderCenter.y, point.z);
+
+                    if (Mathf.Abs(pointOnPlane.x - colliderCenter.x) <= colliderExtents.x && Mathf.Abs(pointOnPlane.z - colliderCenter.z) <= colliderExtents.z)
+                    {
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }
