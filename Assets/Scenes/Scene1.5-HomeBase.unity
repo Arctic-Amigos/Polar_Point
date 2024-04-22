@@ -5156,6 +5156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MineableObject (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1878552250315439673, guid: 9d70856f4c0b3c14eb1026dfe105824a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8161370493483537805, guid: 9d70856f4c0b3c14eb1026dfe105824a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.211482
@@ -20329,6 +20333,10 @@ PrefabInstance:
     - target: {fileID: 1878552250315439673, guid: 9d70856f4c0b3c14eb1026dfe105824a, type: 3}
       propertyPath: m_Name
       value: MineableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878552250315439673, guid: 9d70856f4c0b3c14eb1026dfe105824a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8161370493483537805, guid: 9d70856f4c0b3c14eb1026dfe105824a, type: 3}
       propertyPath: m_LocalPosition.x
