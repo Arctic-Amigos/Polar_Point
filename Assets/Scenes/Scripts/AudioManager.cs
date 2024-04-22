@@ -37,17 +37,31 @@ public class AudioManager : MonoBehaviour
             case "Scene0-StartScreen":
                 Play("MainMenu"); // Adjust with your actual sound name for the main menu
                 break;
-            case "Scene2-Environment":
+            case "Scene1.5-HomeBase":
+                Stop("MainMenu");
+                Play("Chill");
+                Stop("Theme");
+                Stop("CaveDrip");
+                Stop("InsideCave");
+                Stop("OutsideWind");
+                break;
+            case "Scene2.5-Environment":
                 Play("OutsideWind");
+                Play("MainMenu");
+                Stop("Chill");
+                Stop("CaveDrip");
+                Stop("InsideCave");
                 break;
             case "Scene3-CaveInterior":
                 Play("CaveDrip");
                 Play("InsideCave");
                 Stop("MainMenu");
                 Stop("OutsideWind");
+                Stop("Chill");
                 break;
             default:
                 // Optional: Play a default theme, or do nothing
+                Play("Theme");
                 break;
         }
     }

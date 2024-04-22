@@ -23,6 +23,8 @@ public class CallDialogue : MonoBehaviour
 
             TextDialogue textDialogue = FindObjectOfType<TextDialogue>();
             textDialogue.DisplayTutorial(tutorialNum);
+          
+            FindObjectOfType<AudioManager>().Play("Marty");
         }
         if (gameObject.name == "Tutorial2")
         {

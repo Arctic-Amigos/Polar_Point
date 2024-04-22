@@ -251,17 +251,25 @@ public class TextDialogue : MonoBehaviour
         dinosaur = _dinosaur;
         bodyPart = _bodyPart; 
         posToRead = 0;
+        
 
-        if(dinosaur == "Spinosaurus")
+        if (dinosaur == "Spinosaurus")
         {
             dialogueText.text = spinosaurusFacts[bodyPart][posToRead];
-        }else if (dinosaur == "Carnotaurus")
+            FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
+            FindObjectOfType<AudioManager>().Play("Marty");
+        }
+        else if (dinosaur == "Carnotaurus")
         {
             dialogueText.text = carnotaurusFacts[bodyPart][posToRead];
+            FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
+            FindObjectOfType<AudioManager>().Play("Marty");
         }
         else if (dinosaur == "Dipolosaurus")
         {
             dialogueText.text = diplosaurusFacts[bodyPart][posToRead];
+            FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
+            FindObjectOfType<AudioManager>().Play("Marty");
         }
         posToRead += 1;
     }
@@ -271,20 +279,25 @@ public class TextDialogue : MonoBehaviour
         Debug.Log("Entered Tutorial FUnction");
         posToRead = 0;
         tutorialNumber = _tutorialNumber;
-
-        if(tutorialNumber == 1 && !hasShownTutorial1) {
+    
+        if (tutorialNumber == 1 && !hasShownTutorial1) {
             dialogueText.text = tutorial1[posToRead];
         }
         else if (tutorialNumber == 2 && !hasShownTutorial2)
         {
             hadFirstCaveCollision = true;
             dialogueText.text = tutorial2[posToRead];
-        }else if (tutorialNumber == 3 && !hasShownTutorial3)
+        }
+        else if (tutorialNumber == 3 && !hasShownTutorial3)
         {
             dialogueText.text = tutorial3[posToRead];
-        }else if (tutorialNumber == 4 && !hasShownTutorial4)
+            
+        }
+        else if (tutorialNumber == 4 && !hasShownTutorial4)
         {
             dialogueText.text = tutorial4[posToRead];
+            
+            
         }
         else
         {
