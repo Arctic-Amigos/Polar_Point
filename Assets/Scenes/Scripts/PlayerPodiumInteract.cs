@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPodiumInteract : MonoBehaviour
 {
@@ -20,15 +21,21 @@ public class PlayerPodiumInteract : MonoBehaviour
     Inventory inventory;
     TextDialogue textDialogue;
 
-    static int numBonesOnCar = 0;
-    static int numBonesOnTri = 0;
-    static int numBonesOnSpi = 0;
+    public int numBonesOnCar = 0;
+    public int numBonesOnTri = 0;
+    public int numBonesOnSpi = 0;
+
+    public bool inBase;
 
     // Start is called before the first frame update
     void Start()
     {
         inventory = GetComponent<Inventory>();
         textDialogue = FindObjectOfType<TextDialogue>();
+
+        numBonesOnCar = PersistentGameManager.carBoneCount;
+        numBonesOnTri = PersistentGameManager.triBoneCount;
+        numBonesOnSpi = PersistentGameManager.spiBoneCount;
 
         carnotaurusParts = new Transform[]
         {
@@ -75,61 +82,72 @@ public class PlayerPodiumInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.M)) {
-            numBonesOnCar++;
-            numBonesOnSpi++;
-            numBonesOnTri++;
-        }
-        for(int i = 0; i < carnotaurusParts.Length; i++)
-        {
-            carnotaurusParts[i].gameObject.SetActive(i < numBonesOnCar);
-        }
-        for (int i = 0; i < triceratopsParts.Length; i++)
-        {
-            triceratopsParts[i].gameObject.SetActive(i < numBonesOnTri);
-        }
-        for (int i = 0; i < spinosaurusParts.Length; i++)
-        {
-            if(numBonesOnSpi == 3)
-            {
-                spinosaurusPodium.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-            }
-            spinosaurusParts[i].gameObject.SetActive(i < numBonesOnSpi);
-        }
+        if (SceneManager.GetActiveScene().name == "Scene1.5-HomeBase")
+            inBase = true;
+        else
+            inBase = false;
 
-
-        if (currentPodium != null && currentPodium.tag == "CarnotaurusPodium")
+        if (inBase)
         {
-            if(Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Carnotaurus")
+            if (Input.GetKeyDown(KeyCode.M))
             {
                 numBonesOnCar++;
-                inventory.SetInventory(inventory.inventory_pos, null);
-
-                textDialogue.DisplayPodiumFact("Carnotaurus", bodyPartIntToString[numBonesOnCar]);
-
-                Debug.Log("You placed a Carnotaurus bone");
-            }
-        }else if(currentPodium != null && currentPodium.tag == "TriceratopsPodium")
-        {
-            if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Triceratops")
-            {
-                numBonesOnTri++;
-                inventory.SetInventory(inventory.inventory_pos, null);
-
-                textDialogue.DisplayPodiumFact("Triceratops", bodyPartIntToString[numBonesOnTri]);
-
-                Debug.Log("You placed a Triceratops bone");
-            }
-        }else if(currentPodium != null && currentPodium.tag == "SpinosaurusPodium")
-        {
-            if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Spinosaurus")
-            {
                 numBonesOnSpi++;
-                inventory.SetInventory(inventory.inventory_pos, null);
+                numBonesOnTri++;
+            }
+            for (int i = 0; i < carnotaurusParts.Length; i++)
+            {
+                carnotaurusParts[i].gameObject.SetActive(i < numBonesOnCar);
+            }
+            for (int i = 0; i < triceratopsParts.Length; i++)
+            {
+                triceratopsParts[i].gameObject.SetActive(i < numBonesOnTri);
+            }
+            for (int i = 0; i < spinosaurusParts.Length; i++)
+            {
+                if (numBonesOnSpi == 3)
+                {
+                    spinosaurusPodium.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+                }
+                spinosaurusParts[i].gameObject.SetActive(i < numBonesOnSpi);
+            }
 
-                textDialogue.DisplayPodiumFact("Spinosaurus", bodyPartIntToString[numBonesOnSpi]);
 
-                Debug.Log("You placed a Spinosaurus bone");
+            if (currentPodium != null && currentPodium.tag == "CarnotaurusPodium")
+            {
+                if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Carnotaurus")
+                {
+                    numBonesOnCar++;
+                    inventory.SetInventory(inventory.inventory_pos, null);
+
+                    textDialogue.DisplayPodiumFact("Carnotaurus", bodyPartIntToString[numBonesOnCar]);
+
+                    Debug.Log("You placed a Carnotaurus bone");
+                }
+            }
+            else if (currentPodium != null && currentPodium.tag == "TriceratopsPodium")
+            {
+                if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Triceratops")
+                {
+                    numBonesOnTri++;
+                    inventory.SetInventory(inventory.inventory_pos, null);
+
+                    textDialogue.DisplayPodiumFact("Triceratops", bodyPartIntToString[numBonesOnTri]);
+
+                    Debug.Log("You placed a Triceratops bone");
+                }
+            }
+            else if (currentPodium != null && currentPodium.tag == "SpinosaurusPodium")
+            {
+                if (Input.GetKeyDown(KeyCode.F) && inventory.inventory_pos >= 0 && inventory.GetInventory(inventory.inventory_pos) == "Spinosaurus")
+                {
+                    numBonesOnSpi++;
+                    inventory.SetInventory(inventory.inventory_pos, null);
+
+                    textDialogue.DisplayPodiumFact("Spinosaurus", bodyPartIntToString[numBonesOnSpi]);
+
+                    Debug.Log("You placed a Spinosaurus bone");
+                }
             }
         }
     }

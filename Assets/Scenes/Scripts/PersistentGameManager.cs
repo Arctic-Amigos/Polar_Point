@@ -10,6 +10,10 @@ public class PersistentGameManager : MonoBehaviour
     public static string inventory2 = null;
     public static string inventory3 = null;
     public static string inventory4 = null;
+    public static int carBoneCount = 0;
+    public static int triBoneCount = 0;
+    public static int spiBoneCount = 0;
+
 
 
     // Start is called before the first frame update
@@ -27,11 +31,15 @@ public class PersistentGameManager : MonoBehaviour
     public void SaveInfo()
     {
         Inventory inv = GameObject.FindObjectOfType<Inventory>();
+        PlayerPodiumInteract pod = GameObject.FindObjectOfType<PlayerPodiumInteract>();
         inventoryPos = inv.inventory_pos;
         inventory0 = inv.fossil_inventory[0];
         inventory1 = inv.fossil_inventory[1];
         inventory2 = inv.fossil_inventory[2];
         inventory3 = inv.fossil_inventory[3];
         inventory4 = inv.fossil_inventory[4];
+        carBoneCount = pod.numBonesOnCar;
+        triBoneCount = pod.numBonesOnTri;
+        spiBoneCount = pod.numBonesOnSpi;
     }
 }

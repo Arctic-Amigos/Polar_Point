@@ -520,6 +520,9 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 239384323}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8127600033320366487, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1473447437}
     - targetCorrespondingSourceObject: {fileID: 5852272524961014038, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2116114355}
@@ -529,7 +532,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -5532220028164236941, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
   m_PrefabInstance: {fileID: 42782378}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1473447428}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c75acf0282685b46bcdabfac9dd9a0e, type: 3}
@@ -540,7 +543,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7341512732534295479, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
   m_PrefabInstance: {fileID: 42782378}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1473447428}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37e63b721d3124a4a8b51a41bff331f1, type: 3}
@@ -551,7 +554,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2201220510999477064, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
   m_PrefabInstance: {fileID: 42782378}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1473447428}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 796d9402515c3b147b243fb8e08bb9ad, type: 3}
@@ -2635,6 +2638,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b82830f270b27847a232d86878dde2f, type: 3}
+--- !u!1 &1473447428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8127600033320366487, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+  m_PrefabInstance: {fileID: 42782378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1473447437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473447428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de8b47c20fbd474f85abb8e24f0fb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carnotaurusPodium: {fileID: 0}
+  triceratopsPodium: {fileID: 0}
+  spinosaurusPodium: {fileID: 0}
+  numBonesOnCar: 0
+  numBonesOnTri: 0
+  numBonesOnSpi: 0
 --- !u!1001 &1608369057
 PrefabInstance:
   m_ObjectHideFlags: 0
