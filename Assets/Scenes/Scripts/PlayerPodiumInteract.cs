@@ -37,7 +37,13 @@ public class PlayerPodiumInteract : MonoBehaviour
         numBonesOnTri = PersistentGameManager.triBoneCount;
         numBonesOnSpi = PersistentGameManager.spiBoneCount;
 
-        carnotaurusParts = new Transform[]
+        if (SceneManager.GetActiveScene().name == "Scene1.5-HomeBase")
+            inBase = true;
+        else
+            inBase = false;
+        if (inBase)
+        {
+            carnotaurusParts = new Transform[]
         {
             carnotaurusPodium.transform.GetChild(0),
             carnotaurusPodium.transform.GetChild(1),
@@ -48,8 +54,8 @@ public class PlayerPodiumInteract : MonoBehaviour
             carnotaurusPodium.transform.GetChild(6)
         };
 
-        triceratopsParts = new Transform[]
-        {
+            triceratopsParts = new Transform[]
+            {
             triceratopsPodium.transform.GetChild(0),
             triceratopsPodium.transform.GetChild(1),
             triceratopsPodium.transform.GetChild(2),
@@ -57,10 +63,10 @@ public class PlayerPodiumInteract : MonoBehaviour
             triceratopsPodium.transform.GetChild(4),
             triceratopsPodium.transform.GetChild(5),
             triceratopsPodium.transform.GetChild(6)
-        };
+            };
 
-        spinosaurusParts = new Transform[]
-        {
+            spinosaurusParts = new Transform[]
+            {
             spinosaurusPodium.transform.GetChild(0),
             spinosaurusPodium.transform.GetChild(1),
             spinosaurusPodium.transform.GetChild(2),
@@ -68,25 +74,21 @@ public class PlayerPodiumInteract : MonoBehaviour
             spinosaurusPodium.transform.GetChild(4),
             spinosaurusPodium.transform.GetChild(5),
             spinosaurusPodium.transform.GetChild(6)
-        };
+            };
 
-        bodyPartIntToString.Add(1, "LeftLeg");
-        bodyPartIntToString.Add(2, "RightLeg");
-        bodyPartIntToString.Add(3, "Body");
-        bodyPartIntToString.Add(4, "LeftArm");
-        bodyPartIntToString.Add(5, "RightArm");
-        bodyPartIntToString.Add(6, "Tail");
-        bodyPartIntToString.Add(7, "Head");
+            bodyPartIntToString.Add(1, "LeftLeg");
+            bodyPartIntToString.Add(2, "RightLeg");
+            bodyPartIntToString.Add(3, "Body");
+            bodyPartIntToString.Add(4, "LeftArm");
+            bodyPartIntToString.Add(5, "RightArm");
+            bodyPartIntToString.Add(6, "Tail");
+            bodyPartIntToString.Add(7, "Head");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Scene1.5-HomeBase")
-            inBase = true;
-        else
-            inBase = false;
-
         if (inBase)
         {
             if (Input.GetKeyDown(KeyCode.M))

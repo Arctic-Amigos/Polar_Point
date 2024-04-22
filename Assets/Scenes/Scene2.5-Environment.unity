@@ -490,6 +490,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8127600033320366487, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 424638446}
+    - targetCorrespondingSourceObject: {fileID: 8127600033320366487, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 424638447}
     - targetCorrespondingSourceObject: {fileID: 5852272524961014038, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 576220921}
@@ -520,6 +523,44 @@ MonoBehaviour:
   numBonesOnCar: 0
   numBonesOnTri: 0
   numBonesOnSpi: 0
+  inBase: 0
+--- !u!114 &424638447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424638445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e2d5b5d80457442aacee91f577a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalBones: 5
+  bonesCollected: 000000000000000000000000000000000000000000
+  inCave: 0
+  boneObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &438608678
 GameObject:
   m_ObjectHideFlags: 0
