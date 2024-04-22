@@ -2129,6 +2129,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0534e116551dda42b314c92c992a57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &238105824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8713564567610300953, guid: 86c9a62308f10654ea4443ec5e786510, type: 3}
+  m_PrefabInstance: {fileID: 238105822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &238105825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8837494249160221496, guid: 86c9a62308f10654ea4443ec5e786510, type: 3}
+  m_PrefabInstance: {fileID: 238105822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &242431279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13060,6 +13070,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6082767295217613891, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: wbBrush
+      value: 
+      objectReference: {fileID: 238105825}
+    - target: {fileID: 6082767295217613891, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: wbChisel
+      value: 
+      objectReference: {fileID: 238105824}
     - target: {fileID: 7192049360187306204, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: m_LocalScale.x
       value: 9.025598
