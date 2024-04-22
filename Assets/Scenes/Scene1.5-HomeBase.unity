@@ -2016,6 +2016,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorkBenchReal
       objectReference: {fileID: 0}
+    - target: {fileID: 4923727673961356492, guid: 86c9a62308f10654ea4443ec5e786510, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5701355467113645686, guid: 86c9a62308f10654ea4443ec5e786510, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.35
