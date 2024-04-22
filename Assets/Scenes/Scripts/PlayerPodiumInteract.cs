@@ -91,12 +91,6 @@ public class PlayerPodiumInteract : MonoBehaviour
     {
         if (inBase)
         {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                numBonesOnCar++;
-                numBonesOnSpi++;
-                numBonesOnTri++;
-            }
             for (int i = 0; i < carnotaurusParts.Length; i++)
             {
                 carnotaurusParts[i].gameObject.SetActive(i < numBonesOnCar);
