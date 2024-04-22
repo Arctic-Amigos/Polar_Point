@@ -251,25 +251,22 @@ public class TextDialogue : MonoBehaviour
         dinosaur = _dinosaur;
         bodyPart = _bodyPart; 
         posToRead = 0;
-        
 
+        
         if (dinosaur == "Spinosaurus")
         {
             dialogueText.text = spinosaurusFacts[bodyPart][posToRead];
-            FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
-            FindObjectOfType<AudioManager>().Play("Marty");
+           
         }
         else if (dinosaur == "Carnotaurus")
         {
             dialogueText.text = carnotaurusFacts[bodyPart][posToRead];
-            FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
-            FindObjectOfType<AudioManager>().Play("Marty");
+            
         }
         else if (dinosaur == "Dipolosaurus")
         {
             dialogueText.text = diplosaurusFacts[bodyPart][posToRead];
-            FindObjectOfType<AudioManager>().Play("WalkieTalkieBeep");
-            FindObjectOfType<AudioManager>().Play("Marty");
+            
         }
         posToRead += 1;
     }
