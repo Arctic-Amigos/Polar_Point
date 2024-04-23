@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: -5532220028164236941}
   - component: {fileID: 6082767295217613891}
   - component: {fileID: 2201220510999477064}
+  - component: {fileID: 2355895868581874273}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -391,6 +392,7 @@ MonoBehaviour:
   chiselValue: 0
   doneCleaning: 0
   requestOffBench: 0
+  progressBar: {fileID: 0}
 --- !u!114 &6082767295217613891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e2f1967d31957429de33ad6c5a89dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wbChisel: {fileID: 0}
+  wbBrush: {fileID: 0}
   startPos: {x: 0, y: 0, z: 0}
   endPos: {x: 0, y: 0, z: 0}
   startRot: {x: 0, y: 0, z: 0, w: 0}
@@ -421,6 +425,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brushAnimator: {fileID: 962147311982274194}
+  bone: {fileID: 0}
+--- !u!114 &2355895868581874273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127600033320366487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39f909be92069d4d8e8efe12af8f1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &734582104575432088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,6 +536,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: HeldBrushableBoneTag
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2201220510999477064}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: -7341512732534295479}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: -5532220028164236941}
     - target: {fileID: 2087600284505260525, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.72423
@@ -1018,6 +1047,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2201220510999477064}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: -7341512732534295479}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: -5532220028164236941}
     - target: {fileID: 1830678605332177705, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1144,6 +1185,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2201220510999477064}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: -7341512732534295479}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: -5532220028164236941}
     - target: {fileID: 1830678605332177705, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1262,6 +1315,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2201220510999477064}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: -7341512732534295479}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: -5532220028164236941}
     - target: {fileID: 1830678605332177705, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1390,6 +1455,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2201220510999477064}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: -7341512732534295479}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: -5532220028164236941}
     - target: {fileID: 1830678605332177705, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1624,6 +1701,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2201220510999477064}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: -7341512732534295479}
+    - target: {fileID: 1767877599237246802, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
+      propertyPath: playerChiseling
+      value: 
+      objectReference: {fileID: -5532220028164236941}
     - target: {fileID: 1830678605332177705, guid: d1fadb1465400ab46b39c34113d6c4fa, type: 3}
       propertyPath: m_Enabled
       value: 0

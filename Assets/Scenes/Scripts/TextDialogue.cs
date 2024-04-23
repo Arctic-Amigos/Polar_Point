@@ -29,7 +29,7 @@ public class TextDialogue : MonoBehaviour
     List<string> tutorial1 = new List<string> { "Hi im Marty im going to be helping you through your journey. Press enter to continue", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
     List<string> tutorial2 = new List<string> { "Wow! There’s a dinosaur bone right there!", "Scroll on the scroll wheel to select different items in your inventory.", "Select the pickaxe", "Press left click on the mouse to mine the bone." };
     List<string> tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
-    List<string> tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press e to place it on the workbench.", "Press f to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
+    List<string> tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press F to place it on the workbench.", "Press E to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
     bool hasShownTutorial1 = false;
     bool hasShownTutorial2 = false;
     bool hasShownTutorial3 = false;

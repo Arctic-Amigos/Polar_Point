@@ -907,7 +907,6 @@ GameObject:
   m_Component:
   - component: {fileID: 62574011}
   - component: {fileID: 62574010}
-  - component: {fileID: 62574012}
   m_Layer: 0
   m_Name: Tutorial2
   m_TagString: Tutorial
@@ -951,18 +950,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &62574012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62574009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39f909be92069d4d8e8efe12af8f1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &70502388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3553,6 +3540,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68742e0a4d61c1a408d3c4716fba0e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1024868982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024868984}
+  - component: {fileID: 1024868983}
+  m_Layer: 0
+  m_Name: Tutorial3
+  m_TagString: Tutorial
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1024868983
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024868982}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1024868984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024868982}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.72, y: 0.98, z: 3.38}
+  m_LocalScale: {x: 4.848545, y: 4.848545, z: 4.848545}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1044214171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4653,7 +4693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e2d5b5d80457442aacee91f577a95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBones: 5
   bonesCollected: 000000000000000000000000000000000000000000
   inCave: 0
   boneObjects:
@@ -5827,6 +5866,7 @@ SceneRoots:
   - {fileID: 167578998}
   - {fileID: 1358445474}
   - {fileID: 62574011}
+  - {fileID: 1024868984}
   - {fileID: 703318213}
   - {fileID: 1999979242}
   - {fileID: 1056119438}

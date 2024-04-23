@@ -14,6 +14,7 @@ public class PersistentGameManager : MonoBehaviour
     public static int triBoneCount = 0;
     public static int spiBoneCount = 0;
     public static bool[] bones = new bool[21];
+    public static bool[] tuts = new bool[4];
 
 
 
@@ -34,6 +35,7 @@ public class PersistentGameManager : MonoBehaviour
         Inventory inv = GameObject.FindObjectOfType<Inventory>();
         PlayerPodiumInteract pod = GameObject.FindObjectOfType<PlayerPodiumInteract>();
         CaveController cave = GameObject.FindObjectOfType<CaveController>();
+        CallDialogue call = GameObject.FindObjectOfType<CallDialogue>();
         inventoryPos = inv.inventory_pos;
         inventory0 = inv.fossil_inventory[0];
         inventory1 = inv.fossil_inventory[1];
@@ -44,5 +46,6 @@ public class PersistentGameManager : MonoBehaviour
         triBoneCount = pod.numBonesOnTri;
         spiBoneCount = pod.numBonesOnSpi;
         bones = cave.bonesCollected;
+        tuts = call.tutorialsTriggered;
     }
 }

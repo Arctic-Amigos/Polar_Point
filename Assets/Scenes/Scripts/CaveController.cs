@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class CaveController : MonoBehaviour
 {
-    public int totalBones = 5;
     public bool[] bonesCollected = new bool[21];
     public bool inCave;
     public GameObject[] boneObjects = new GameObject[21];
@@ -21,7 +20,7 @@ public class CaveController : MonoBehaviour
         if (inCave)
         {
             boneObjects[0] = GameObject.Find("ChiselableBone");
-            for (int i = 1; i < totalBones; i++)
+            for (int i = 1; i < 21; i++)
             {
                 boneObjects[i] = GameObject.Find("ChiselableBone (" + i + ")");
             }
@@ -33,7 +32,7 @@ public class CaveController : MonoBehaviour
     {
         if (inCave)
         {
-            for (int i = 0; i < totalBones; i++)
+            for (int i = 0; i < 21; i++)
             {
                 if (!boneObjects[i].transform.GetChild(0).gameObject.activeSelf)
                 {
