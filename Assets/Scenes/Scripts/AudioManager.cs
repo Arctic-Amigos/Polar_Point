@@ -47,7 +47,14 @@ public class AudioManager : MonoBehaviour
                 break;
             case "Scene2.5-Environment":
                 Play("OutsideWind");
-                Play("MainMenu");
+                Play("Theme");
+                Stop("Chill");
+                Stop("CaveDrip");
+                Stop("InsideCave");
+                break;
+            case "Scene2-Environment":
+                Play("OutsideWind");
+                Play("Theme");
                 Stop("Chill");
                 Stop("CaveDrip");
                 Stop("InsideCave");

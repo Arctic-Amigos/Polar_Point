@@ -172,6 +172,7 @@ public class TextDialogue : MonoBehaviour
                     }
                     else{
                         dialogueText.text = tutorial1[posToRead];
+                        FindObjectOfType<AudioManager>().Play("Marty");
                         posToRead += 1;
                     }
                 }else if(tutorialNumber == 2 && !hasShownTutorial2)
@@ -186,6 +187,7 @@ public class TextDialogue : MonoBehaviour
                     else
                     {
                         dialogueText.text = tutorial2[posToRead];
+                        FindObjectOfType<AudioManager>().Play("Marty");
                         posToRead += 1;
                     }
                 }
@@ -199,6 +201,7 @@ public class TextDialogue : MonoBehaviour
                     else
                     {
                         dialogueText.text = tutorial3[posToRead];
+                        FindObjectOfType<AudioManager>().Play("Marty");
                         posToRead += 1;
                     }
                 }
@@ -213,6 +216,7 @@ public class TextDialogue : MonoBehaviour
                     else
                     {
                         dialogueText.text = tutorial4[posToRead];
+                        FindObjectOfType<AudioManager>().Play("Marty");
                         posToRead += 1;
                     }
                 }
@@ -256,17 +260,20 @@ public class TextDialogue : MonoBehaviour
         if (dinosaur == "Spinosaurus")
         {
             dialogueText.text = spinosaurusFacts[bodyPart][posToRead];
-           
+            FindObjectOfType<AudioManager>().Play("Marty");
+
         }
         else if (dinosaur == "Carnotaurus")
         {
             dialogueText.text = carnotaurusFacts[bodyPart][posToRead];
-            
+            FindObjectOfType<AudioManager>().Play("Marty");
+
         }
         else if (dinosaur == "Triceratops")
         {
             dialogueText.text = triceratopsFacts[bodyPart][posToRead];
-            
+            FindObjectOfType<AudioManager>().Play("Marty");
+
         }
         posToRead += 1;
     }
@@ -279,22 +286,27 @@ public class TextDialogue : MonoBehaviour
     
         if (tutorialNumber == 1 && !hasShownTutorial1) {
             dialogueText.text = tutorial1[posToRead];
+            
+
         }
         else if (tutorialNumber == 2 && !hasShownTutorial2)
         {
             hadFirstCaveCollision = true;
             dialogueText.text = tutorial2[posToRead];
+            
         }
         else if (tutorialNumber == 3 && !hasShownTutorial3)
         {
             dialogueText.text = tutorial3[posToRead];
             
+
         }
         else if (tutorialNumber == 4 && !hasShownTutorial4)
         {
             dialogueText.text = tutorial4[posToRead];
             
-            
+
+
         }
         else
         {
