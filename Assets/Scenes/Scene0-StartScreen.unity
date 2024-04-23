@@ -2124,7 +2124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c64784368a1a244994680ce9a64491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: Scene1.5-HomeBase
+  newSceneName: Scene2.5-Environment
 --- !u!1 &877439566
 GameObject:
   m_ObjectHideFlags: 0
