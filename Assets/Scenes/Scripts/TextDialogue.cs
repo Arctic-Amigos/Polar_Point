@@ -26,10 +26,10 @@ public class TextDialogue : MonoBehaviour
     Dictionary<string, List<string>> diplosaurusFacts = new Dictionary<string, List<string>>();
 
     
-    List<string> tutorial1 = new List<string> { "Hi im Marty im going to be helping you through your journey. Press enter to continue", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
+    List<string> tutorial1 = new List<string> { "Hi I'm Marty! I'm going to be helping you through your journey. Press Q to continue", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
     List<string> tutorial2 = new List<string> { "Wow! There’s a dinosaur bone right there!", "Scroll on the scroll wheel to select different items in your inventory.", "Select the pickaxe", "Press left click on the mouse to mine the bone." };
     List<string> tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
-    List<string> tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.", "Scroll to hold the bone, then press F to place it on the workbench.", "Press E to access workbench mode.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
+    List<string> tutorial4 = new List<string> { "Welcome to the archeology unit!", "Walk over to the workbench.",  "Press E to access workbench mode.", "Scroll to hold the bone, then press F to place it on the workbench.", "Hold the left mouse button on the rock to chisel it off", "Brush the bone back and forth to get rid of all the dirt." };
     bool hasShownTutorial1 = false;
     bool hasShownTutorial2 = false;
     bool hasShownTutorial3 = false;
@@ -94,7 +94,7 @@ public class TextDialogue : MonoBehaviour
     void Update()
     {
 
-        if(UnityEngine.Input.GetKeyDown(KeyCode.Return))
+        if(UnityEngine.Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log(type); //Changed type in function call but doesnt get updated here, didnt get updated..... bruh
             //type = "Tutorial";
@@ -239,7 +239,7 @@ public class TextDialogue : MonoBehaviour
     public void DisplayBoneType(string tag)
     {
         dialogueCanvas.SetActive(true);
-        dialogueText.text = "You found a " + tag + " bone! Lets put that bone on the pedestal";
+        dialogueText.text = "You found a " + tag + " bone! Let's put that bone on the pedestal";
         type = "PostClean";
         FindObjectOfType<AudioManager>().Play("Marty");
     }

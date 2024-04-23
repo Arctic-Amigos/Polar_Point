@@ -7,6 +7,9 @@ public class Door : MonoBehaviour
 {
 
     public string newSceneName;
+    public int LevelEntryPoint;
+    public float LevelRotationX;
+    public float LevelRotationY;
 
     void Start()
     {
@@ -22,6 +25,9 @@ public class Door : MonoBehaviour
         AudioManager.instance.Play("Door");
         var pgm = new PersistentGameManager();
         pgm.SaveInfo();
+        LevelRotationX = (PlayerMovement.currentRotation.x + 180) % 360;
+        LevelRotationY = PlayerMovement.currentRotation.y;
+        PersistentGameManager.SetTargetLevel(newSceneName, LevelEntryPoint, LevelRotationX, LevelRotationY);
         SceneManager.LoadScene(newSceneName);
     }
 }

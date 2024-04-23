@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private bool walkingSoundPlaying = false;
 
     private Vector3 moveDirection;
-    private Vector3 currentRotation;
+    public static Vector3 currentRotation;
     Rigidbody rb;
 
     void Start()

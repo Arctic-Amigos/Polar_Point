@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PersistentGameManager : MonoBehaviour
 {
+    public static string LevelName = "";
+    public static int LevelEntryPoint = -1;
+    public static float LevelRotationX;
+    public static float LevelRotationY;
+    
     public static int inventoryPos = -4;
     public static string inventory0 = null;
     public static string inventory1 = null;
@@ -47,5 +52,13 @@ public class PersistentGameManager : MonoBehaviour
         spiBoneCount = pod.numBonesOnSpi;
         bones = cave.bonesCollected;
         tuts = call.tutorialsTriggered;
+    }
+
+    public static void SetTargetLevel(string level, int entrypoint, float rotationX, float rotationY)
+    {
+        LevelName = level;
+        LevelEntryPoint = entrypoint;
+        LevelRotationX = rotationX;
+        LevelRotationY = rotationY;
     }
 }
