@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -37,18 +38,22 @@ public class PlayerMovement : MonoBehaviour
     public static Vector3 currentRotation;
     Rigidbody rb;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         normalSpeed = movementSpeed;
         startYScale = transform.localScale.y;
+
        
     }
     void Update()
     {
+        /* Disable cursor when loaded into game*/
         UnityEngine.Cursor.visible = false;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
 
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
@@ -181,5 +186,5 @@ public class PlayerMovement : MonoBehaviour
         //rotate the player's view
         Camera.main.transform.rotation = Quaternion.Euler(currentRotation.y, currentRotation.x, 0);
     }
-    
+
 }

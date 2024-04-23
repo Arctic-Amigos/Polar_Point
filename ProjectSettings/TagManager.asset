@@ -46,6 +46,7 @@ TagManager:
   - HeldSpinosaurus
   - HeldCarnotaurus
   - HeldTriceratops
+  - InventoryText
   layers:
   - Default
   - TransparentFX

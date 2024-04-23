@@ -39,7 +39,7 @@ public class WorkbenchInteract : MonoBehaviour
     public Quaternion endRot;
     public float moveDuration = 0.5f;
 
-    //public Animator chiselAnimator;
+    PlayerChiseling playerChiseling;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +47,7 @@ public class WorkbenchInteract : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         crosshair = GameObject.FindWithTag("Crosshair");
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerChiseling = player.GetComponent<PlayerChiseling>();
         rb = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
         pickaxe = GameObject.FindWithTag("PickaxeTag");
@@ -103,7 +104,7 @@ public class WorkbenchInteract : MonoBehaviour
             }
         }
 
-        if (!isMoving && Input.GetKeyDown(KeyCode.E) && interacting)
+        if (!isMoving && Input.GetKeyDown(KeyCode.E) && interacting && playerChiseling.doneCleaning)
         {
             EndWorkbenchFunctionality();
             

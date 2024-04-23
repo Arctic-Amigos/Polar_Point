@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -37,6 +38,13 @@ public class Inventory : MonoBehaviour
     GameObject Carnotaurus;
     GameObject Triceratops;
 
+    GameObject inventoryTextObject;
+    TMP_Text textMeshPro;
+    private float displayDuration = 2f;
+    private Coroutine clearTextCoroutine;
+    private int currentInventoryPos = -999;
+    private int previousInventoryPos = -999;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,11 +59,74 @@ public class Inventory : MonoBehaviour
 
         StartDisplayBones();
         StartDisplayHeldObject();
+
+        inventoryTextObject = GameObject.FindWithTag("InventoryText");
+
+        textMeshPro = inventoryTextObject.GetComponent<TMP_Text>();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        /* Display what is selected in inventory*/
+        // Update the current inventory position
+        int newInventoryPos = inventory_pos;
+
+        // Display what is selected in inventory
+        switch (newInventoryPos)
+        {
+            case -4:
+                textMeshPro.text = "Hand";
+                break;
+            case -3:
+                textMeshPro.text = "Pickaxe";
+                break;
+            case -2:
+                textMeshPro.text = "Chisel";
+                break;
+            case -1:
+                textMeshPro.text = "Brush";
+                break;
+            default:
+                textMeshPro.text = GetInventory(newInventoryPos);
+                break;
+        }
+        if (textMeshPro.text == "ChiselableBone")
+        {
+            textMeshPro.text = "Fossil";
+        }
+        else if (textMeshPro.text == "Carnotaurus")
+        {
+            textMeshPro.text = "Carnotaurus Bone";
+        }
+        else if (textMeshPro.text == "Triceratops")
+        {
+            textMeshPro.text = "Triceratops Bone";
+        }
+        else if (textMeshPro.text == "Spinosaurus")
+        {
+            textMeshPro.text = "Spinosaurus Bone";
+        }
+
+        // Check if the inventory position has changed
+        if (newInventoryPos != currentInventoryPos)
+        {
+            // Update the previous inventory position
+            previousInventoryPos = currentInventoryPos;
+            currentInventoryPos = newInventoryPos;
+
+            // If a coroutine is running to clear the text, stop it
+            if (clearTextCoroutine != null)
+            {
+                StopCoroutine(clearTextCoroutine);
+            }
+
+            // Start a new coroutine to clear the text after the display duration
+            clearTextCoroutine = StartCoroutine(ClearItemInfo());
+        }
+
         // Number button functionality
         if (Input.GetKeyDown(KeyCode.Alpha1) && scrolling_allowed)
             inventory_pos = -4;
@@ -483,5 +554,18 @@ public class Inventory : MonoBehaviour
     {
         scrolling_allowed = false;
     }
-   
+
+    IEnumerator ClearItemInfo()
+    {
+        // Wait for the display duration
+        yield return new WaitForSeconds(displayDuration);
+
+        // Check if the player is still on the same item after the display duration
+        if (currentInventoryPos == inventory_pos)
+        {
+            // If so, clear the text
+            textMeshPro.text = "";
+        }
+    }
+
 }

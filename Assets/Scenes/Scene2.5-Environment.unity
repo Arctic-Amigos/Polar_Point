@@ -1231,6 +1231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7341512732534295479, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: textMeshPro
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: -5532220028164236941, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1322,6 +1326,10 @@ PrefabInstance:
     - target: {fileID: 3743146485926275154, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: m_Center.y
       value: -1.0535438
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840343569045438508, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
+      propertyPath: textMeshPro
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3840343569045438508, guid: e8286b419a5d32049a59a73d0b9ccb99, type: 3}
       propertyPath: movementSpeed
