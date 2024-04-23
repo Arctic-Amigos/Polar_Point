@@ -23,7 +23,7 @@ public class TextDialogue : MonoBehaviour
     private string bodyPart = "";
     Dictionary<string, List<string>> spinosaurusFacts = new Dictionary<string, List<string>>();
     Dictionary<string, List<string>> carnotaurusFacts = new Dictionary<string, List<string>>();
-    Dictionary<string, List<string>> diplosaurusFacts = new Dictionary<string, List<string>>();
+    Dictionary<string, List<string>> triceratopsFacts = new Dictionary<string, List<string>>();
 
     
     List<string> tutorial1 = new List<string> { "Hi I'm Marty! I'm going to be helping you through your journey. Press Q to continue", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
@@ -77,14 +77,14 @@ public class TextDialogue : MonoBehaviour
         carnotaurusFacts["Head"] = new List<string> { "Did you know...", "It is thought that Carnotaurus’ horns could be used for fighting rivals, attacking prey.", "Also helping them find a mate, and identify other Carnotaurus." };
         carnotaurusFacts["Tail"] = new List<string> { "Did you know...", "That no one has ever found the tail or lower legs of a Carnotaurus?", "That means what scientists think it looks like is purely theoretical." };
 
-        //Diplosaurus
-        diplosaurusFacts["LeftLeg"] = new List<string> { "Did you know...", "That “Triceratops”’ name comes from the Greek words meaning “three-horned face”?", "This is because of its three horns atop of its head." };
-        diplosaurusFacts["RightLeg"] = new List<string> { "Did you know...", "The Triceratops moved in herds in order to avoid getting eaten by predators!" };
-        diplosaurusFacts["Body"] = new List<string> { "Did you know...", "That the Triceratops was a herbivore?", "It had a parrot-shaped beat in order to eat plants most efficiently!" };
-        diplosaurusFacts["LeftArm"] = new List<string> { "Did you know...", "The Triceratops is currently one of the most-found fossils!" };
-        diplosaurusFacts["RightArm"] = new List<string> { "Did you know...", "That the Triceratops’ frill was used to protect its neck?", "Additionally, it was used to attract a mate." };
-        diplosaurusFacts["Head"] = new List<string> { "Did you know...", "The Triceratops’ skull is one of the largest of any land animal.", "Their skulls were about 10 feet long!" };
-        diplosaurusFacts["Tail"] = new List<string> { "Did you know...", "That the Triceratops’ main predator was the T-Rex?", " The Triceratops utilized its horn as a defense against the T-Rex!" };
+        //triceratops
+        triceratopsFacts["LeftLeg"] = new List<string> { "Did you know...", "That “Triceratops”’ name comes from the Greek words meaning “three-horned face”?", "This is because of its three horns atop of its head." };
+        triceratopsFacts["RightLeg"] = new List<string> { "Did you know...", "The Triceratops moved in herds in order to avoid getting eaten by predators!" };
+        triceratopsFacts["Body"] = new List<string> { "Did you know...", "That the Triceratops was a herbivore?", "It had a parrot-shaped beat in order to eat plants most efficiently!" };
+        triceratopsFacts["LeftArm"] = new List<string> { "Did you know...", "The Triceratops is currently one of the most-found fossils!" };
+        triceratopsFacts["RightArm"] = new List<string> { "Did you know...", "That the Triceratops’ frill was used to protect its neck?", "Additionally, it was used to attract a mate." };
+        triceratopsFacts["Head"] = new List<string> { "Did you know...", "The Triceratops’ skull is one of the largest of any land animal.", "Their skulls were about 10 feet long!" };
+        triceratopsFacts["Tail"] = new List<string> { "Did you know...", "That the Triceratops’ main predator was the T-Rex?", " The Triceratops utilized its horn as a defense against the T-Rex!" };
 
         //tutorial1 = new List<string> { "Welcome to Antarctica!!", "We’re so excited that you’re here as our archeologist!", "We’ve found an area full of dinosaur bones for you to harvest!!", "Press the WASD buttons to walk. Follow the red poles to get to the cave." };
         //tutorial3 = new List<string> { "Awesome! Let’s bring the bone to the base and clean it up!", "Follow the red poles outside to walk to the archeology Unit." };
@@ -143,9 +143,9 @@ public class TextDialogue : MonoBehaviour
                         posToRead += 1;
                     }
                 }
-                else if (dinosaur == "Dipolosaurus")
+                else if (dinosaur == "Triceratops")
                 {
-                    if (posToRead > diplosaurusFacts[bodyPart].Count - 1)
+                    if (posToRead > triceratopsFacts[bodyPart].Count - 1)
                     {
                         //if no more blocks to read, turn off
                         isOn = false;
@@ -154,7 +154,7 @@ public class TextDialogue : MonoBehaviour
                     else
                     {
                         //otherwise read next message
-                        dialogueText.text = diplosaurusFacts[bodyPart][posToRead];
+                        dialogueText.text = triceratopsFacts[bodyPart][posToRead];
                         posToRead += 1;
                     }
                 }
@@ -263,9 +263,9 @@ public class TextDialogue : MonoBehaviour
             dialogueText.text = carnotaurusFacts[bodyPart][posToRead];
             
         }
-        else if (dinosaur == "Dipolosaurus")
+        else if (dinosaur == "Triceratops")
         {
-            dialogueText.text = diplosaurusFacts[bodyPart][posToRead];
+            dialogueText.text = triceratopsFacts[bodyPart][posToRead];
             
         }
         posToRead += 1;
