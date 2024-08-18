@@ -1,6 +1,6 @@
 # Polar Point
 ## Description
-Polar Point is an educational adventure game. Assume the role of an archaeologist as you navigate underground cave systems, extract fossils, and uncover the past frozen in time.
+Polar Point! Become an archaeologist as you navigate underground cave systems, extract fossils, and uncover the past frozen in time!
 
 ![image](https://github.com/user-attachments/assets/ed7b5361-5ab7-4b0e-8f0e-01d19e1415ab)
 **Programming Team** 
